@@ -1,0 +1,333 @@
+{
+  "attribute_labels": {
+    "class": {
+      "semantic_name": "class",
+      "nonce_name": "vrel"
+    },
+    "role": {
+      "semantic_name": "role",
+      "nonce_name": "korv"
+    }
+  },
+  "entities": {
+    "source": [
+      {
+        "instance": "Mira_Saltmere",
+        "nonce_instance": "Drev_Kornak",
+        "location": "crossroads",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "peasant",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "peasant",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "crossroads"
+        }
+      },
+      {
+        "instance": "Gareth_Silverbranch",
+        "nonce_instance": "Seln_Varoth",
+        "location": "tower",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "alchemist",
+          "role": "sentinel"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "alchemist",
+          "sentinel"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "tower"
+        }
+      },
+      {
+        "instance": "Dorian_Frostgate",
+        "nonce_instance": "Tav_Greln",
+        "location": "lighthouse",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "alchemist",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "alchemist",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "lighthouse"
+        }
+      }
+    ],
+    "gen": [
+      {
+        "instance": "Petra_Embervane",
+        "nonce_instance": "Brev_Solnak",
+        "location": "citadel",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "peasant",
+          "role": "sentinel"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "peasant",
+          "sentinel"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "citadel"
+        }
+      }
+    ],
+    "all": [
+      {
+        "instance": "Mira_Saltmere",
+        "nonce_instance": "Drev_Kornak",
+        "location": "crossroads",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "peasant",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "peasant",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "crossroads"
+        }
+      },
+      {
+        "instance": "Gareth_Silverbranch",
+        "nonce_instance": "Seln_Varoth",
+        "location": "tower",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "alchemist",
+          "role": "sentinel"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "alchemist",
+          "sentinel"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "tower"
+        }
+      },
+      {
+        "instance": "Dorian_Frostgate",
+        "nonce_instance": "Tav_Greln",
+        "location": "lighthouse",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "alchemist",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "alchemist",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "lighthouse"
+        }
+      },
+      {
+        "instance": "Petra_Embervane",
+        "nonce_instance": "Brev_Solnak",
+        "location": "citadel",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "peasant",
+          "role": "sentinel"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "peasant",
+          "sentinel"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "citadel"
+        }
+      }
+    ]
+  },
+  "_pool_map": {
+    "entity.npc": "entities.all"
+  },
+  "_input_category": "entity.npc",
+  "_input_meta": {
+    "name": [
+      "name_pools.first",
+      "name_pools.last"
+    ],
+    "repeat_name": [
+      "name_pools.repeat_first",
+      "name_pools.repeat_last"
+    ],
+    "properties": {
+      "location": "locations"
+    }
+  },
+  "_attr_order": [
+    "class",
+    "role"
+  ],
+  "_variant_info": {
+    "seed": 6,
+    "variant_type": "procedural_filled"
+  }
+}

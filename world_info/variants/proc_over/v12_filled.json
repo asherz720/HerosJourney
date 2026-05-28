@@ -1,0 +1,909 @@
+{
+  "attribute_labels": {
+    "class": {
+      "semantic_name": "class",
+      "nonce_name": "vrel"
+    },
+    "role": {
+      "semantic_name": "role",
+      "nonce_name": "korv"
+    }
+  },
+  "entities": {
+    "source": [
+      {
+        "instance": "Oren_Coppergate",
+        "nonce_instance": "Drev_Kornak",
+        "location": "archive",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "warden",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "warden",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "archive"
+        }
+      },
+      {
+        "instance": "Nell_Blackvale",
+        "nonce_instance": "Seln_Varoth",
+        "location": "amphitheater",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "warden",
+          "role": "medic"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "warden",
+          "medic"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "amphitheater"
+        }
+      },
+      {
+        "instance": "Veric_Thornfield",
+        "nonce_instance": "Tav_Greln",
+        "location": "farmstead",
+        "attributes": {
+          "class": 0,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "warden",
+          "role": "chirurgeon"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "warden",
+          "chirurgeon"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "farmstead"
+        }
+      },
+      {
+        "instance": "Aldric_Brightwater",
+        "nonce_instance": "Brev_Solnak",
+        "location": "citadel",
+        "attributes": {
+          "class": 0,
+          "role": 3
+        },
+        "attribute_values": {
+          "class": "warden",
+          "role": "warrior"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_W"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "warden",
+          "warrior"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_W"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "citadel"
+        }
+      },
+      {
+        "instance": "Zara_Greymantle",
+        "nonce_instance": "Korv_Delnath",
+        "location": "bazaar",
+        "attributes": {
+          "class": 2,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "bazaar"
+        }
+      },
+      {
+        "instance": "Dax_Duskwood",
+        "nonce_instance": "Vren_Blornath",
+        "location": "barracks",
+        "attributes": {
+          "class": 2,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "medic"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "medic"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "barracks"
+        }
+      },
+      {
+        "instance": "Ruvan_Saltmere",
+        "nonce_instance": "Shen_Korvnak",
+        "location": "quarry",
+        "attributes": {
+          "class": 2,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "chirurgeon"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "chirurgeon"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "quarry"
+        }
+      },
+      {
+        "instance": "Fenn_Thornwick",
+        "nonce_instance": "Tor_Draxeln",
+        "location": "sanctuary",
+        "attributes": {
+          "class": 2,
+          "role": 3
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "warrior"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_W"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "warrior"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_W"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "sanctuary"
+        }
+      },
+      {
+        "instance": "Wren_Millward",
+        "nonce_instance": "Relv_Sornath",
+        "location": "granary",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "captain",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "captain",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "granary"
+        }
+      }
+    ],
+    "gen": [
+      {
+        "instance": "Torin_Dusthaven",
+        "nonce_instance": "Blorn_Tavrek",
+        "location": "harbor",
+        "attributes": {
+          "class": 1,
+          "role": 3
+        },
+        "attribute_values": {
+          "class": "captain",
+          "role": "warrior"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_W"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "captain",
+          "warrior"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_W"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "harbor"
+        }
+      },
+      {
+        "instance": "Gareth_Dunmere",
+        "nonce_instance": "Frev_Blenth",
+        "location": "inn",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "captain",
+          "role": "medic"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "captain",
+          "medic"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "inn"
+        }
+      },
+      {
+        "instance": "Dorian_Ironbrook",
+        "nonce_instance": "Skel_Grexorn",
+        "location": "manor",
+        "attributes": {
+          "class": 1,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "captain",
+          "role": "chirurgeon"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "captain",
+          "chirurgeon"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "manor"
+        }
+      }
+    ],
+    "all": [
+      {
+        "instance": "Oren_Coppergate",
+        "nonce_instance": "Drev_Kornak",
+        "location": "archive",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "warden",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "warden",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "archive"
+        }
+      },
+      {
+        "instance": "Nell_Blackvale",
+        "nonce_instance": "Seln_Varoth",
+        "location": "amphitheater",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "warden",
+          "role": "medic"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "warden",
+          "medic"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "amphitheater"
+        }
+      },
+      {
+        "instance": "Veric_Thornfield",
+        "nonce_instance": "Tav_Greln",
+        "location": "farmstead",
+        "attributes": {
+          "class": 0,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "warden",
+          "role": "chirurgeon"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "warden",
+          "chirurgeon"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "farmstead"
+        }
+      },
+      {
+        "instance": "Aldric_Brightwater",
+        "nonce_instance": "Brev_Solnak",
+        "location": "citadel",
+        "attributes": {
+          "class": 0,
+          "role": 3
+        },
+        "attribute_values": {
+          "class": "warden",
+          "role": "warrior"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_W"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "warden",
+          "warrior"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_W"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "citadel"
+        }
+      },
+      {
+        "instance": "Zara_Greymantle",
+        "nonce_instance": "Korv_Delnath",
+        "location": "bazaar",
+        "attributes": {
+          "class": 2,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "bazaar"
+        }
+      },
+      {
+        "instance": "Dax_Duskwood",
+        "nonce_instance": "Vren_Blornath",
+        "location": "barracks",
+        "attributes": {
+          "class": 2,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "medic"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "medic"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "barracks"
+        }
+      },
+      {
+        "instance": "Ruvan_Saltmere",
+        "nonce_instance": "Shen_Korvnak",
+        "location": "quarry",
+        "attributes": {
+          "class": 2,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "chirurgeon"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "chirurgeon"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "quarry"
+        }
+      },
+      {
+        "instance": "Fenn_Thornwick",
+        "nonce_instance": "Tor_Draxeln",
+        "location": "sanctuary",
+        "attributes": {
+          "class": 2,
+          "role": 3
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "warrior"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_W"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "warrior"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_W"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "sanctuary"
+        }
+      },
+      {
+        "instance": "Wren_Millward",
+        "nonce_instance": "Relv_Sornath",
+        "location": "granary",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "captain",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "captain",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "granary"
+        }
+      },
+      {
+        "instance": "Torin_Dusthaven",
+        "nonce_instance": "Blorn_Tavrek",
+        "location": "harbor",
+        "attributes": {
+          "class": 1,
+          "role": 3
+        },
+        "attribute_values": {
+          "class": "captain",
+          "role": "warrior"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_W"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "captain",
+          "warrior"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_W"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "harbor"
+        }
+      },
+      {
+        "instance": "Gareth_Dunmere",
+        "nonce_instance": "Frev_Blenth",
+        "location": "inn",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "captain",
+          "role": "medic"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "captain",
+          "medic"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "inn"
+        }
+      },
+      {
+        "instance": "Dorian_Ironbrook",
+        "nonce_instance": "Skel_Grexorn",
+        "location": "manor",
+        "attributes": {
+          "class": 1,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "captain",
+          "role": "chirurgeon"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "captain",
+          "chirurgeon"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "manor"
+        }
+      }
+    ]
+  },
+  "_pool_map": {
+    "entity.npc": "entities.all"
+  },
+  "_input_category": "entity.npc",
+  "_input_meta": {
+    "name": [
+      "name_pools.first",
+      "name_pools.last"
+    ],
+    "repeat_name": [
+      "name_pools.repeat_first",
+      "name_pools.repeat_last"
+    ],
+    "properties": {
+      "location": "locations"
+    }
+  },
+  "_attr_order": [
+    "class",
+    "role"
+  ],
+  "_variant_info": {
+    "seed": 12,
+    "variant_type": "procedural_filled"
+  }
+}

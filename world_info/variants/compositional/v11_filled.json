@@ -1,0 +1,757 @@
+{
+  "n_items": 9,
+  "attribute_labels": {
+    "class": {
+      "semantic_name": "class",
+      "nonce_name": "vrel"
+    },
+    "role": {
+      "semantic_name": "role",
+      "nonce_name": "korv"
+    }
+  },
+  "entities": {
+    "source": [
+      {
+        "instance": "Aldric_Duskwood",
+        "nonce_instance": "Drev_Kornak",
+        "location": "library",
+        "attributes": {
+          "class": 1,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "sage",
+          "role": "vanguard"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "sage",
+          "vanguard"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "library"
+        },
+        "item_id": 5
+      },
+      {
+        "instance": "Cress_Starwick",
+        "nonce_instance": "Seln_Varoth",
+        "location": "amphitheater",
+        "attributes": {
+          "class": 2,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "tactician"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "tactician"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "amphitheater"
+        },
+        "item_id": 1
+      },
+      {
+        "instance": "Fenn_Greymantle",
+        "nonce_instance": "Tav_Greln",
+        "location": "chapel",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "steward",
+          "role": "champion"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "steward",
+          "champion"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "chapel"
+        },
+        "item_id": 6
+      },
+      {
+        "instance": "Ren_Ashford",
+        "nonce_instance": "Brev_Solnak",
+        "location": "quarry",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "sage",
+          "role": "tactician"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "sage",
+          "tactician"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "quarry"
+        },
+        "item_id": 4
+      },
+      {
+        "instance": "Bran_Hollowfen",
+        "nonce_instance": "Korv_Delnath",
+        "location": "sanctuary",
+        "attributes": {
+          "class": 2,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "champion"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "champion"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "sanctuary"
+        },
+        "item_id": 0
+      },
+      {
+        "instance": "Elys_Stonehall",
+        "nonce_instance": "Vren_Blornath",
+        "location": "vineyard",
+        "attributes": {
+          "class": 0,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "steward",
+          "role": "vanguard"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "steward",
+          "vanguard"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "vineyard"
+        },
+        "item_id": 8
+      }
+    ],
+    "gen": [
+      {
+        "instance": "Gareth_Coppergate",
+        "nonce_instance": "Shen_Korvnak",
+        "location": "plaza",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "steward",
+          "role": "tactician"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "steward",
+          "tactician"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "plaza"
+        },
+        "item_id": 7
+      },
+      {
+        "instance": "Ira_Brightwater",
+        "nonce_instance": "Tor_Draxeln",
+        "location": "keep",
+        "attributes": {
+          "class": 2,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "vanguard"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "vanguard"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "keep"
+        },
+        "item_id": 2
+      },
+      {
+        "instance": "Theron_Embervane",
+        "nonce_instance": "Relv_Sornath",
+        "location": "citadel",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "sage",
+          "role": "champion"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "sage",
+          "champion"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "citadel"
+        },
+        "item_id": 3
+      }
+    ],
+    "all": [
+      {
+        "instance": "Aldric_Duskwood",
+        "nonce_instance": "Drev_Kornak",
+        "location": "library",
+        "attributes": {
+          "class": 1,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "sage",
+          "role": "vanguard"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "sage",
+          "vanguard"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "library"
+        },
+        "item_id": 5
+      },
+      {
+        "instance": "Cress_Starwick",
+        "nonce_instance": "Seln_Varoth",
+        "location": "amphitheater",
+        "attributes": {
+          "class": 2,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "tactician"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "tactician"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "amphitheater"
+        },
+        "item_id": 1
+      },
+      {
+        "instance": "Fenn_Greymantle",
+        "nonce_instance": "Tav_Greln",
+        "location": "chapel",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "steward",
+          "role": "champion"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "steward",
+          "champion"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "chapel"
+        },
+        "item_id": 6
+      },
+      {
+        "instance": "Ren_Ashford",
+        "nonce_instance": "Brev_Solnak",
+        "location": "quarry",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "sage",
+          "role": "tactician"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "sage",
+          "tactician"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "quarry"
+        },
+        "item_id": 4
+      },
+      {
+        "instance": "Bran_Hollowfen",
+        "nonce_instance": "Korv_Delnath",
+        "location": "sanctuary",
+        "attributes": {
+          "class": 2,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "champion"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "champion"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "sanctuary"
+        },
+        "item_id": 0
+      },
+      {
+        "instance": "Elys_Stonehall",
+        "nonce_instance": "Vren_Blornath",
+        "location": "vineyard",
+        "attributes": {
+          "class": 0,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "steward",
+          "role": "vanguard"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "steward",
+          "vanguard"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "vineyard"
+        },
+        "item_id": 8
+      },
+      {
+        "instance": "Gareth_Coppergate",
+        "nonce_instance": "Shen_Korvnak",
+        "location": "plaza",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "steward",
+          "role": "tactician"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "steward",
+          "tactician"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "plaza"
+        },
+        "item_id": 7
+      },
+      {
+        "instance": "Ira_Brightwater",
+        "nonce_instance": "Tor_Draxeln",
+        "location": "keep",
+        "attributes": {
+          "class": 2,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "vanguard"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "vanguard"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "keep"
+        },
+        "item_id": 2
+      },
+      {
+        "instance": "Theron_Embervane",
+        "nonce_instance": "Relv_Sornath",
+        "location": "citadel",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "sage",
+          "role": "champion"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "sage",
+          "champion"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "citadel"
+        },
+        "item_id": 3
+      }
+    ]
+  },
+  "_output_category": "object.weapon",
+  "_dim_sem": {
+    "size": [
+      "great",
+      "long",
+      "short"
+    ],
+    "color": [
+      "blue",
+      "white",
+      "gold"
+    ]
+  },
+  "_dim_nonce": {
+    "size": [
+      "vrek",
+      "sorn",
+      "grel"
+    ],
+    "color": [
+      "florn",
+      "drev",
+      "skel"
+    ]
+  },
+  "_dim_strides": {
+    "color": 1,
+    "size": 3
+  },
+  "_dim_order": [
+    "size",
+    "color"
+  ],
+  "_items_fn": "join",
+  "_output_noun": "spear",
+  "_output_noun_nonce": "frix",
+  "_output_prop_samples": {
+    "object.weapon.locations": "market_stall"
+  },
+  "_output_item_props": {
+    "location": "market_stall"
+  },
+  "_reserved_variant_pools": {
+    "object.weapon.locations": [
+      "market_stall"
+    ]
+  },
+  "_n_items": 9,
+  "_pool_map": {
+    "entity.npc": "entities.all"
+  },
+  "_composition": "independent",
+  "_input_category": "entity.npc",
+  "_input_meta": {
+    "name": [
+      "name_pools.first",
+      "name_pools.last"
+    ],
+    "repeat_name": [
+      "name_pools.repeat_first",
+      "name_pools.repeat_last"
+    ],
+    "properties": {
+      "location": "locations"
+    }
+  },
+  "_variant_info": {
+    "seed": 11,
+    "variant_type": "filled"
+  }
+}

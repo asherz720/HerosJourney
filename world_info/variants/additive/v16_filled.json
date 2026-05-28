@@ -1,0 +1,749 @@
+{
+  "n_items": 5,
+  "attribute_labels": {
+    "class": {
+      "semantic_name": "class",
+      "nonce_name": "vrel"
+    },
+    "role": {
+      "semantic_name": "role",
+      "nonce_name": "korv"
+    }
+  },
+  "entities": {
+    "source": [
+      {
+        "instance": "Petra_Stonehall",
+        "nonce_instance": "Drev_Kornak",
+        "location": "inn",
+        "attributes": {
+          "class": 2,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "ranger",
+          "role": "shaman"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "ranger",
+          "shaman"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "inn"
+        },
+        "item_id": 1
+      },
+      {
+        "instance": "Dorian_Veilmoor",
+        "nonce_instance": "Seln_Varoth",
+        "location": "watchtower",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "warden",
+          "role": "archivist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "warden",
+          "archivist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "watchtower"
+        },
+        "item_id": 4
+      },
+      {
+        "instance": "Cress_Ashveil",
+        "nonce_instance": "Tav_Greln",
+        "location": "vineyard",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "envoy",
+          "role": "shaman"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "envoy",
+          "shaman"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "vineyard"
+        },
+        "item_id": 2
+      },
+      {
+        "instance": "Fenn_Thornwick",
+        "nonce_instance": "Brev_Solnak",
+        "location": "observatory",
+        "attributes": {
+          "class": 0,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "warden",
+          "role": "warrior"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "warden",
+          "warrior"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "observatory"
+        },
+        "item_id": 2
+      },
+      {
+        "instance": "Finn_Hollowfen",
+        "nonce_instance": "Korv_Delnath",
+        "location": "plaza",
+        "attributes": {
+          "class": 2,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "ranger",
+          "role": "warrior"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "ranger",
+          "warrior"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "plaza"
+        },
+        "item_id": 0
+      },
+      {
+        "instance": "Gareth_Marshwick",
+        "nonce_instance": "Vren_Blornath",
+        "location": "sanctuary",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "envoy",
+          "role": "archivist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "envoy",
+          "archivist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "sanctuary"
+        },
+        "item_id": 3
+      }
+    ],
+    "gen": [
+      {
+        "instance": "Wren_Pinehearth",
+        "nonce_instance": "Shen_Korvnak",
+        "location": "archive",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "warden",
+          "role": "shaman"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "warden",
+          "shaman"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "archive"
+        },
+        "item_id": 3
+      },
+      {
+        "instance": "Corvin_Starwick",
+        "nonce_instance": "Tor_Draxeln",
+        "location": "crossroads",
+        "attributes": {
+          "class": 2,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "ranger",
+          "role": "archivist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "ranger",
+          "archivist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "crossroads"
+        },
+        "item_id": 2
+      },
+      {
+        "instance": "Veric_Coppergate",
+        "nonce_instance": "Relv_Sornath",
+        "location": "warehouse",
+        "attributes": {
+          "class": 1,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "envoy",
+          "role": "warrior"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "envoy",
+          "warrior"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "warehouse"
+        },
+        "item_id": 1
+      }
+    ],
+    "all": [
+      {
+        "instance": "Petra_Stonehall",
+        "nonce_instance": "Drev_Kornak",
+        "location": "inn",
+        "attributes": {
+          "class": 2,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "ranger",
+          "role": "shaman"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "ranger",
+          "shaman"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "inn"
+        },
+        "item_id": 1
+      },
+      {
+        "instance": "Dorian_Veilmoor",
+        "nonce_instance": "Seln_Varoth",
+        "location": "watchtower",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "warden",
+          "role": "archivist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "warden",
+          "archivist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "watchtower"
+        },
+        "item_id": 4
+      },
+      {
+        "instance": "Cress_Ashveil",
+        "nonce_instance": "Tav_Greln",
+        "location": "vineyard",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "envoy",
+          "role": "shaman"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "envoy",
+          "shaman"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "vineyard"
+        },
+        "item_id": 2
+      },
+      {
+        "instance": "Fenn_Thornwick",
+        "nonce_instance": "Brev_Solnak",
+        "location": "observatory",
+        "attributes": {
+          "class": 0,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "warden",
+          "role": "warrior"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "warden",
+          "warrior"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "observatory"
+        },
+        "item_id": 2
+      },
+      {
+        "instance": "Finn_Hollowfen",
+        "nonce_instance": "Korv_Delnath",
+        "location": "plaza",
+        "attributes": {
+          "class": 2,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "ranger",
+          "role": "warrior"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "ranger",
+          "warrior"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "plaza"
+        },
+        "item_id": 0
+      },
+      {
+        "instance": "Gareth_Marshwick",
+        "nonce_instance": "Vren_Blornath",
+        "location": "sanctuary",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "envoy",
+          "role": "archivist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "envoy",
+          "archivist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "sanctuary"
+        },
+        "item_id": 3
+      },
+      {
+        "instance": "Wren_Pinehearth",
+        "nonce_instance": "Shen_Korvnak",
+        "location": "archive",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "warden",
+          "role": "shaman"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "warden",
+          "shaman"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "archive"
+        },
+        "item_id": 3
+      },
+      {
+        "instance": "Corvin_Starwick",
+        "nonce_instance": "Tor_Draxeln",
+        "location": "crossroads",
+        "attributes": {
+          "class": 2,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "ranger",
+          "role": "archivist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "ranger",
+          "archivist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "crossroads"
+        },
+        "item_id": 2
+      },
+      {
+        "instance": "Veric_Coppergate",
+        "nonce_instance": "Relv_Sornath",
+        "location": "warehouse",
+        "attributes": {
+          "class": 1,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "envoy",
+          "role": "warrior"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "envoy",
+          "warrior"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "warehouse"
+        },
+        "item_id": 1
+      }
+    ]
+  },
+  "_output_category": "object.weapon",
+  "_dim_sem": {
+    "size": [
+      "long",
+      "standard",
+      "short",
+      "great",
+      "tiny"
+    ]
+  },
+  "_dim_nonce": {
+    "size": [
+      "grel",
+      "blorn",
+      "feln",
+      "skev",
+      "vrek"
+    ]
+  },
+  "_dim_strides": {
+    "size": 1
+  },
+  "_dim_order": [
+    "size"
+  ],
+  "_items_fn": "numeric",
+  "_output_noun": "dagger",
+  "_output_noun_nonce": "skaln",
+  "_output_prop_samples": {
+    "object.weapon.locations": "armory"
+  },
+  "_output_item_props": {
+    "location": "armory"
+  },
+  "_reserved_variant_pools": {
+    "object.weapon.locations": [
+      "armory"
+    ]
+  },
+  "_n_items": 5,
+  "_pool_map": {
+    "entity.npc": "entities.all"
+  },
+  "_composition": "additive",
+  "_input_category": "entity.npc",
+  "_input_meta": {
+    "name": [
+      "name_pools.first",
+      "name_pools.last"
+    ],
+    "repeat_name": [
+      "name_pools.repeat_first",
+      "name_pools.repeat_last"
+    ],
+    "properties": {
+      "location": "locations"
+    }
+  },
+  "_variant_info": {
+    "seed": 16,
+    "variant_type": "filled"
+  }
+}

@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Process Editor</title>
+<style>
+/* ─── Reset & base ───────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; overflow: hidden; }
+
+/* ─── App shell ───────────────────────────────────── */
+#app { display: flex; flex-direction: column; height: 100vh; background: #0d1117; color: #e6edf3; }
+
+/* ─── Topbar ─────────────────────────────────────── */
+#topbar {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 0 16px; height: 48px; min-height: 48px;
+  background: #161b22; border-bottom: 1px solid #30363d; flex-shrink: 0;
+}
+.logo { font-weight: 700; font-size: 14px; color: #58a6ff; margin-right: 4px; white-space: nowrap; }
+.divider { width: 1px; height: 20px; background: #30363d; }
+.add-label { color: #8b949e; font-size: 11px; white-space: nowrap; }
+
+.add-btn {
+  padding: 4px 10px; border-radius: 6px; border: 1px solid currentColor;
+  background: transparent; cursor: pointer; font-size: 12px; font-weight: 500;
+  transition: background .12s, opacity .12s;
+}
+.add-btn:hover { background: color-mix(in srgb, currentColor 12%, transparent); }
+.add-btn[data-action="go"]      { color: #4dabf7; }
+.add-btn[data-action="get"]     { color: #38d9a9; }
+.add-btn[data-action="buy"]     { color: #69db7c; }
+.add-btn[data-action="perform"] { color: #da77f2; }
+.add-btn[data-action="defeat"]  { color: #ff6b6b; }
+.add-btn[data-action="rescue"]  { color: #ffa94d; }
+
+.tb-right { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+.tb-btn {
+  padding: 5px 12px; border-radius: 6px; border: 1px solid #30363d;
+  background: #21262d; color: #e6edf3; cursor: pointer; font-size: 12px; white-space: nowrap;
+  transition: background .12s;
+}
+.tb-btn:hover { background: #30363d; }
+.tb-btn.primary { background: #238636; border-color: #2ea043; color: #fff; }
+.tb-btn.primary:hover { background: #2ea043; }
+.tb-btn.danger { background: #da3633; border-color: #f85149; color: #fff; }
+.tb-btn.danger:hover { background: #f85149; }
+
+/* ─── Workspace ──────────────────────────────────── */
+#workspace { display: flex; flex: 1; overflow: hidden; }
+
+/* ─── Sidebar ────────────────────────────────────── */
+#sidebar {
+  width: 294px; min-width: 294px; background: #161b22;
+  border-right: 1px solid #30363d; display: flex; flex-direction: column;
+  overflow-y: auto; overflow-x: hidden;
+}
+
+.panel { border-bottom: 1px solid #30363d; }
+.panel-hdr {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 14px; cursor: pointer; user-select: none;
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .06em; color: #8b949e; background: #161b22;
+}
+.panel-hdr:hover { color: #e6edf3; }
+.panel-hdr .caret { font-size: 10px; transition: transform .15s; }
+.panel-hdr.collapsed .caret { transform: rotate(-90deg); }
+.panel-body { padding: 10px 14px; }
+.panel-body.hidden { display: none; }
+
+/* Form atoms */
+.fg { margin-bottom: 10px; }
+.fg label {
+  display: block; font-size: 10px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: .05em; color: #8b949e; margin-bottom: 4px;
+}
+.fg input[type=text], .fg input[type=number], .fg select, .fg textarea {
+  width: 100%; padding: 6px 8px; background: #0d1117; border: 1px solid #30363d;
+  color: #e6edf3; border-radius: 6px; font-size: 12px; font-family: inherit;
+  transition: border-color .12s;
+}
+.fg textarea { resize: vertical; min-height: 50px; }
+.fg input:focus, .fg select:focus, .fg textarea:focus {
+  outline: none; border-color: #58a6ff; background: #0d1117;
+}
+.fg select option { background: #161b22; }
+
+.radio-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.radio-row label {
+  display: flex; align-items: center; gap: 5px; cursor: pointer;
+  color: #e6edf3; font-size: 12px; text-transform: none; letter-spacing: 0; font-weight: 400;
+}
+.check-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; cursor: pointer; }
+.check-row span { font-size: 12px; }
+
+.sec-title {
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+  color: #58a6ff; margin: 12px 0 6px;
+}
+.sec-title:first-child { margin-top: 0; }
+
+/* Property rows */
+.prop-row { display: grid; grid-template-columns: 1fr 1fr auto; gap: 4px; margin-bottom: 4px; align-items: center; }
+.prop-row input {
+  padding: 4px 7px; background: #0d1117; border: 1px solid #30363d;
+  color: #e6edf3; border-radius: 5px; font-size: 11px; width: 100%;
+}
+.prop-row input:focus { outline: none; border-color: #58a6ff; }
+.icon-btn {
+  padding: 3px 7px; background: #30363d; border: none; border-radius: 5px;
+  color: #8b949e; cursor: pointer; font-size: 13px; line-height: 1; transition: all .12s;
+}
+.icon-btn:hover { background: #ff6b6b22; color: #ff6b6b; }
+
+.dashed-btn {
+  width: 100%; margin-top: 4px; padding: 5px;
+  background: none; border: 1px dashed #30363d; border-radius: 5px;
+  color: #8b949e; cursor: pointer; font-size: 11px; transition: all .12s;
+}
+.dashed-btn:hover { border-color: #58a6ff; color: #58a6ff; background: #58a6ff0d; }
+
+/* Constraint rows */
+.con-row { display: grid; grid-template-columns: 1fr auto 1fr auto; gap: 4px; align-items: center; margin-bottom: 4px; }
+.con-row select {
+  padding: 4px 5px; background: #0d1117; border: 1px solid #30363d;
+  color: #e6edf3; border-radius: 5px; font-size: 11px; width: 100%;
+}
+.con-arrow { color: #ffa94d; font-size: 14px; text-align: center; }
+
+.delete-btn {
+  width: 100%; padding: 6px; margin-top: 10px;
+  background: #da363322; border: 1px solid #da363344; color: #f85149;
+  border-radius: 6px; cursor: pointer; font-size: 12px; transition: all .12s;
+}
+.delete-btn:hover { background: #da363344; }
+
+.hint { color: #8b949e; font-size: 12px; text-align: center; padding: 24px 0; }
+
+/* ─── Canvas ──────────────────────────────────────── */
+#canvas-wrap {
+  flex: 1; position: relative; overflow: hidden; cursor: default;
+  background-color: #0d1117;
+  background-image:
+    linear-gradient(#30363d22 1px, transparent 1px),
+    linear-gradient(90deg, #30363d22 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+#canvas-inner { position: absolute; width: 4000px; height: 4000px; transform-origin: 0 0; }
+#arrows { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+
+/* ─── Nodes ───────────────────────────────────────── */
+.node {
+  position: absolute; width: 170px;
+  background: #161b22; border: 1.5px solid #30363d; border-radius: 10px;
+  box-shadow: 0 2px 10px #0006; cursor: pointer; user-select: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.node:hover { border-color: #58a6ff55; box-shadow: 0 4px 18px #0009; }
+.node.selected { border-color: #58a6ff; box-shadow: 0 0 0 2px #58a6ff33, 0 4px 18px #0009; }
+.node.is-root { border-style: dashed; }
+.node-hdr {
+  padding: 6px 10px; border-radius: 8px 8px 0 0;
+  display: flex; align-items: center; justify-content: space-between; gap: 6px;
+}
+.action-badge {
+  font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 4px;
+  background: #0006; text-transform: uppercase; letter-spacing: .06em;
+}
+.root-tag { font-size: 9px; color: #ffffffaa; font-weight: 600; letter-spacing: .04em; }
+.node-body { padding: 4px 10px 8px; }
+.node-id { font-weight: 600; font-size: 13px; word-break: break-all; }
+.node-meta { display: flex; gap: 4px; margin-top: 5px; flex-wrap: wrap; }
+.badge {
+  font-size: 10px; padding: 1px 6px; border-radius: 3px; font-weight: 500;
+}
+.b-hidden { background: #58a6ff22; color: #58a6ff; }
+.b-rule   { background: #da77f222; color: #da77f2; font-size: 9px; }
+.b-eo     { background: #30363d; color: #8b949e; }
+
+/* ─── JSON Panel ──────────────────────────────────── */
+#json-panel {
+  background: #161b22; border-top: 1px solid #30363d;
+  flex-shrink: 0; display: flex; flex-direction: column;
+  height: 210px; transition: height .2s;
+}
+#json-panel.collapsed { height: 36px; }
+#json-hdr {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 14px; height: 36px; min-height: 36px;
+  border-bottom: 1px solid #30363d; flex-shrink: 0;
+}
+#json-hdr span { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #8b949e; }
+#json-hdr div { display: flex; gap: 6px; }
+.json-btn {
+  padding: 3px 10px; font-size: 11px; border: 1px solid #30363d;
+  background: #21262d; color: #e6edf3; border-radius: 5px; cursor: pointer; transition: background .12s;
+}
+.json-btn:hover { background: #30363d; }
+#json-content { flex: 1; overflow: hidden; display: flex; }
+#json-out {
+  flex: 1; background: #0d1117; color: #e6edf3; border: none;
+  padding: 10px 14px; font-family: 'Consolas', 'Fira Code', monospace;
+  font-size: 11px; resize: none; outline: none; line-height: 1.5;
+}
+
+/* ─── Misc ────────────────────────────────────────── */
+#file-input { display: none; }
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #30363d; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #484f58; }
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- ── Topbar ──────────────────────────────────── -->
+  <header id="topbar">
+    <span class="logo">⬡ Process Editor</span>
+    <div class="divider"></div>
+    <span class="add-label">Add step:</span>
+    <button class="add-btn" data-action="go">+ go</button>
+    <button class="add-btn" data-action="get">+ get</button>
+    <button class="add-btn" data-action="buy">+ buy</button>
+    <button class="add-btn" data-action="perform">+ perform</button>
+    <button class="add-btn" data-action="defeat">+ defeat</button>
+    <button class="add-btn" data-action="rescue">+ rescue</button>
+    <div class="divider"></div>
+    <div class="tb-right">
+      <button class="tb-btn" id="btn-example">Load Example</button>
+      <button class="tb-btn" id="btn-load">Import JSON</button>
+      <button class="tb-btn" id="btn-layout">Auto Layout</button>
+      <button class="tb-btn" id="btn-clear" style="color:#f85149;">Clear</button>
+      <button class="tb-btn primary" id="btn-export">Export JSON ↓</button>
+    </div>
+  </header>
+
+  <!-- ── Workspace ──────────────────────────────── -->
+  <div id="workspace">
+
+    <!-- Sidebar -->
+    <aside id="sidebar">
+
+      <!-- Process Config -->
+      <div class="panel" id="panel-process">
+        <div class="panel-hdr" data-panel="process">
+          Process Config <span class="caret">▾</span>
+        </div>
+        <div class="panel-body" id="body-process">
+          <div class="fg">
+            <label>Note</label>
+            <textarea id="cfg-note" placeholder="Describe this process…" rows="2"></textarea>
+          </div>
+          <div class="fg">
+            <label>Process Type</label>
+            <select id="cfg-type">
+              <option value="sequence">sequence</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Root Step (terminal goal)</label>
+            <select id="cfg-root"><option value="">— select —</option></select>
+          </div>
+          <div class="sec-title">Ordering Constraints</div>
+          <div id="constraints-list"></div>
+          <button class="dashed-btn" id="btn-add-constraint">+ Add ordering constraint</button>
+        </div>
+      </div>
+
+      <!-- Node Editor -->
+      <div class="panel" id="panel-node">
+        <div class="panel-hdr" data-panel="node">
+          Node Editor <span class="caret">▾</span>
+        </div>
+        <div class="panel-body" id="body-node">
+          <div class="hint">Click a node on the canvas to edit it.</div>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- Canvas -->
+    <div id="canvas-wrap">
+      <div id="canvas-inner">
+        <svg id="arrows" xmlns="http://www.w3.org/2000/svg">
+          <defs id="arrow-defs"></defs>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── JSON Panel ──────────────────────────────── -->
+  <div id="json-panel">
+    <div id="json-hdr">
+      <span>JSON Output</span>
+      <div>
+        <button class="json-btn" id="btn-copy">Copy</button>
+        <button class="json-btn" id="btn-download">Download</button>
+        <button class="json-btn" id="btn-toggle-json">▲ Hide</button>
+      </div>
+    </div>
+    <div id="json-content">
+      <textarea id="json-out" readonly spellcheck="false" placeholder="JSON will appear here…"></textarea>
+    </div>
+  </div>
+
+</div>
+<input type="file" id="file-input" accept=".json">
+
+<script>
+'use strict';
+
+// ─── Constants ────────────────────────────────────────────────────────────────
+const ACTIONS = ['go', 'get', 'buy', 'perform', 'defeat', 'rescue'];
+const ACTION_COLORS = {
+  go: '#4dabf7', get: '#38d9a9', buy: '#69db7c',
+  perform: '#da77f2', defeat: '#ff6b6b', rescue: '#ffa94d',
+};
+// Default arg type by action
+const DEFAULT_ARG_TYPE = {
+  go: 'from', get: 'object', buy: 'object',
+  perform: 'object', defeat: 'entity', rescue: 'entity',
+};
+// Properties typically exposed by each argument type
+const ARG_PROPS = {
+  entity: ['location', 'name', 'attribute_names', 'attribute_values'],
+  object: ['location', 'name', 'cost'],
+  from: ['location', 'name'],
+};
+const NODE_W = 170;
+const NODE_H = 86; // approximate rendered height for arrow endpoints
+
+// ─── State ────────────────────────────────────────────────────────────────────
+const state = {
+  steps: [],      // Array<StepObj>
+  meta: {
+    note: '',
+    type: 'sequence',
+    root: '',
+    ordering_constraints: [],  // Array<{before: stepId, after: stepId}>
+  },
+  selectedId: null,
+  counters: {},   // {action: nextIndex}
+  // Interaction state
+  drag: null,     // {id, offsetX, offsetY}
+  pan: null,      // {startX, startY, tx, ty}
+  transform: { x: 60, y: 60, scale: 1 },
+};
+
+// ─── State helpers ────────────────────────────────────────────────────────────
+function getStep(id) { return state.steps.find(s => s.id === id) || null; }
+function stepIds() { return state.steps.map(s => s.id); }
+
+function makeStep(action) {
+  if (!state.counters[action]) state.counters[action] = 0;
+  const n = state.counters[action]++;
+  const id = `${action}_${n}`;
+  // Sensible default parent: last step that was added (could be changed in UI)
+  const parent = state.meta.root || null;
+  return {
+    id, action,
+    execution_order: state.steps.length,
+    parent,
+    is_hidden: false,
+    argument: {
+      argType: DEFAULT_ARG_TYPE[action] || 'object',
+      from: '',
+    },
+    properties: [],
+    x: 200 + Math.random() * 300,
+    y: 120 + Math.random() * 200,
+  };
+}
+
+function addStep(action) {
+  const step = makeStep(action);
+  if (state.steps.length === 0) {
+    state.meta.root = step.id;
+    step.parent = null;
+  }
+  state.steps.push(step);
+  state.selectedId = step.id;
+  render();
+}
+
+function removeStep(id) {
+  // Detach children
+  state.steps.forEach(s => { if (s.parent === id) s.parent = null; });
+  // Remove constraints referencing this step
+  state.meta.ordering_constraints = state.meta.ordering_constraints
+    .filter(c => c.before !== id && c.after !== id);
+  state.steps = state.steps.filter(s => s.id !== id);
+  if (state.meta.root === id) state.meta.root = state.steps[0]?.id || '';
+  if (state.selectedId === id) state.selectedId = null;
+  render();
+}
+
+function renameStep(oldId, newId) {
+  newId = newId.trim();
+  if (!newId || newId === oldId || getStep(newId)) return false;
+  const step = getStep(oldId);
+  if (!step) return false;
+  step.id = newId;
+  // Update references
+  state.steps.forEach(s => { if (s.parent === oldId) s.parent = newId; });
+  if (state.meta.root === oldId) state.meta.root = newId;
+  state.meta.ordering_constraints.forEach(c => {
+    if (c.before === oldId) c.before = newId;
+    if (c.after === oldId) c.after = newId;
+  });
+  // Update "from" argument references that mention the old id
+  state.steps.forEach(s => {
+    if (s.argument.from && s.argument.from.startsWith(oldId + '.')) {
+      s.argument.from = newId + s.argument.from.slice(oldId.length);
+    }
+    s.properties.forEach(p => {
+      if (p.from && p.from.startsWith(oldId + '.')) {
+        p.from = newId + p.from.slice(oldId.length);
+      }
+    });
+  });
+  if (state.selectedId === oldId) state.selectedId = newId;
+  return true;
+}
+
+// ─── Canvas coordinate helpers ────────────────────────────────────────────────
+function screenToCanvas(sx, sy) {
+  const wrap = document.getElementById('canvas-wrap');
+  const rect = wrap.getBoundingClientRect();
+  const { x, y, scale } = state.transform;
+  return {
+    x: (sx - rect.left - x) / scale,
+    y: (sy - rect.top - y) / scale,
+  };
+}
+
+function applyTransform() {
+  const { x, y, scale } = state.transform;
+  document.getElementById('canvas-inner').style.transform =
+    `translate(${x}px, ${y}px) scale(${scale})`;
+}
+
+// ─── Auto-layout (root at bottom, dependencies above) ─────────────────────────
+function autoLayout() {
+  if (!state.steps.length) return;
+  // Build children map (nodes that feed INTO each step)
+  const children = {};
+  state.steps.forEach(s => {
+    if (!children[s.id]) children[s.id] = [];
+    if (s.parent) {
+      if (!children[s.parent]) children[s.parent] = [];
+      children[s.parent].push(s.id);
+    }
+  });
+
+  // BFS from root, compute depth (0 = root)
+  const depth = {};
+  const root = state.meta.root;
+  if (root) {
+    depth[root] = 0;
+    const queue = [root];
+    while (queue.length) {
+      const id = queue.shift();
+      (children[id] || []).forEach(cid => {
+        if (!(cid in depth)) { depth[cid] = depth[id] + 1; queue.push(cid); }
+      });
+    }
+  }
+  // Disconnected nodes get depth 0
+  state.steps.forEach(s => { if (!(s.id in depth)) depth[s.id] = 0; });
+
+  const maxDepth = Math.max(0, ...Object.values(depth));
+  const byDepth = {};
+  Object.entries(depth).forEach(([id, d]) => {
+    if (!byDepth[d]) byDepth[d] = [];
+    byDepth[d].push(id);
+  });
+
+  const W = 210, H = 150;
+  const startX = 80;
+  const startY = 60;
+
+  Object.entries(byDepth).forEach(([dStr, ids]) => {
+    const d = parseInt(dStr);
+    const y = startY + (maxDepth - d) * H;  // root at bottom
+    ids.forEach((id, i) => {
+      const step = getStep(id);
+      if (step) { step.x = startX + i * W; step.y = y; }
+    });
+  });
+}
+
+// ─── Rendering ────────────────────────────────────────────────────────────────
+function render() {
+  renderNodes();
+  renderArrows();
+  renderSidebar();
+  renderJSON();
+  renderProcessConfig();
+}
+
+function renderNodes() {
+  const inner = document.getElementById('canvas-inner');
+
+  // Remove nodes no longer in state
+  inner.querySelectorAll('.node').forEach(el => {
+    if (!getStep(el.dataset.id)) el.remove();
+  });
+
+  state.steps.forEach(step => {
+    const color = ACTION_COLORS[step.action] || '#8b949e';
+    let el = inner.querySelector(`.node[data-id="${CSS.escape(step.id)}"]`);
+    if (!el) {
+      el = document.createElement('div');
+      el.className = 'node';
+      el.dataset.id = step.id;
+      el.addEventListener('mousedown', onNodeMouseDown);
+      el.addEventListener('click', e => { e.stopPropagation(); selectStep(step.id); });
+      inner.appendChild(el);
+    }
+
+    // Classes
+    el.classList.toggle('selected', step.id === state.selectedId);
+    el.classList.toggle('is-root', step.id === state.meta.root);
+
+    // Position (don't override while dragging this node)
+    if (!state.drag || state.drag.id !== step.id) {
+      el.style.left = step.x + 'px';
+      el.style.top  = step.y + 'px';
+    }
+
+    // Badges
+    const badges = [];
+    if (step.is_hidden) badges.push('<span class="badge b-hidden">hidden</span>');
+    badges.push(`<span class="badge b-eo">eo:${step.execution_order}</span>`);
+
+    el.innerHTML = `
+      <div class="node-hdr" style="background:${color}1a;border-bottom:1px solid ${color}33;">
+        <span class="action-badge" style="color:${color};">${step.action}</span>
+        ${step.id === state.meta.root ? '<span class="root-tag">ROOT</span>' : ''}
+      </div>
+      <div class="node-body">
+        <div class="node-id">${step.id}</div>
+        <div class="node-meta">${badges.join('')}</div>
+      </div>`;
+  });
+}
+
+function renderArrows() {
+  const svg = document.getElementById('arrows');
+  // Keep defs, remove paths
+  svg.querySelectorAll('path, marker').forEach(el => el.remove());
+  const defs = document.getElementById('arrow-defs');
+  defs.innerHTML = '';
+
+  // Define arrowhead markers per action
+  ACTIONS.forEach(a => {
+    const m = document.createElementNS('http://www.w3.org/2000/svg', 'marker');
+    m.setAttribute('id', `arh-${a}`);
+    m.setAttribute('markerWidth', '8');
+    m.setAttribute('markerHeight', '8');
+    m.setAttribute('refX', '7');
+    m.setAttribute('refY', '3');
+    m.setAttribute('orient', 'auto');
+    m.setAttribute('markerUnits', 'strokeWidth');
+    const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    p.setAttribute('d', 'M0,0 L0,6 L8,3 z');
+    p.setAttribute('fill', ACTION_COLORS[a]);
+    p.setAttribute('opacity', '.7');
+    m.appendChild(p);
+    defs.appendChild(m);
+  });
+
+  // Arrowhead for ordering constraint
+  const mc = document.createElementNS('http://www.w3.org/2000/svg', 'marker');
+  mc.setAttribute('id', 'arh-constraint');
+  mc.setAttribute('markerWidth', '8'); mc.setAttribute('markerHeight', '8');
+  mc.setAttribute('refX', '7'); mc.setAttribute('refY', '3');
+  mc.setAttribute('orient', 'auto'); mc.setAttribute('markerUnits', 'strokeWidth');
+  const pc = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  pc.setAttribute('d', 'M0,0 L0,6 L8,3 z');
+  pc.setAttribute('fill', '#ffa94d'); pc.setAttribute('opacity', '.7');
+  mc.appendChild(pc); defs.appendChild(mc);
+
+  function addPath(d, stroke, opts = {}) {
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', d);
+    path.setAttribute('stroke', stroke);
+    path.setAttribute('stroke-width', opts.width || '1.5');
+    path.setAttribute('fill', 'none');
+    path.setAttribute('opacity', opts.opacity || '0.65');
+    if (opts.dash) path.setAttribute('stroke-dasharray', opts.dash);
+    if (opts.marker) path.setAttribute('marker-end', `url(#${opts.marker})`);
+    svg.appendChild(path);
+  }
+
+  // Dependency arrows: child bottom-center → parent top-center
+  state.steps.forEach(step => {
+    if (!step.parent) return;
+    const parent = getStep(step.parent);
+    if (!parent) return;
+
+    // Read actual element heights for precise connection points
+    const childEl  = document.querySelector(`.node[data-id="${CSS.escape(step.id)}"]`);
+    const parentEl = document.querySelector(`.node[data-id="${CSS.escape(parent.id)}"]`);
+    const ch = childEl  ? childEl.offsetHeight  : NODE_H;
+    const ph = parentEl ? parentEl.offsetHeight : NODE_H;
+
+    const x1 = step.x   + NODE_W / 2,  y1 = step.y   + ch;  // child bottom
+    const x2 = parent.x + NODE_W / 2,  y2 = parent.y;       // parent top
+
+    const dy  = Math.abs(y2 - y1);
+    const cp  = Math.max(40, dy * 0.55);
+    const d   = `M ${x1} ${y1} C ${x1} ${y1+cp}, ${x2} ${y2-cp}, ${x2} ${y2}`;
+    const col = ACTION_COLORS[step.action] || '#8b949e';
+    addPath(d, col, { marker: `arh-${step.action}` });
+  });
+
+  // Ordering constraint arrows: before right-center → after left-center (dashed orange)
+  state.meta.ordering_constraints.forEach(c => {
+    const before = getStep(c.before);
+    const after  = getStep(c.after);
+    if (!before || !after) return;
+    const x1 = before.x + NODE_W,     y1 = before.y + NODE_H / 2;
+    const x2 = after.x,               y2 = after.y  + NODE_H / 2;
+    const cpx = (x1 + x2) / 2;
+    const d = `M ${x1} ${y1} C ${cpx} ${y1}, ${cpx} ${y2}, ${x2} ${y2}`;
+    addPath(d, '#ffa94d', { dash: '6 3', opacity: '0.5', marker: 'arh-constraint' });
+  });
+}
+
+// ─── Process Config panel ─────────────────────────────────────────────────────
+function renderProcessConfig() {
+  // Note
+  document.getElementById('cfg-note').value = state.meta.note;
+
+  // Root selector
+  const rootSel = document.getElementById('cfg-root');
+  const rootVal = rootSel.value;
+  rootSel.innerHTML = '<option value="">— select root —</option>' +
+    state.steps.map(s => `<option value="${s.id}" ${s.id === state.meta.root ? 'selected' : ''}>${s.id}</option>`).join('');
+  if (!state.steps.find(s => s.id === rootVal)) rootSel.value = state.meta.root;
+
+  // Ordering constraints
+  const cl = document.getElementById('constraints-list');
+  cl.innerHTML = '';
+  state.meta.ordering_constraints.forEach((c, i) => {
+    const row = document.createElement('div');
+    row.className = 'con-row';
+    const opts = state.steps.map(s =>
+      `<option value="${s.id}" ${s.id === c.before ? 'selected' : ''}>${s.id}</option>`).join('');
+    const opts2 = state.steps.map(s =>
+      `<option value="${s.id}" ${s.id === c.after ? 'selected' : ''}>${s.id}</option>`).join('');
+    row.innerHTML = `
+      <select data-con="${i}" data-field="before">${opts}</select>
+      <span class="con-arrow">→</span>
+      <select data-con="${i}" data-field="after">${opts2}</select>
+      <button class="icon-btn" data-rm-con="${i}">×</button>`;
+    cl.appendChild(row);
+  });
+}
+
+// ─── Sidebar (Node Editor) ─────────────────────────────────────────────────────
+function renderSidebar() {
+  const body = document.getElementById('body-node');
+  const step = state.selectedId ? getStep(state.selectedId) : null;
+  if (!step) {
+    body.innerHTML = '<div class="hint">Click a node on the canvas to edit it.</div>';
+    return;
+  }
+
+  const otherIds = state.steps.filter(s => s.id !== step.id).map(s => s.id);
+
+  // Build "from" autocomplete suggestions
+  const fromSuggestions = [];
+  state.steps.forEach(s => {
+    if (s.id === step.id) return;
+    const props = ARG_PROPS[s.argument.argType] || ['location', 'name'];
+    props.forEach(p => fromSuggestions.push(`${s.id}.${p}`));
+  });
+  // Also allow argument.* for property "from" fields
+  const argProps = ARG_PROPS[step.argument.argType] || ['location', 'name'];
+
+  const propFromSuggestions = [
+    ...argProps.map(p => `argument.${p}`),
+    ...fromSuggestions,
+  ];
+
+  const argType = step.argument.argType;
+
+  // Argument section HTML
+  let argExtra = '';
+  if (argType === 'from') {
+    const dl = `dl-from-${step.id}`;
+    argExtra = `
+      <div class="fg">
+        <label>From (reference)</label>
+        <input type="text" id="arg-from" value="${step.argument.from}"
+          placeholder="e.g. buy_0.location" list="${dl}" autocomplete="off">
+        <datalist id="${dl}">
+          ${fromSuggestions.map(s => `<option value="${s}">`).join('')}
+        </datalist>
+      </div>`;
+  }
+
+  // Properties
+  const dl2 = `dl-propfrom-${step.id}`;
+  const propsHtml = step.properties.map((p, i) => `
+    <div class="prop-row">
+      <input type="text" data-pi="${i}" data-field="key"  value="${p.key}"  placeholder="key">
+      <input type="text" data-pi="${i}" data-field="from" value="${p.from}" placeholder="from" list="${dl2}">
+      <button class="icon-btn" data-rm-prop="${i}">×</button>
+    </div>`).join('');
+
+  body.innerHTML = `
+    <datalist id="${dl2}">
+      ${propFromSuggestions.map(s => `<option value="${s}">`).join('')}
+    </datalist>
+
+    <div class="sec-title">Identity</div>
+    <div class="fg">
+      <label>ID</label>
+      <input type="text" id="node-id-input" value="${step.id}">
+    </div>
+    <div class="fg">
+      <label>Action</label>
+      <select id="node-action">
+        ${ACTIONS.map(a => `<option ${a === step.action ? 'selected' : ''}>${a}</option>`).join('')}
+      </select>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+      <div class="fg">
+        <label>Execution Order</label>
+        <input type="number" id="node-eo" value="${step.execution_order}" min="0">
+      </div>
+      <div class="fg">
+        <label>Parent Step</label>
+        <select id="node-parent">
+          <option value="">— none (root) —</option>
+          ${otherIds.map(id => `<option value="${id}" ${id === step.parent ? 'selected' : ''}>${id}</option>`).join('')}
+        </select>
+      </div>
+    </div>
+
+    <label class="check-row">
+      <input type="checkbox" id="node-hidden" ${step.is_hidden ? 'checked' : ''}>
+      <span>is_hidden (argument hidden from agent rules text)</span>
+    </label>
+
+    <div class="sec-title">Argument</div>
+    <div class="fg">
+      <label>Argument Type</label>
+      <div class="radio-row">
+        <label><input type="radio" name="arg-type" value="from"   ${argType==='from'   ? 'checked':''}>
+          from (reference)</label>
+        <label><input type="radio" name="arg-type" value="entity" ${argType==='entity' ? 'checked':''}>
+          entity</label>
+        <label><input type="radio" name="arg-type" value="object" ${argType==='object' ? 'checked':''}>
+          object</label>
+      </div>
+    </div>
+    ${argExtra}
+
+    <div class="sec-title">Properties</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr auto;gap:4px;margin-bottom:4px;">
+      <span style="font-size:10px;color:#8b949e;padding:0 4px;">key</span>
+      <span style="font-size:10px;color:#8b949e;padding:0 4px;">from</span>
+      <span></span>
+    </div>
+    <div id="props-list">${propsHtml}</div>
+    <button class="dashed-btn" id="btn-add-prop">+ Add property</button>
+
+    <button class="delete-btn" id="btn-delete-node">Delete this step</button>`;
+
+  // Bind sidebar events
+  bindSidebarEvents(step);
+}
+
+function bindSidebarEvents(step) {
+  const get = id => document.getElementById(id);
+
+  // ID rename on blur/enter
+  const idInput = get('node-id-input');
+  function tryRename() {
+    if (renameStep(step.id, idInput.value)) {
+      step = getStep(idInput.value.trim()); // update local ref
+      render();
+    } else {
+      idInput.value = step.id; // revert
+    }
+  }
+  idInput.addEventListener('blur', tryRename);
+  idInput.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); tryRename(); } });
+
+  // Action
+  get('node-action').addEventListener('change', e => {
+    step.action = e.target.value;
+    // Reset arg type to sensible default for this action
+    step.argument.argType = DEFAULT_ARG_TYPE[step.action] || 'object';
+    render();
+  });
+
+  // Execution order
+  get('node-eo').addEventListener('input', e => {
+    step.execution_order = parseInt(e.target.value) || 0;
+    renderNodes();
+    renderJSON();
+  });
+
+  // Parent
+  get('node-parent').addEventListener('change', e => {
+    step.parent = e.target.value || null;
+    render();
+  });
+
+  // Is hidden
+  get('node-hidden').addEventListener('change', e => {
+    step.is_hidden = e.target.checked;
+    renderNodes();
+    renderJSON();
+  });
+
+  // Arg type radio
+  document.querySelectorAll('input[name="arg-type"]').forEach(r => {
+    r.addEventListener('change', e => {
+      step.argument.argType = e.target.value;
+      step.argument.from = '';
+      render();
+    });
+  });
+
+  // Arg from
+  const argFrom = get('arg-from');
+  if (argFrom) {
+    argFrom.addEventListener('input', e => {
+      step.argument.from = e.target.value;
+      renderJSON();
+    });
+  }
+
+  // Properties
+  document.querySelectorAll('[data-pi]').forEach(el => {
+    el.addEventListener('input', e => {
+      const i = parseInt(e.target.dataset.pi);
+      const field = e.target.dataset.field;
+      step.properties[i][field] = e.target.value;
+      renderJSON();
+    });
+  });
+  document.querySelectorAll('[data-rm-prop]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      step.properties.splice(parseInt(btn.dataset.rmProp), 1);
+      renderSidebar();
+      renderJSON();
+    });
+  });
+  get('btn-add-prop')?.addEventListener('click', () => {
+    step.properties.push({ key: '', from: '' });
+    renderSidebar();
+  });
+
+  // Delete
+  get('btn-delete-node')?.addEventListener('click', () => removeStep(step.id));
+}
+
+function selectStep(id) {
+  state.selectedId = id;
+  render();
+}
+
+// ─── JSON export ──────────────────────────────────────────────────────────────
+function toJSON() {
+  const out = {
+    _schema: 'process_v2',
+  };
+  if (state.meta.note) out._note = state.meta.note;
+  out.type = state.meta.type;
+  out.root = state.meta.root;
+  out.ordering_constraints = state.meta.ordering_constraints;
+
+  out.steps = state.steps.map(step => {
+    const s = { id: step.id, action: step.action };
+    s.execution_order = step.execution_order;
+
+    if (step.id !== state.meta.root && step.parent) s.parent = step.parent;
+    if (step.is_hidden) s.is_hidden = true;
+
+    // Argument
+    if (step.argument.argType === 'from') {
+      s.argument = { from: step.argument.from };
+    } else {
+      s.argument = { type: step.argument.argType };
+    }
+
+    // Properties (non-empty only)
+    const props = step.properties.filter(p => p.key || p.from);
+    if (props.length) s.properties = props.map(p => ({ key: p.key, from: p.from }));
+
+    return s;
+  });
+
+  return JSON.stringify(out, null, 2);
+}
+
+function renderJSON() {
+  document.getElementById('json-out').value = toJSON();
+}
+
+// ─── Import JSON ──────────────────────────────────────────────────────────────
+function loadFromJSON(json) {
+  let data;
+  try { data = JSON.parse(json); } catch (e) { alert('Invalid JSON: ' + e.message); return; }
+
+  state.steps = [];
+  state.meta.note = data._note || '';
+  state.meta.type = data.type || 'sequence';
+  state.meta.root = data.root || '';
+  state.meta.ordering_constraints = (data.ordering_constraints || []).map(c => {
+    // Support both {before, after} (our UI format) and raw arrays
+    if (Array.isArray(c)) return { before: c[0]?.[0] || '', after: c[1]?.[0] || '' };
+    return { before: c.before || '', after: c.after || '' };
+  });
+  state.counters = {};
+
+  (data.steps || []).forEach(s => {
+    // Update counters
+    const m = s.id.match(/^(\w+?)_(\d+)$/);
+    if (m) {
+      const action = m[1], n = parseInt(m[2]) + 1;
+      if (!state.counters[action] || state.counters[action] < n) state.counters[action] = n;
+    }
+    const arg = s.argument || {};
+    state.steps.push({
+      id: s.id,
+      action: s.action || 'go',
+      execution_order: s.execution_order ?? 0,
+      parent: s.parent || null,
+      is_hidden: s.is_hidden || false,
+      argument: {
+        argType: 'from' in arg ? 'from' : (arg.type || 'object'),
+        from: arg.from || '',
+      },
+      properties: (s.properties || []).map(p => ({ key: p.key || '', from: p.from || '' })),
+      x: 0, y: 0,
+    });
+  });
+
+  state.selectedId = null;
+  autoLayout();
+  render();
+}
+
+// ─── Canvas interaction ───────────────────────────────────────────────────────
+function onNodeMouseDown(e) {
+  if (e.button !== 0) return;
+  e.stopPropagation();
+  const id = e.currentTarget.dataset.id;
+  const step = getStep(id);
+  if (!step) return;
+  const cp = screenToCanvas(e.clientX, e.clientY);
+  state.drag = { id, offsetX: cp.x - step.x, offsetY: cp.y - step.y };
+}
+
+document.addEventListener('mousemove', e => {
+  if (state.drag) {
+    const cp = screenToCanvas(e.clientX, e.clientY);
+    const step = getStep(state.drag.id);
+    if (step) {
+      step.x = cp.x - state.drag.offsetX;
+      step.y = cp.y - state.drag.offsetY;
+      // Move node directly for performance, redraw arrows
+      const el = document.querySelector(`.node[data-id="${CSS.escape(state.drag.id)}"]`);
+      if (el) { el.style.left = step.x + 'px'; el.style.top = step.y + 'px'; }
+      renderArrows();
+    }
+  } else if (state.pan) {
+    const dx = e.clientX - state.pan.startX;
+    const dy = e.clientY - state.pan.startY;
+    state.transform.x = state.pan.tx + dx;
+    state.transform.y = state.pan.ty + dy;
+    applyTransform();
+  }
+});
+
+document.addEventListener('mouseup', () => {
+  state.drag = null;
+  state.pan  = null;
+});
+
+// Pan on canvas background
+document.getElementById('canvas-wrap').addEventListener('mousedown', e => {
+  if (e.button === 1 || (e.button === 0 && !e.target.closest('.node'))) {
+    e.preventDefault();
+    state.pan = {
+      startX: e.clientX, startY: e.clientY,
+      tx: state.transform.x, ty: state.transform.y,
+    };
+    if (e.button === 0) { state.selectedId = null; renderSidebar(); }
+  }
+});
+
+// Scroll to zoom
+document.getElementById('canvas-wrap').addEventListener('wheel', e => {
+  e.preventDefault();
+  const wrap = document.getElementById('canvas-wrap');
+  const rect = wrap.getBoundingClientRect();
+  const mx = e.clientX - rect.left;
+  const my = e.clientY - rect.top;
+  const factor = e.deltaY < 0 ? 1.1 : 0.9;
+  const { x, y, scale } = state.transform;
+  const newScale = Math.max(0.2, Math.min(3, scale * factor));
+  state.transform.x = mx - (mx - x) * (newScale / scale);
+  state.transform.y = my - (my - y) * (newScale / scale);
+  state.transform.scale = newScale;
+  applyTransform();
+}, { passive: false });
+
+// ─── Panel collapse toggles ───────────────────────────────────────────────────
+document.querySelectorAll('.panel-hdr').forEach(hdr => {
+  hdr.addEventListener('click', () => {
+    const bodyId = 'body-' + hdr.dataset.panel;
+    const body = document.getElementById(bodyId);
+    if (!body) return;
+    body.classList.toggle('hidden');
+    hdr.classList.toggle('collapsed');
+  });
+});
+
+// ─── Sidebar event delegation (process config) ────────────────────────────────
+document.getElementById('cfg-note').addEventListener('input', e => {
+  state.meta.note = e.target.value; renderJSON();
+});
+document.getElementById('cfg-type').addEventListener('change', e => {
+  state.meta.type = e.target.value; renderJSON();
+});
+document.getElementById('cfg-root').addEventListener('change', e => {
+  state.meta.root = e.target.value;
+  // Clear parent of new root
+  const step = getStep(e.target.value);
+  if (step) step.parent = null;
+  render();
+});
+
+// Constraints delegation
+document.getElementById('constraints-list').addEventListener('change', e => {
+  const sel = e.target;
+  const i = parseInt(sel.dataset.con);
+  const field = sel.dataset.field;
+  if (!isNaN(i) && field) {
+    state.meta.ordering_constraints[i][field] = sel.value;
+    renderArrows(); renderJSON();
+  }
+});
+document.getElementById('constraints-list').addEventListener('click', e => {
+  const btn = e.target.closest('[data-rm-con]');
+  if (btn) {
+    state.meta.ordering_constraints.splice(parseInt(btn.dataset.rmCon), 1);
+    renderProcessConfig(); renderArrows(); renderJSON();
+  }
+});
+document.getElementById('btn-add-constraint').addEventListener('click', () => {
+  const ids = stepIds();
+  if (ids.length < 2) { alert('Add at least 2 steps first.'); return; }
+  state.meta.ordering_constraints.push({ before: ids[0], after: ids[1] });
+  renderProcessConfig(); renderJSON();
+});
+
+// ─── Topbar buttons ───────────────────────────────────────────────────────────
+document.querySelectorAll('.add-btn').forEach(btn => {
+  btn.addEventListener('click', () => addStep(btn.dataset.action));
+});
+
+document.getElementById('btn-layout').addEventListener('click', () => {
+  autoLayout(); renderNodes(); renderArrows();
+});
+
+document.getElementById('btn-clear').addEventListener('click', () => {
+  if (!state.steps.length || confirm('Clear all steps?')) {
+    state.steps = []; state.meta = { note:'', type:'sequence', root:'', ordering_constraints:[] };
+    state.selectedId = null; state.counters = {};
+    render();
+  }
+});
+
+document.getElementById('btn-load').addEventListener('click', () => {
+  document.getElementById('file-input').click();
+});
+document.getElementById('file-input').addEventListener('change', e => {
+  const file = e.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => { loadFromJSON(ev.target.result); };
+  reader.readAsText(file);
+  e.target.value = '';
+});
+
+document.getElementById('btn-export').addEventListener('click', () => {
+  const json = toJSON();
+  const blob = new Blob([json], { type: 'application/json' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url; a.download = 'process.json'; a.click();
+  URL.revokeObjectURL(url);
+});
+
+document.getElementById('btn-copy').addEventListener('click', () => {
+  navigator.clipboard.writeText(toJSON()).then(() => {
+    const btn = document.getElementById('btn-copy');
+    btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Copy', 1500);
+  });
+});
+
+document.getElementById('btn-download').addEventListener('click', () => {
+  document.getElementById('btn-export').click();
+});
+
+document.getElementById('btn-toggle-json').addEventListener('click', () => {
+  const panel = document.getElementById('json-panel');
+  const btn   = document.getElementById('btn-toggle-json');
+  panel.classList.toggle('collapsed');
+  btn.textContent = panel.classList.contains('collapsed') ? '▼ Show' : '▲ Hide';
+});
+
+// ─── Example process (property_flat) ───────────────────────────────────────────
+document.getElementById('btn-example').addEventListener('click', () => {
+  if (state.steps.length && !confirm('Replace current process with the example?')) return;
+  loadFromJSON(JSON.stringify({
+    _schema: 'process_v2',
+    _note: 'Flat 4-step process: go to item shop → buy item → go to entity → defeat entity.',
+    type: 'sequence',
+    root: 'defeat_0',
+    ordering_constraints: [],
+    steps: [
+      {
+        id: 'go_item', action: 'go', execution_order: 0, parent: 'buy_0',
+        argument: { from: 'buy_0.location' },
+      },
+      {
+        id: 'buy_0', action: 'buy', execution_order: 1, parent: 'defeat_0',
+        is_hidden: true,
+        argument: { type: 'object' },
+        properties: [
+          { key: 'location', from: 'argument.location' },
+          { key: 'cost',     from: 'argument.cost'     },
+        ],
+      },
+      {
+        id: 'go_entity', action: 'go', execution_order: 2, parent: 'defeat_0',
+        argument: { from: 'defeat_0.location' },
+      },
+      {
+        id: 'defeat_0', action: 'defeat',
+        argument: { type: 'entity' },
+        properties: [
+          { key: 'location',         from: 'argument.location'         },
+          { key: 'attribute_names',  from: 'argument.attribute_names'  },
+          { key: 'attribute_values', from: 'argument.attribute_values' },
+        ],
+      },
+    ],
+  }));
+});
+
+// ─── Init ─────────────────────────────────────────────────────────────────────
+applyTransform();
+render();
+</script>
+</body>
+</html>

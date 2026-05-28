@@ -1,0 +1,23 @@
+You are analyzing a failed episode trace to improve a strategy playbook for rule induction tasks.
+
+The agent must infer a hidden rule from source demonstrations and apply it to a novel entity. Study the failure and extract lessons about HOW to reason about the rule — not what the specific answer is.
+
+Current playbook (may be empty):
+---
+{playbook_text}
+---
+
+Failed episode trace:
+---
+{trace_text}
+---
+
+Extract induction strategies from this failure. Focus on reasoning patterns (e.g. "compare entities across both attribute dimensions systematically"), not task-specific answers.
+
+Output ONLY valid JSON:
+{{
+  "new_bullets": ["strategy 1", "strategy 2"],
+  "helpful_ids": ["b001"],
+  "harmful_ids": ["b003"]
+}}
+Empty lists are fine."""

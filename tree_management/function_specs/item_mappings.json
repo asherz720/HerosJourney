@@ -1,0 +1,11 @@
+{
+  "_note": "Built-in item mapping functions. Reference by name in rule files.",
+  "join": {
+    "description": "Item identity is the cross-product of all dimension values. item_id is row-major index over dimensions in the order listed in the rule file. Semantic name: dim0_dim1_..._object. Nonce name: nonce_dim0_nonce_dim1_...",
+    "example": "items: \"join\""
+  },
+  "index": {
+    "description": "Single-dimension mapping. item_id equals the dimension value index directly. Semantic name: dim_value_object. Nonce name: nonce_dim_value.",
+    "example": "items: \"index\""
+  }
+}

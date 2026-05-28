@@ -1,0 +1,909 @@
+{
+  "attribute_labels": {
+    "class": {
+      "semantic_name": "class",
+      "nonce_name": "vrel"
+    },
+    "role": {
+      "semantic_name": "role",
+      "nonce_name": "korv"
+    }
+  },
+  "entities": {
+    "source": [
+      {
+        "instance": "Petra_Thornwick",
+        "nonce_instance": "Drev_Kornak",
+        "location": "citadel",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "sentinel"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "sentinel"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "citadel"
+        }
+      },
+      {
+        "instance": "Dax_Dawnmere",
+        "nonce_instance": "Seln_Varoth",
+        "location": "vineyard",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "diviner"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "diviner"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "vineyard"
+        }
+      },
+      {
+        "instance": "Finn_Blackvale",
+        "nonce_instance": "Tav_Greln",
+        "location": "farmstead",
+        "attributes": {
+          "class": 1,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "mender"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "mender"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "farmstead"
+        }
+      },
+      {
+        "instance": "Brynn_Starwick",
+        "nonce_instance": "Brev_Solnak",
+        "location": "manor",
+        "attributes": {
+          "class": 1,
+          "role": 3
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "healer"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_W"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "healer"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_W"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "manor"
+        }
+      },
+      {
+        "instance": "Ren_Pinehearth",
+        "nonce_instance": "Korv_Delnath",
+        "location": "watchtower",
+        "attributes": {
+          "class": 2,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "serf",
+          "role": "sentinel"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "serf",
+          "sentinel"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "watchtower"
+        }
+      },
+      {
+        "instance": "Cael_Dunmere",
+        "nonce_instance": "Vren_Blornath",
+        "location": "tower",
+        "attributes": {
+          "class": 2,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "serf",
+          "role": "diviner"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "serf",
+          "diviner"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "tower"
+        }
+      },
+      {
+        "instance": "Hadwin_Dusthaven",
+        "nonce_instance": "Shen_Korvnak",
+        "location": "glassworks",
+        "attributes": {
+          "class": 2,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "serf",
+          "role": "mender"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "serf",
+          "mender"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "glassworks"
+        }
+      },
+      {
+        "instance": "Lyra_Ashveil",
+        "nonce_instance": "Tor_Draxeln",
+        "location": "granary",
+        "attributes": {
+          "class": 2,
+          "role": 3
+        },
+        "attribute_values": {
+          "class": "serf",
+          "role": "healer"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_W"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "serf",
+          "healer"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_W"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "granary"
+        }
+      },
+      {
+        "instance": "Veric_Thornfield",
+        "nonce_instance": "Relv_Sornath",
+        "location": "warehouse",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "cleric",
+          "role": "sentinel"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "cleric",
+          "sentinel"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "warehouse"
+        }
+      }
+    ],
+    "gen": [
+      {
+        "instance": "Wren_Greywing",
+        "nonce_instance": "Blorn_Tavrek",
+        "location": "chapel",
+        "attributes": {
+          "class": 0,
+          "role": 3
+        },
+        "attribute_values": {
+          "class": "cleric",
+          "role": "healer"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_W"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "cleric",
+          "healer"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_W"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "chapel"
+        }
+      },
+      {
+        "instance": "Elara_Veilmoor",
+        "nonce_instance": "Frev_Blenth",
+        "location": "market_square",
+        "attributes": {
+          "class": 0,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "cleric",
+          "role": "mender"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "cleric",
+          "mender"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "market_square"
+        }
+      },
+      {
+        "instance": "Oren_Marshwick",
+        "nonce_instance": "Skel_Grexorn",
+        "location": "archive",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "cleric",
+          "role": "diviner"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "cleric",
+          "diviner"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "archive"
+        }
+      }
+    ],
+    "all": [
+      {
+        "instance": "Petra_Thornwick",
+        "nonce_instance": "Drev_Kornak",
+        "location": "citadel",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "sentinel"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "sentinel"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "citadel"
+        }
+      },
+      {
+        "instance": "Dax_Dawnmere",
+        "nonce_instance": "Seln_Varoth",
+        "location": "vineyard",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "diviner"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "diviner"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "vineyard"
+        }
+      },
+      {
+        "instance": "Finn_Blackvale",
+        "nonce_instance": "Tav_Greln",
+        "location": "farmstead",
+        "attributes": {
+          "class": 1,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "mender"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "mender"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "farmstead"
+        }
+      },
+      {
+        "instance": "Brynn_Starwick",
+        "nonce_instance": "Brev_Solnak",
+        "location": "manor",
+        "attributes": {
+          "class": 1,
+          "role": 3
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "healer"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_W"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "healer"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_W"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "manor"
+        }
+      },
+      {
+        "instance": "Ren_Pinehearth",
+        "nonce_instance": "Korv_Delnath",
+        "location": "watchtower",
+        "attributes": {
+          "class": 2,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "serf",
+          "role": "sentinel"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "serf",
+          "sentinel"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "watchtower"
+        }
+      },
+      {
+        "instance": "Cael_Dunmere",
+        "nonce_instance": "Vren_Blornath",
+        "location": "tower",
+        "attributes": {
+          "class": 2,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "serf",
+          "role": "diviner"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "serf",
+          "diviner"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "tower"
+        }
+      },
+      {
+        "instance": "Hadwin_Dusthaven",
+        "nonce_instance": "Shen_Korvnak",
+        "location": "glassworks",
+        "attributes": {
+          "class": 2,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "serf",
+          "role": "mender"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "serf",
+          "mender"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "glassworks"
+        }
+      },
+      {
+        "instance": "Lyra_Ashveil",
+        "nonce_instance": "Tor_Draxeln",
+        "location": "granary",
+        "attributes": {
+          "class": 2,
+          "role": 3
+        },
+        "attribute_values": {
+          "class": "serf",
+          "role": "healer"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_W"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "serf",
+          "healer"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_W"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "granary"
+        }
+      },
+      {
+        "instance": "Veric_Thornfield",
+        "nonce_instance": "Relv_Sornath",
+        "location": "warehouse",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "cleric",
+          "role": "sentinel"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "cleric",
+          "sentinel"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "warehouse"
+        }
+      },
+      {
+        "instance": "Wren_Greywing",
+        "nonce_instance": "Blorn_Tavrek",
+        "location": "chapel",
+        "attributes": {
+          "class": 0,
+          "role": 3
+        },
+        "attribute_values": {
+          "class": "cleric",
+          "role": "healer"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_W"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "cleric",
+          "healer"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_W"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "chapel"
+        }
+      },
+      {
+        "instance": "Elara_Veilmoor",
+        "nonce_instance": "Frev_Blenth",
+        "location": "market_square",
+        "attributes": {
+          "class": 0,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "cleric",
+          "role": "mender"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "cleric",
+          "mender"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "market_square"
+        }
+      },
+      {
+        "instance": "Oren_Marshwick",
+        "nonce_instance": "Skel_Grexorn",
+        "location": "archive",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "cleric",
+          "role": "diviner"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "cleric",
+          "diviner"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "archive"
+        }
+      }
+    ]
+  },
+  "_pool_map": {
+    "entity.npc": "entities.all"
+  },
+  "_input_category": "entity.npc",
+  "_input_meta": {
+    "name": [
+      "name_pools.first",
+      "name_pools.last"
+    ],
+    "repeat_name": [
+      "name_pools.repeat_first",
+      "name_pools.repeat_last"
+    ],
+    "properties": {
+      "location": "locations"
+    }
+  },
+  "_attr_order": [
+    "class",
+    "role"
+  ],
+  "_variant_info": {
+    "seed": 14,
+    "variant_type": "procedural_filled"
+  }
+}

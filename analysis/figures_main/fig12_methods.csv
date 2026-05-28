@@ -1,0 +1,17 @@
+method,model,family,mean_delta,p_adj,stars
+ACE,GPT,Attribute,0.0252,1.0,
+ACE,GPT,Procedural,0.0488,1.0,
+ACE,Qwen,Attribute,0.1004,0.0044,**
+ACE,Qwen,Procedural,0.0213,1.0,
+HR,GPT,Attribute,0.0486,0.476,
+HR,GPT,Procedural,-0.0625,0.5428,
+HR,Qwen,Attribute,0.2688,0.0,***
+HR,Qwen,Procedural,-0.0163,1.0,
+IDEA,GPT,Attribute,0.1037,0.0024,**
+IDEA,GPT,Procedural,0.0297,1.0,
+IDEA,Qwen,Attribute,0.1976,0.0,***
+IDEA,Qwen,Procedural,0.0583,0.3328,
+ReAct,GPT,Attribute,0.0109,1.0,
+ReAct,GPT,Procedural,-0.0443,0.9288,
+ReAct,Qwen,Attribute,0.0407,0.9536,
+ReAct,Qwen,Procedural,-0.0213,1.0,

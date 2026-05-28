@@ -1,0 +1,1008 @@
+{
+  "n_items": 12,
+  "attribute_labels": {
+    "class": {
+      "semantic_name": "class",
+      "nonce_name": "vrel"
+    },
+    "role": {
+      "semantic_name": "role",
+      "nonce_name": "korv"
+    }
+  },
+  "entities": {
+    "source": [
+      {
+        "instance": "Mira_Starwick",
+        "nonce_instance": "Drev_Kornak",
+        "location": "stable",
+        "attributes": {
+          "class": 1,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "pilgrim",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "pilgrim",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "stable"
+        },
+        "item_id": 10
+      },
+      {
+        "instance": "Sabel_Duskwood",
+        "nonce_instance": "Seln_Varoth",
+        "location": "tower",
+        "attributes": {
+          "class": 2,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "tower"
+        },
+        "item_id": 7
+      },
+      {
+        "instance": "Corvin_Dunmere",
+        "nonce_instance": "Tav_Greln",
+        "location": "watchtower",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "warrior"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "warrior"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "watchtower"
+        },
+        "item_id": 8
+      },
+      {
+        "instance": "Edith_Marshwick",
+        "nonce_instance": "Brev_Solnak",
+        "location": "glassworks",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "pilgrim",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "pilgrim",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "glassworks"
+        },
+        "item_id": 9
+      },
+      {
+        "instance": "Theron_Dusthaven",
+        "nonce_instance": "Korv_Delnath",
+        "location": "mill",
+        "attributes": {
+          "class": 3,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "scribe",
+          "role": "warrior"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_D",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "scribe",
+          "warrior"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_D",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "mill"
+        },
+        "item_id": 11
+      },
+      {
+        "instance": "Ira_Ashford",
+        "nonce_instance": "Vren_Blornath",
+        "location": "observatory",
+        "attributes": {
+          "class": 0,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "observatory"
+        },
+        "item_id": 10
+      },
+      {
+        "instance": "Petra_Millward",
+        "nonce_instance": "Shen_Korvnak",
+        "location": "bazaar",
+        "attributes": {
+          "class": 2,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "bazaar"
+        },
+        "item_id": 3
+      },
+      {
+        "instance": "Elara_Ravenmoor",
+        "nonce_instance": "Tor_Draxeln",
+        "location": "amphitheater",
+        "attributes": {
+          "class": 3,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "scribe",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_D",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "scribe",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_D",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "amphitheater"
+        },
+        "item_id": 3
+      }
+    ],
+    "gen": [
+      {
+        "instance": "Cress_Coppergate",
+        "nonce_instance": "Relv_Sornath",
+        "location": "archive",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "archive"
+        },
+        "item_id": 9
+      },
+      {
+        "instance": "Cael_Coldwater",
+        "nonce_instance": "Blorn_Tavrek",
+        "location": "quarry",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "pilgrim",
+          "role": "warrior"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "pilgrim",
+          "warrior"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "quarry"
+        },
+        "item_id": 8
+      },
+      {
+        "instance": "Zara_Crestfall",
+        "nonce_instance": "Frev_Blenth",
+        "location": "farmstead",
+        "attributes": {
+          "class": 2,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "warrior"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "warrior"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "farmstead"
+        },
+        "item_id": 11
+      },
+      {
+        "instance": "Gareth_Ashveil",
+        "nonce_instance": "Skel_Grexorn",
+        "location": "market_square",
+        "attributes": {
+          "class": 3,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "scribe",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_D",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "scribe",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_D",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "market_square"
+        },
+        "item_id": 7
+      }
+    ],
+    "all": [
+      {
+        "instance": "Mira_Starwick",
+        "nonce_instance": "Drev_Kornak",
+        "location": "stable",
+        "attributes": {
+          "class": 1,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "pilgrim",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "pilgrim",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "stable"
+        },
+        "item_id": 10
+      },
+      {
+        "instance": "Sabel_Duskwood",
+        "nonce_instance": "Seln_Varoth",
+        "location": "tower",
+        "attributes": {
+          "class": 2,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "tower"
+        },
+        "item_id": 7
+      },
+      {
+        "instance": "Corvin_Dunmere",
+        "nonce_instance": "Tav_Greln",
+        "location": "watchtower",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "warrior"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "warrior"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "watchtower"
+        },
+        "item_id": 8
+      },
+      {
+        "instance": "Edith_Marshwick",
+        "nonce_instance": "Brev_Solnak",
+        "location": "glassworks",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "pilgrim",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "pilgrim",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "glassworks"
+        },
+        "item_id": 9
+      },
+      {
+        "instance": "Theron_Dusthaven",
+        "nonce_instance": "Korv_Delnath",
+        "location": "mill",
+        "attributes": {
+          "class": 3,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "scribe",
+          "role": "warrior"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_D",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "scribe",
+          "warrior"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_D",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "mill"
+        },
+        "item_id": 11
+      },
+      {
+        "instance": "Ira_Ashford",
+        "nonce_instance": "Vren_Blornath",
+        "location": "observatory",
+        "attributes": {
+          "class": 0,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "observatory"
+        },
+        "item_id": 10
+      },
+      {
+        "instance": "Petra_Millward",
+        "nonce_instance": "Shen_Korvnak",
+        "location": "bazaar",
+        "attributes": {
+          "class": 2,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "bazaar"
+        },
+        "item_id": 3
+      },
+      {
+        "instance": "Elara_Ravenmoor",
+        "nonce_instance": "Tor_Draxeln",
+        "location": "amphitheater",
+        "attributes": {
+          "class": 3,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "scribe",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_D",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "scribe",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_D",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "amphitheater"
+        },
+        "item_id": 3
+      },
+      {
+        "instance": "Cress_Coppergate",
+        "nonce_instance": "Relv_Sornath",
+        "location": "archive",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "archive"
+        },
+        "item_id": 9
+      },
+      {
+        "instance": "Cael_Coldwater",
+        "nonce_instance": "Blorn_Tavrek",
+        "location": "quarry",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "pilgrim",
+          "role": "warrior"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "pilgrim",
+          "warrior"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "quarry"
+        },
+        "item_id": 8
+      },
+      {
+        "instance": "Zara_Crestfall",
+        "nonce_instance": "Frev_Blenth",
+        "location": "farmstead",
+        "attributes": {
+          "class": 2,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "warrior"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "warrior"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "farmstead"
+        },
+        "item_id": 11
+      },
+      {
+        "instance": "Gareth_Ashveil",
+        "nonce_instance": "Skel_Grexorn",
+        "location": "market_square",
+        "attributes": {
+          "class": 3,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "scribe",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_D",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "scribe",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_D",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "market_square"
+        },
+        "item_id": 7
+      }
+    ]
+  },
+  "_output_category": "object.weapon",
+  "_dim_sem": {
+    "color": [
+      "gold",
+      "amber",
+      "white"
+    ],
+    "size": [
+      "colossal",
+      "great",
+      "short",
+      "standard"
+    ]
+  },
+  "_dim_nonce": {
+    "color": [
+      "rux",
+      "grex",
+      "skel"
+    ],
+    "size": [
+      "trev",
+      "vrek",
+      "vorx",
+      "sorn"
+    ]
+  },
+  "_dim_strides": {
+    "size": 1,
+    "color": 4
+  },
+  "_dim_order": [
+    "color",
+    "size"
+  ],
+  "_items_fn": "join",
+  "_output_noun": "spear",
+  "_output_noun_nonce": "meln",
+  "_output_prop_samples": {
+    "object.weapon.locations": "foundry"
+  },
+  "_output_item_props": {
+    "location": "foundry"
+  },
+  "_reserved_variant_pools": {
+    "object.weapon.locations": [
+      "foundry"
+    ]
+  },
+  "_n_items": 12,
+  "_pool_map": {
+    "entity.npc": "entities.all"
+  },
+  "_composition": {
+    "fn": "conditional",
+    "selector": {
+      "input": "class",
+      "map": [
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    "branches": [
+      {
+        "regime": 0,
+        "active_fn": "f_size_r0",
+        "fixed": {
+          "color": 2
+        }
+      },
+      {
+        "regime": 1,
+        "active_fn": "f_color_r1",
+        "fixed": {
+          "size": 3
+        }
+      }
+    ]
+  },
+  "_input_category": "entity.npc",
+  "_input_meta": {
+    "name": [
+      "name_pools.first",
+      "name_pools.last"
+    ],
+    "repeat_name": [
+      "name_pools.repeat_first",
+      "name_pools.repeat_last"
+    ],
+    "properties": {
+      "location": "locations"
+    }
+  },
+  "_variant_info": {
+    "seed": 12,
+    "variant_type": "filled"
+  }
+}

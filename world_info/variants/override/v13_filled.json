@@ -1,0 +1,754 @@
+{
+  "n_items": 4,
+  "attribute_labels": {
+    "class": {
+      "semantic_name": "class",
+      "nonce_name": "vrel"
+    },
+    "role": {
+      "semantic_name": "role",
+      "nonce_name": "korv"
+    }
+  },
+  "entities": {
+    "source": [
+      {
+        "instance": "Corvin_Embervane",
+        "nonce_instance": "Drev_Kornak",
+        "location": "library",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "baron",
+          "role": "archivist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "baron",
+          "archivist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "library"
+        },
+        "item_id": 0
+      },
+      {
+        "instance": "Petra_Ravenmoor",
+        "nonce_instance": "Seln_Varoth",
+        "location": "harbor",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "baron",
+          "role": "vanguard"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "baron",
+          "vanguard"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "harbor"
+        },
+        "item_id": 0
+      },
+      {
+        "instance": "Fenn_Ashveil",
+        "nonce_instance": "Tav_Greln",
+        "location": "barracks",
+        "attributes": {
+          "class": 0,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "baron",
+          "role": "medic"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "baron",
+          "medic"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "barracks"
+        },
+        "item_id": 3
+      },
+      {
+        "instance": "Gareth_Thornwick",
+        "nonce_instance": "Brev_Solnak",
+        "location": "crossroads",
+        "attributes": {
+          "class": 2,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "archivist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "archivist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "crossroads"
+        },
+        "item_id": 2
+      },
+      {
+        "instance": "Veric_Dawnmere",
+        "nonce_instance": "Korv_Delnath",
+        "location": "tannery",
+        "attributes": {
+          "class": 2,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "vanguard"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "vanguard"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "tannery"
+        },
+        "item_id": 2
+      },
+      {
+        "instance": "Dorian_Blackvale",
+        "nonce_instance": "Vren_Blornath",
+        "location": "vineyard",
+        "attributes": {
+          "class": 2,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "medic"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "medic"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "vineyard"
+        },
+        "item_id": 3
+      },
+      {
+        "instance": "Theron_Ashford",
+        "nonce_instance": "Shen_Korvnak",
+        "location": "tower",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "serf",
+          "role": "vanguard"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "serf",
+          "vanguard"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "tower"
+        },
+        "item_id": 1
+      }
+    ],
+    "gen": [
+      {
+        "instance": "Zara_Silverbranch",
+        "nonce_instance": "Tor_Draxeln",
+        "location": "lighthouse",
+        "attributes": {
+          "class": 1,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "serf",
+          "role": "medic"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "serf",
+          "medic"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "lighthouse"
+        },
+        "item_id": 3
+      },
+      {
+        "instance": "Dax_Greywing",
+        "nonce_instance": "Relv_Sornath",
+        "location": "manor",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "serf",
+          "role": "archivist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "serf",
+          "archivist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "manor"
+        },
+        "item_id": 1
+      }
+    ],
+    "all": [
+      {
+        "instance": "Corvin_Embervane",
+        "nonce_instance": "Drev_Kornak",
+        "location": "library",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "baron",
+          "role": "archivist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "baron",
+          "archivist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "library"
+        },
+        "item_id": 0
+      },
+      {
+        "instance": "Petra_Ravenmoor",
+        "nonce_instance": "Seln_Varoth",
+        "location": "harbor",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "baron",
+          "role": "vanguard"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "baron",
+          "vanguard"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "harbor"
+        },
+        "item_id": 0
+      },
+      {
+        "instance": "Fenn_Ashveil",
+        "nonce_instance": "Tav_Greln",
+        "location": "barracks",
+        "attributes": {
+          "class": 0,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "baron",
+          "role": "medic"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "baron",
+          "medic"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "barracks"
+        },
+        "item_id": 3
+      },
+      {
+        "instance": "Gareth_Thornwick",
+        "nonce_instance": "Brev_Solnak",
+        "location": "crossroads",
+        "attributes": {
+          "class": 2,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "archivist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "archivist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "crossroads"
+        },
+        "item_id": 2
+      },
+      {
+        "instance": "Veric_Dawnmere",
+        "nonce_instance": "Korv_Delnath",
+        "location": "tannery",
+        "attributes": {
+          "class": 2,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "vanguard"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "vanguard"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "tannery"
+        },
+        "item_id": 2
+      },
+      {
+        "instance": "Dorian_Blackvale",
+        "nonce_instance": "Vren_Blornath",
+        "location": "vineyard",
+        "attributes": {
+          "class": 2,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "medic"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "medic"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "vineyard"
+        },
+        "item_id": 3
+      },
+      {
+        "instance": "Theron_Ashford",
+        "nonce_instance": "Shen_Korvnak",
+        "location": "tower",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "serf",
+          "role": "vanguard"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "serf",
+          "vanguard"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "tower"
+        },
+        "item_id": 1
+      },
+      {
+        "instance": "Zara_Silverbranch",
+        "nonce_instance": "Tor_Draxeln",
+        "location": "lighthouse",
+        "attributes": {
+          "class": 1,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "serf",
+          "role": "medic"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "serf",
+          "medic"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "lighthouse"
+        },
+        "item_id": 3
+      },
+      {
+        "instance": "Dax_Greywing",
+        "nonce_instance": "Relv_Sornath",
+        "location": "manor",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "serf",
+          "role": "archivist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "serf",
+          "archivist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "manor"
+        },
+        "item_id": 1
+      }
+    ]
+  },
+  "_output_category": "object.weapon",
+  "_dim_sem": {
+    "size": [
+      "tiny",
+      "great",
+      "short",
+      "standard"
+    ]
+  },
+  "_dim_nonce": {
+    "size": [
+      "blorn",
+      "grel",
+      "skev",
+      "sorn"
+    ]
+  },
+  "_dim_strides": {
+    "size": 1
+  },
+  "_dim_order": [
+    "size"
+  ],
+  "_items_fn": "index",
+  "_output_noun": "dagger",
+  "_output_noun_nonce": "meln",
+  "_output_prop_samples": {
+    "object.weapon.locations": "workshop"
+  },
+  "_output_item_props": {
+    "location": "workshop"
+  },
+  "_reserved_variant_pools": {
+    "object.weapon.locations": [
+      "workshop"
+    ]
+  },
+  "_n_items": 4,
+  "_pool_map": {
+    "entity.npc": "entities.all"
+  },
+  "_composition": {
+    "fn": "override",
+    "base_fn": "f_base",
+    "override_attr": "role",
+    "override_value": 2,
+    "override_dim": "size",
+    "override_dim_value": 3
+  },
+  "_input_category": "entity.npc",
+  "_input_meta": {
+    "name": [
+      "name_pools.first",
+      "name_pools.last"
+    ],
+    "repeat_name": [
+      "name_pools.repeat_first",
+      "name_pools.repeat_last"
+    ],
+    "properties": {
+      "location": "locations"
+    }
+  },
+  "_variant_info": {
+    "seed": 13,
+    "variant_type": "filled"
+  }
+}

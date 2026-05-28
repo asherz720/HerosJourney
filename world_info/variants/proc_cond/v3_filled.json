@@ -1,0 +1,621 @@
+{
+  "attribute_labels": {
+    "class": {
+      "semantic_name": "class",
+      "nonce_name": "vrel"
+    },
+    "role": {
+      "semantic_name": "role",
+      "nonce_name": "korv"
+    }
+  },
+  "entities": {
+    "source": [
+      {
+        "instance": "Aldric_Ashford",
+        "nonce_instance": "Drev_Kornak",
+        "location": "vineyard",
+        "attributes": {
+          "class": 2,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "herald",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "herald",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "vineyard"
+        }
+      },
+      {
+        "instance": "Sabel_Greymantle",
+        "nonce_instance": "Seln_Varoth",
+        "location": "granary",
+        "attributes": {
+          "class": 3,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_D",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_D",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "granary"
+        }
+      },
+      {
+        "instance": "Theron_Crestfall",
+        "nonce_instance": "Tav_Greln",
+        "location": "dockyard",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "alchemist",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "alchemist",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "dockyard"
+        }
+      },
+      {
+        "instance": "Fenn_Silverbranch",
+        "nonce_instance": "Brev_Solnak",
+        "location": "sanctuary",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "serf",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "serf",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "sanctuary"
+        }
+      },
+      {
+        "instance": "Gareth_Greywing",
+        "nonce_instance": "Korv_Delnath",
+        "location": "glassworks",
+        "attributes": {
+          "class": 3,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_D",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_D",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "glassworks"
+        }
+      },
+      {
+        "instance": "Nell_Thornwick",
+        "nonce_instance": "Vren_Blornath",
+        "location": "tannery",
+        "attributes": {
+          "class": 2,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "herald",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "herald",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "tannery"
+        }
+      },
+      {
+        "instance": "Veric_Dunmere",
+        "nonce_instance": "Shen_Korvnak",
+        "location": "quarry",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "alchemist",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "alchemist",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "quarry"
+        }
+      }
+    ],
+    "gen": [
+      {
+        "instance": "Torin_Ironbrook",
+        "nonce_instance": "Tor_Draxeln",
+        "location": "market_square",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "serf",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "serf",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "market_square"
+        }
+      }
+    ],
+    "all": [
+      {
+        "instance": "Aldric_Ashford",
+        "nonce_instance": "Drev_Kornak",
+        "location": "vineyard",
+        "attributes": {
+          "class": 2,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "herald",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "herald",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "vineyard"
+        }
+      },
+      {
+        "instance": "Sabel_Greymantle",
+        "nonce_instance": "Seln_Varoth",
+        "location": "granary",
+        "attributes": {
+          "class": 3,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_D",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_D",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "granary"
+        }
+      },
+      {
+        "instance": "Theron_Crestfall",
+        "nonce_instance": "Tav_Greln",
+        "location": "dockyard",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "alchemist",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "alchemist",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "dockyard"
+        }
+      },
+      {
+        "instance": "Fenn_Silverbranch",
+        "nonce_instance": "Brev_Solnak",
+        "location": "sanctuary",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "serf",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "serf",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "sanctuary"
+        }
+      },
+      {
+        "instance": "Gareth_Greywing",
+        "nonce_instance": "Korv_Delnath",
+        "location": "glassworks",
+        "attributes": {
+          "class": 3,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_D",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_D",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "glassworks"
+        }
+      },
+      {
+        "instance": "Nell_Thornwick",
+        "nonce_instance": "Vren_Blornath",
+        "location": "tannery",
+        "attributes": {
+          "class": 2,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "herald",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "herald",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "tannery"
+        }
+      },
+      {
+        "instance": "Veric_Dunmere",
+        "nonce_instance": "Shen_Korvnak",
+        "location": "quarry",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "alchemist",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "alchemist",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "quarry"
+        }
+      },
+      {
+        "instance": "Torin_Ironbrook",
+        "nonce_instance": "Tor_Draxeln",
+        "location": "market_square",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "serf",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "serf",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "market_square"
+        }
+      }
+    ]
+  },
+  "_pool_map": {
+    "entity.npc": "entities.all"
+  },
+  "_input_category": "entity.npc",
+  "_input_meta": {
+    "name": [
+      "name_pools.first",
+      "name_pools.last"
+    ],
+    "repeat_name": [
+      "name_pools.repeat_first",
+      "name_pools.repeat_last"
+    ],
+    "properties": {
+      "location": "locations"
+    }
+  },
+  "_attr_order": [
+    "class",
+    "role"
+  ],
+  "_variant_info": {
+    "seed": 3,
+    "variant_type": "procedural_filled"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "_note": "Distractor-specific lexicon. Same structure as semantic_lexicon.json. All attribute values, entity names, and locations are disjoint from semantic_lexicon.json to prevent distractor values from overlapping with main-task concept values. 'object.weapon.shape_labels' are used instead of dimension-based item names for distractor items.",
+
+  "entity": {
+    "npc": {
+      "attributes": {
+        "birthplace": ["goblin", "vampire", "troll", "shade", "ogre", "wraith", "bandit", "witch", "revenant", "specter", "fiend", "harpy"],
+        "eye_color":  ["brute", "scavenger", "lurker", "wanderer", "charmer", "thug", "sneak", "cursed", "marauder", "drifter", "ruffian", "raider"]
+      },
+      "name_pools": {
+        "first": ["Grak", "Mela", "Zorn", "Yeva", "Drex", "Brix", "Vorn", "Skex", "Thrak", "Durz", "Krell", "Slith"],
+        "last":  ["Swampborn", "Thornvine", "Ashcrawler", "Ironjaw", "Nightsnarl", "Mudhoof", "Stonefoot", "Grimtail", "Bogrot", "Murkfang", "Dirtclaw", "Scumveil"]
+      },
+      "locations": [
+        "fetid_bog", "briar_hollow", "cinder_pit", "granite_cave", "shadow_gorge", "marshland",
+        "boulder_pass", "burnt_hollow", "rot_hollow", "mire_cave", "ash_gully", "sludge_pit"
+      ]
+    }
+  },
+
+  "object": {
+    "weapon": {
+      "nouns":        ["blade", "sword", "dagger", "spear", "lance", "axe", "mace"],
+      "shape_labels": ["curved", "straight", "hooked", "serrated", "notched", "recurved", "barbed", "jagged", "tapered", "ridged", "hollow", "spiked"],
+      "locations":    ["scrap_yard", "bone_trader", "thorn_post", "weapon_dump", "spear_post", "clay_forge", "cudgel_trader", "club_stall"]
+    }
+  }
+}

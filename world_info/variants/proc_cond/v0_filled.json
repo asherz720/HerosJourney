@@ -1,0 +1,621 @@
+{
+  "attribute_labels": {
+    "class": {
+      "semantic_name": "class",
+      "nonce_name": "vrel"
+    },
+    "role": {
+      "semantic_name": "role",
+      "nonce_name": "korv"
+    }
+  },
+  "entities": {
+    "source": [
+      {
+        "instance": "Cael_Dusthaven",
+        "nonce_instance": "Drev_Kornak",
+        "location": "glassworks",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "scribe",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "scribe",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "glassworks"
+        }
+      },
+      {
+        "instance": "Zara_Ashveil",
+        "nonce_instance": "Seln_Varoth",
+        "location": "stable",
+        "attributes": {
+          "class": 2,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "merchant",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "merchant",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "stable"
+        }
+      },
+      {
+        "instance": "Corvin_Cloverhill",
+        "nonce_instance": "Tav_Greln",
+        "location": "observatory",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "ranger",
+          "role": "prophet"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "ranger",
+          "prophet"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "observatory"
+        }
+      },
+      {
+        "instance": "Finn_Veilmoor",
+        "nonce_instance": "Brev_Solnak",
+        "location": "archive",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "scribe",
+          "role": "prophet"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "scribe",
+          "prophet"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "archive"
+        }
+      },
+      {
+        "instance": "Nell_Frostgate",
+        "nonce_instance": "Korv_Delnath",
+        "location": "watchtower",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "ranger",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "ranger",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "watchtower"
+        }
+      },
+      {
+        "instance": "Oren_Coldwater",
+        "nonce_instance": "Vren_Blornath",
+        "location": "dockyard",
+        "attributes": {
+          "class": 3,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "captain",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_D",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "captain",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_D",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "dockyard"
+        }
+      },
+      {
+        "instance": "Sabel_Hollowfen",
+        "nonce_instance": "Shen_Korvnak",
+        "location": "plaza",
+        "attributes": {
+          "class": 3,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "captain",
+          "role": "prophet"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_D",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "captain",
+          "prophet"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_D",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "plaza"
+        }
+      }
+    ],
+    "gen": [
+      {
+        "instance": "Edith_Dawnmere",
+        "nonce_instance": "Tor_Draxeln",
+        "location": "manor",
+        "attributes": {
+          "class": 2,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "merchant",
+          "role": "prophet"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "merchant",
+          "prophet"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "manor"
+        }
+      }
+    ],
+    "all": [
+      {
+        "instance": "Cael_Dusthaven",
+        "nonce_instance": "Drev_Kornak",
+        "location": "glassworks",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "scribe",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "scribe",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "glassworks"
+        }
+      },
+      {
+        "instance": "Zara_Ashveil",
+        "nonce_instance": "Seln_Varoth",
+        "location": "stable",
+        "attributes": {
+          "class": 2,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "merchant",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "merchant",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "stable"
+        }
+      },
+      {
+        "instance": "Corvin_Cloverhill",
+        "nonce_instance": "Tav_Greln",
+        "location": "observatory",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "ranger",
+          "role": "prophet"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "ranger",
+          "prophet"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "observatory"
+        }
+      },
+      {
+        "instance": "Finn_Veilmoor",
+        "nonce_instance": "Brev_Solnak",
+        "location": "archive",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "scribe",
+          "role": "prophet"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "scribe",
+          "prophet"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "archive"
+        }
+      },
+      {
+        "instance": "Nell_Frostgate",
+        "nonce_instance": "Korv_Delnath",
+        "location": "watchtower",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "ranger",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "ranger",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "watchtower"
+        }
+      },
+      {
+        "instance": "Oren_Coldwater",
+        "nonce_instance": "Vren_Blornath",
+        "location": "dockyard",
+        "attributes": {
+          "class": 3,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "captain",
+          "role": "berserker"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_D",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "captain",
+          "berserker"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_D",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "dockyard"
+        }
+      },
+      {
+        "instance": "Sabel_Hollowfen",
+        "nonce_instance": "Shen_Korvnak",
+        "location": "plaza",
+        "attributes": {
+          "class": 3,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "captain",
+          "role": "prophet"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_D",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "captain",
+          "prophet"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_D",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "plaza"
+        }
+      },
+      {
+        "instance": "Edith_Dawnmere",
+        "nonce_instance": "Tor_Draxeln",
+        "location": "manor",
+        "attributes": {
+          "class": 2,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "merchant",
+          "role": "prophet"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "merchant",
+          "prophet"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "manor"
+        }
+      }
+    ]
+  },
+  "_pool_map": {
+    "entity.npc": "entities.all"
+  },
+  "_input_category": "entity.npc",
+  "_input_meta": {
+    "name": [
+      "name_pools.first",
+      "name_pools.last"
+    ],
+    "repeat_name": [
+      "name_pools.repeat_first",
+      "name_pools.repeat_last"
+    ],
+    "properties": {
+      "location": "locations"
+    }
+  },
+  "_attr_order": [
+    "class",
+    "role"
+  ],
+  "_variant_info": {
+    "seed": 0,
+    "variant_type": "procedural_filled"
+  }
+}

@@ -1,0 +1,909 @@
+{
+  "attribute_labels": {
+    "class": {
+      "semantic_name": "class",
+      "nonce_name": "vrel"
+    },
+    "role": {
+      "semantic_name": "role",
+      "nonce_name": "korv"
+    }
+  },
+  "entities": {
+    "source": [
+      {
+        "instance": "Oren_Greywing",
+        "nonce_instance": "Drev_Kornak",
+        "location": "library",
+        "attributes": {
+          "class": 2,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "scribe",
+          "role": "scholar"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "scribe",
+          "scholar"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "library"
+        }
+      },
+      {
+        "instance": "Sabel_Ravenmoor",
+        "nonce_instance": "Seln_Varoth",
+        "location": "market_square",
+        "attributes": {
+          "class": 2,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "scribe",
+          "role": "healer"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "scribe",
+          "healer"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "market_square"
+        }
+      },
+      {
+        "instance": "Mira_Duskwood",
+        "nonce_instance": "Tav_Greln",
+        "location": "bazaar",
+        "attributes": {
+          "class": 2,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "scribe",
+          "role": "herbalist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "scribe",
+          "herbalist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "bazaar"
+        }
+      },
+      {
+        "instance": "Ira_Dunmere",
+        "nonce_instance": "Brev_Solnak",
+        "location": "sanctuary",
+        "attributes": {
+          "class": 2,
+          "role": 3
+        },
+        "attribute_values": {
+          "class": "scribe",
+          "role": "soldier"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_W"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "scribe",
+          "soldier"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_W"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "sanctuary"
+        }
+      },
+      {
+        "instance": "Edith_Saltmere",
+        "nonce_instance": "Korv_Delnath",
+        "location": "granary",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "elder",
+          "role": "scholar"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "elder",
+          "scholar"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "granary"
+        }
+      },
+      {
+        "instance": "Elys_Coldwater",
+        "nonce_instance": "Vren_Blornath",
+        "location": "stable",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "elder",
+          "role": "healer"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "elder",
+          "healer"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "stable"
+        }
+      },
+      {
+        "instance": "Theron_Ashford",
+        "nonce_instance": "Shen_Korvnak",
+        "location": "dockyard",
+        "attributes": {
+          "class": 0,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "elder",
+          "role": "herbalist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "elder",
+          "herbalist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "dockyard"
+        }
+      },
+      {
+        "instance": "Sora_Pinehearth",
+        "nonce_instance": "Tor_Draxeln",
+        "location": "plaza",
+        "attributes": {
+          "class": 0,
+          "role": 3
+        },
+        "attribute_values": {
+          "class": "elder",
+          "role": "soldier"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_W"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "elder",
+          "soldier"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_W"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "plaza"
+        }
+      },
+      {
+        "instance": "Ruvan_Crestfall",
+        "nonce_instance": "Relv_Sornath",
+        "location": "harbor",
+        "attributes": {
+          "class": 1,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "herbalist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "herbalist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "harbor"
+        }
+      }
+    ],
+    "gen": [
+      {
+        "instance": "Cress_Thornwick",
+        "nonce_instance": "Blorn_Tavrek",
+        "location": "workshop",
+        "attributes": {
+          "class": 1,
+          "role": 3
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "soldier"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_W"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "soldier"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_W"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "workshop"
+        }
+      },
+      {
+        "instance": "Wren_Ashholm",
+        "nonce_instance": "Frev_Blenth",
+        "location": "lighthouse",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "scholar"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "scholar"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "lighthouse"
+        }
+      },
+      {
+        "instance": "Aldric_Marshwick",
+        "nonce_instance": "Skel_Grexorn",
+        "location": "manor",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "healer"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "healer"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "manor"
+        }
+      }
+    ],
+    "all": [
+      {
+        "instance": "Oren_Greywing",
+        "nonce_instance": "Drev_Kornak",
+        "location": "library",
+        "attributes": {
+          "class": 2,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "scribe",
+          "role": "scholar"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "scribe",
+          "scholar"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "library"
+        }
+      },
+      {
+        "instance": "Sabel_Ravenmoor",
+        "nonce_instance": "Seln_Varoth",
+        "location": "market_square",
+        "attributes": {
+          "class": 2,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "scribe",
+          "role": "healer"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "scribe",
+          "healer"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "market_square"
+        }
+      },
+      {
+        "instance": "Mira_Duskwood",
+        "nonce_instance": "Tav_Greln",
+        "location": "bazaar",
+        "attributes": {
+          "class": 2,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "scribe",
+          "role": "herbalist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "scribe",
+          "herbalist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "bazaar"
+        }
+      },
+      {
+        "instance": "Ira_Dunmere",
+        "nonce_instance": "Brev_Solnak",
+        "location": "sanctuary",
+        "attributes": {
+          "class": 2,
+          "role": 3
+        },
+        "attribute_values": {
+          "class": "scribe",
+          "role": "soldier"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_W"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "scribe",
+          "soldier"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_W"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "sanctuary"
+        }
+      },
+      {
+        "instance": "Edith_Saltmere",
+        "nonce_instance": "Korv_Delnath",
+        "location": "granary",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "elder",
+          "role": "scholar"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "elder",
+          "scholar"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "granary"
+        }
+      },
+      {
+        "instance": "Elys_Coldwater",
+        "nonce_instance": "Vren_Blornath",
+        "location": "stable",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "elder",
+          "role": "healer"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "elder",
+          "healer"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "stable"
+        }
+      },
+      {
+        "instance": "Theron_Ashford",
+        "nonce_instance": "Shen_Korvnak",
+        "location": "dockyard",
+        "attributes": {
+          "class": 0,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "elder",
+          "role": "herbalist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "elder",
+          "herbalist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "dockyard"
+        }
+      },
+      {
+        "instance": "Sora_Pinehearth",
+        "nonce_instance": "Tor_Draxeln",
+        "location": "plaza",
+        "attributes": {
+          "class": 0,
+          "role": 3
+        },
+        "attribute_values": {
+          "class": "elder",
+          "role": "soldier"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_W"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "elder",
+          "soldier"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_W"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "plaza"
+        }
+      },
+      {
+        "instance": "Ruvan_Crestfall",
+        "nonce_instance": "Relv_Sornath",
+        "location": "harbor",
+        "attributes": {
+          "class": 1,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "herbalist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "herbalist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "harbor"
+        }
+      },
+      {
+        "instance": "Cress_Thornwick",
+        "nonce_instance": "Blorn_Tavrek",
+        "location": "workshop",
+        "attributes": {
+          "class": 1,
+          "role": 3
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "soldier"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_W"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "soldier"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_W"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "workshop"
+        }
+      },
+      {
+        "instance": "Wren_Ashholm",
+        "nonce_instance": "Frev_Blenth",
+        "location": "lighthouse",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "scholar"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "scholar"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "lighthouse"
+        }
+      },
+      {
+        "instance": "Aldric_Marshwick",
+        "nonce_instance": "Skel_Grexorn",
+        "location": "manor",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "farmer",
+          "role": "healer"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "farmer",
+          "healer"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "manor"
+        }
+      }
+    ]
+  },
+  "_pool_map": {
+    "entity.npc": "entities.all"
+  },
+  "_input_category": "entity.npc",
+  "_input_meta": {
+    "name": [
+      "name_pools.first",
+      "name_pools.last"
+    ],
+    "repeat_name": [
+      "name_pools.repeat_first",
+      "name_pools.repeat_last"
+    ],
+    "properties": {
+      "location": "locations"
+    }
+  },
+  "_attr_order": [
+    "class",
+    "role"
+  ],
+  "_variant_info": {
+    "seed": 7,
+    "variant_type": "procedural_filled"
+  }
+}

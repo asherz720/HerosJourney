@@ -1,0 +1,21 @@
+{
+  "_note": "Distractor pool spec for property tasks. No rule file — item_ids are assigned randomly. process specifies which process structure to use (same as the main task). slot_bindings is empty (all object nodes use pool sampling). inputs must match the number of attribute dimensions expected by the process and lexicon.",
+  "process": "property_flat",
+  "lexicon": "world_info/lexicons/distractor",
+  "n_items": 8,
+  "n_entities": 8,
+  "input_category": "entity.npc",
+  "input_meta": {
+    "name":       ["name_pools.first", "name_pools.last"],
+    "properties": {"location": "locations"}
+  },
+  "output_category": "object.weapon",
+  "output_meta": {
+    "name":       ["nouns"],
+    "properties": {"location": "locations", "shape_labels": "shape_labels"}
+  },
+  "inputs": [
+    {"name": "birthplace", "n_values": 8, "pool": "attributes.birthplace", "nonce_pool": "attribute_slots.7", "nonce_label": "attribute_labels.7"},
+    {"name": "eye_color",  "n_values": 8, "pool": "attributes.eye_color",  "nonce_pool": "attribute_slots.8", "nonce_label": "attribute_labels.8"}
+  ]
+}

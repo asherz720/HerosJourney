@@ -1,0 +1,72 @@
+{
+  "input_category": "entity.npc",
+  "input_meta": {
+    "name": [
+      "name_pools.first",
+      "name_pools.last"
+    ],
+    "repeat_name": [
+      "name_pools.repeat_first",
+      "name_pools.repeat_last"
+    ],
+    "properties": {
+      "location": "locations"
+    }
+  },
+  "output_category": "object.weapon",
+  "output_meta": {
+    "name": [
+      "nouns"
+    ],
+    "properties": {
+      "location": "locations"
+    }
+  },
+  "inputs": [
+    {
+      "name": "class",
+      "n_values": 3,
+      "pool": "attributes.class",
+      "nonce_pool": "attribute_slots.0",
+      "nonce_label": "attribute_labels.0"
+    },
+    {
+      "name": "role",
+      "n_values": 3,
+      "pool": "attributes.role",
+      "nonce_pool": "attribute_slots.1",
+      "nonce_label": "attribute_labels.1"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "size",
+      "pool": "size",
+      "nonce_pool": "size"
+    }
+  ],
+  "functions": [
+    {
+      "name": "f_base",
+      "input": "class",
+      "output": "size",
+      "map": [
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "f_mod",
+      "input": "role",
+      "output": "size",
+      "map": [
+        2,
+        1,
+        0
+      ]
+    }
+  ],
+  "composition": "additive",
+  "items": "numeric"
+}

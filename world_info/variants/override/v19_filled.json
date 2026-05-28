@@ -1,0 +1,754 @@
+{
+  "n_items": 4,
+  "attribute_labels": {
+    "class": {
+      "semantic_name": "class",
+      "nonce_name": "vrel"
+    },
+    "role": {
+      "semantic_name": "role",
+      "nonce_name": "korv"
+    }
+  },
+  "entities": {
+    "source": [
+      {
+        "instance": "Elara_Hollowfen",
+        "nonce_instance": "Drev_Kornak",
+        "location": "archive",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "cleric",
+          "role": "tactician"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "cleric",
+          "tactician"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "archive"
+        },
+        "item_id": 1
+      },
+      {
+        "instance": "Veric_Greymantle",
+        "nonce_instance": "Seln_Varoth",
+        "location": "manor",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "cleric",
+          "role": "chirurgeon"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "cleric",
+          "chirurgeon"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "manor"
+        },
+        "item_id": 1
+      },
+      {
+        "instance": "Corvin_Millward",
+        "nonce_instance": "Tav_Greln",
+        "location": "harbor",
+        "attributes": {
+          "class": 1,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "cleric",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "cleric",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "harbor"
+        },
+        "item_id": 3
+      },
+      {
+        "instance": "Lyra_Veilmoor",
+        "nonce_instance": "Brev_Solnak",
+        "location": "citadel",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "tactician"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "tactician"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "citadel"
+        },
+        "item_id": 0
+      },
+      {
+        "instance": "Hadwin_Coldwater",
+        "nonce_instance": "Korv_Delnath",
+        "location": "tannery",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "chirurgeon"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "chirurgeon"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "tannery"
+        },
+        "item_id": 0
+      },
+      {
+        "instance": "Ren_Greywing",
+        "nonce_instance": "Vren_Blornath",
+        "location": "library",
+        "attributes": {
+          "class": 0,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "library"
+        },
+        "item_id": 3
+      },
+      {
+        "instance": "Finn_Coppergate",
+        "nonce_instance": "Shen_Korvnak",
+        "location": "workshop",
+        "attributes": {
+          "class": 2,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "sage",
+          "role": "chirurgeon"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "sage",
+          "chirurgeon"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "workshop"
+        },
+        "item_id": 2
+      }
+    ],
+    "gen": [
+      {
+        "instance": "Gareth_Ironbrook",
+        "nonce_instance": "Tor_Draxeln",
+        "location": "granary",
+        "attributes": {
+          "class": 2,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "sage",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "sage",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "granary"
+        },
+        "item_id": 3
+      },
+      {
+        "instance": "Sabel_Ashholm",
+        "nonce_instance": "Relv_Sornath",
+        "location": "market_square",
+        "attributes": {
+          "class": 2,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "sage",
+          "role": "tactician"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "sage",
+          "tactician"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "market_square"
+        },
+        "item_id": 2
+      }
+    ],
+    "all": [
+      {
+        "instance": "Elara_Hollowfen",
+        "nonce_instance": "Drev_Kornak",
+        "location": "archive",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "cleric",
+          "role": "tactician"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "cleric",
+          "tactician"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "archive"
+        },
+        "item_id": 1
+      },
+      {
+        "instance": "Veric_Greymantle",
+        "nonce_instance": "Seln_Varoth",
+        "location": "manor",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "cleric",
+          "role": "chirurgeon"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "cleric",
+          "chirurgeon"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "manor"
+        },
+        "item_id": 1
+      },
+      {
+        "instance": "Corvin_Millward",
+        "nonce_instance": "Tav_Greln",
+        "location": "harbor",
+        "attributes": {
+          "class": 1,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "cleric",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "cleric",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "harbor"
+        },
+        "item_id": 3
+      },
+      {
+        "instance": "Lyra_Veilmoor",
+        "nonce_instance": "Brev_Solnak",
+        "location": "citadel",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "tactician"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "tactician"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "citadel"
+        },
+        "item_id": 0
+      },
+      {
+        "instance": "Hadwin_Coldwater",
+        "nonce_instance": "Korv_Delnath",
+        "location": "tannery",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "chirurgeon"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "chirurgeon"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "tannery"
+        },
+        "item_id": 0
+      },
+      {
+        "instance": "Ren_Greywing",
+        "nonce_instance": "Vren_Blornath",
+        "location": "library",
+        "attributes": {
+          "class": 0,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "minstrel",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "minstrel",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "library"
+        },
+        "item_id": 3
+      },
+      {
+        "instance": "Finn_Coppergate",
+        "nonce_instance": "Shen_Korvnak",
+        "location": "workshop",
+        "attributes": {
+          "class": 2,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "sage",
+          "role": "chirurgeon"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "sage",
+          "chirurgeon"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "workshop"
+        },
+        "item_id": 2
+      },
+      {
+        "instance": "Gareth_Ironbrook",
+        "nonce_instance": "Tor_Draxeln",
+        "location": "granary",
+        "attributes": {
+          "class": 2,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "sage",
+          "role": "lorekeeper"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "sage",
+          "lorekeeper"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "granary"
+        },
+        "item_id": 3
+      },
+      {
+        "instance": "Sabel_Ashholm",
+        "nonce_instance": "Relv_Sornath",
+        "location": "market_square",
+        "attributes": {
+          "class": 2,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "sage",
+          "role": "tactician"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "sage",
+          "tactician"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "market_square"
+        },
+        "item_id": 2
+      }
+    ]
+  },
+  "_output_category": "object.weapon",
+  "_dim_sem": {
+    "size": [
+      "great",
+      "standard",
+      "short",
+      "colossal"
+    ]
+  },
+  "_dim_nonce": {
+    "size": [
+      "blorn",
+      "sorn",
+      "vorx",
+      "dorv"
+    ]
+  },
+  "_dim_strides": {
+    "size": 1
+  },
+  "_dim_order": [
+    "size"
+  ],
+  "_items_fn": "index",
+  "_output_noun": "axe",
+  "_output_noun_nonce": "plex",
+  "_output_prop_samples": {
+    "object.weapon.locations": "foundry"
+  },
+  "_output_item_props": {
+    "location": "foundry"
+  },
+  "_reserved_variant_pools": {
+    "object.weapon.locations": [
+      "foundry"
+    ]
+  },
+  "_n_items": 4,
+  "_pool_map": {
+    "entity.npc": "entities.all"
+  },
+  "_composition": {
+    "fn": "override",
+    "base_fn": "f_base",
+    "override_attr": "role",
+    "override_value": 2,
+    "override_dim": "size",
+    "override_dim_value": 3
+  },
+  "_input_category": "entity.npc",
+  "_input_meta": {
+    "name": [
+      "name_pools.first",
+      "name_pools.last"
+    ],
+    "repeat_name": [
+      "name_pools.repeat_first",
+      "name_pools.repeat_last"
+    ],
+    "properties": {
+      "location": "locations"
+    }
+  },
+  "_variant_info": {
+    "seed": 19,
+    "variant_type": "filled"
+  }
+}

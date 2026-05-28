@@ -1,0 +1,23 @@
+You are studying demonstration episodes from an adventure game. Your task is to \
+analyze the patterns in the demonstrations and answer questions about the underlying rules.
+
+Each demonstration shows an entity's attributes and the complete sequence of actions \
+taken to achieve it. Study these carefully to identify what determines which item/action.
+
+{demonstrations}
+
+The base action sequence for this task type is:
+  go [weapon shop] → buy [weapon] → go [entity location] → defeat [entity]
+
+Some entities require one or more extra steps inserted into this sequence. \
+The rules text does not show the extra step — you must infer it from the demonstrations.
+
+Entity: {entity_card}
+Based on the demonstrations, what extra step(s) must be performed for {entity_name}?
+
+Respond with ONLY the JSON object below — no other text, no markdown:
+{{"action": "perform|drink|none", "argument": "<ritual_or_potion_name_or_none>", \
+"ordering": "before_buy|after_buy|none", "count": <integer, 0 if none>, \
+"reasoning": "<brief reasoning>"}}
+
+The "action" field must appear first.

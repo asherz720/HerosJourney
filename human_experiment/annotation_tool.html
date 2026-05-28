@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rule Score Annotation Tool</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    font-size: 14px; background: #f5f5f5; color: #222; min-height: 100vh;
+  }
+
+  /* ── Login ── */
+  #login-screen { display:flex; align-items:center; justify-content:center; min-height:100vh; }
+  #login-box {
+    background:white; border-radius:10px; padding:40px 48px;
+    max-width:480px; width:100%; box-shadow:0 2px 12px rgba(0,0,0,.10); text-align:center;
+  }
+  #login-box h1 { font-size:20px; margin-bottom:8px; }
+  #login-box p  { color:#666; margin-bottom:20px; line-height:1.5; }
+  .login-label { display:block; text-align:left; font-size:12px; font-weight:600;
+                 color:#6b7280; margin-bottom:4px; margin-top:12px; }
+  #login-box input[type=text] {
+    width:100%; padding:10px 14px; border:1px solid #ccc; border-radius:6px;
+    font-size:14px;
+  }
+  .file-row { display:flex; align-items:center; gap:10px; margin-bottom:0; }
+  .file-row input[type=file] { flex:1; font-size:12px; }
+  .file-note { font-size:11px; color:#9ca3af; text-align:left; margin-top:4px; }
+  #login-box button.begin-btn {
+    width:100%; padding:10px; margin-top:20px;
+    background:#2563eb; color:white; border:none; border-radius:6px;
+    font-size:15px; font-weight:600; cursor:pointer;
+  }
+  #login-box button.begin-btn:hover { background:#1d4ed8; }
+  #login-error { color:#dc2626; margin-top:10px; font-size:13px; }
+
+  /* ── Main layout ── */
+  #main-screen { display:none; }
+  header {
+    background:white; border-bottom:1px solid #e5e5e5; padding:10px 20px;
+    display:flex; align-items:center; justify-content:space-between;
+    position:sticky; top:0; z-index:10; gap:12px;
+  }
+  header .title { font-weight:700; font-size:15px; white-space:nowrap; }
+  header .meta  { color:#888; font-size:12px; white-space:nowrap; }
+  #progress-bar-wrap { background:#e5e7eb; border-radius:4px; height:6px; width:160px; overflow:hidden; }
+  #progress-bar { background:#2563eb; height:100%; transition:width .3s; }
+
+  .container { max-width:860px; margin:24px auto; padding:0 20px 60px; }
+
+  /* ── Cards ── */
+  .card {
+    background:white; border-radius:10px; padding:24px 28px;
+    margin-bottom:16px; box-shadow:0 1px 4px rgba(0,0,0,.07);
+  }
+  .card-label {
+    font-size:11px; font-weight:700; text-transform:uppercase;
+    letter-spacing:.06em; color:#6b7280; margin-bottom:10px;
+  }
+  .badge { display:inline-block; font-size:11px; font-weight:600;
+           padding:2px 8px; border-radius:99px; margin-right:6px; }
+  .badge-task  { background:#dbeafe; color:#1d4ed8; }
+  .badge-model { background:#f3f4f6; color:#374151; }
+  .rule-text {
+    background:#f0fdf4; border-left:3px solid #22c55e;
+    padding:12px 16px; border-radius:0 6px 6px 0;
+    line-height:1.6; color:#166534; font-size:13px;
+  }
+  .explanation-text {
+    background:#f8f9fa; border:1px solid #e5e7eb; border-radius:6px;
+    padding:14px 16px; line-height:1.7; white-space:pre-wrap;
+    font-size:13px; max-height:320px; overflow-y:auto;
+  }
+
+  /* ── Rubric ── */
+  .rubric { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:8px; }
+  .rubric-item {
+    border:2px solid #e5e7eb; border-radius:8px; padding:12px 14px;
+    cursor:pointer; transition:border-color .15s, background .15s; position:relative;
+  }
+  .rubric-item:hover  { border-color:#93c5fd; background:#eff6ff; }
+  .rubric-item.selected { border-color:#2563eb; background:#eff6ff; }
+  .rubric-item.disabled { opacity:.45; cursor:not-allowed; pointer-events:none; }
+  .rubric-item input[type=radio] { position:absolute; opacity:0; }
+  .score-label { font-size:22px; font-weight:700; color:#2563eb; display:block; margin-bottom:4px; }
+  .score-desc  { font-size:12px; color:#374151; line-height:1.4; }
+
+  /* ── Calibration panel ── */
+  #calibration-panel {
+    display:none; background:#fffbeb; border:1px solid #fde68a;
+    border-radius:8px; padding:16px 20px; margin-top:4px;
+  }
+  .cal-header { font-weight:700; font-size:13px; color:#92400e; margin-bottom:8px;
+                display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .llm-score-badge {
+    display:inline-block; background:#f59e0b; color:white;
+    font-size:13px; font-weight:700; padding:2px 10px; border-radius:99px;
+  }
+  #llm-reasoning-text {
+    font-size:12.5px; line-height:1.6; color:#78350f;
+    background:#fef3c7; border-radius:6px; padding:10px 14px;
+    margin-top:8px; white-space:pre-wrap;
+  }
+  .revised-note { font-size:11px; color:#065f46; background:#d1fae5;
+                  padding:4px 10px; border-radius:99px; margin-left:8px; }
+
+  /* ── Nav row ── */
+  .nav-row {
+    display:flex; align-items:center; justify-content:space-between;
+    margin-top:8px; flex-wrap:wrap; gap:8px;
+  }
+  .btn { padding:9px 20px; border-radius:6px; font-size:13px; font-weight:600; cursor:pointer; border:none; }
+  .btn-primary   { background:#2563eb; color:white; }
+  .btn-primary:hover  { background:#1d4ed8; }
+  .btn-primary:disabled { background:#93c5fd; cursor:not-allowed; }
+  .btn-secondary { background:#f3f4f6; color:#374151; }
+  .btn-secondary:hover { background:#e5e7eb; }
+  .btn-warn      { background:#f59e0b; color:white; }
+  .btn-warn:hover{ background:#d97706; }
+  .btn-export    { background:#059669; color:white; }
+  .btn-export:hover { background:#047857; }
+  .item-counter  { color:#6b7280; font-size:13px; }
+
+  /* ── Completion ── */
+  #completion-screen { display:none; text-align:center; padding:60px 20px; }
+  #completion-screen h2 { font-size:22px; margin-bottom:12px; }
+  #completion-screen p  { color:#666; margin-bottom:28px; line-height:1.6; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════ LOGIN ══════════════════════════ -->
+<div id="login-screen">
+  <div id="login-box">
+    <h1>Rule Score Annotation</h1>
+    <p>Rate how well each model explanation captures the correct hidden rule.
+       After submitting your rating the LLM judge's score and reasoning will be shown
+       for calibration — you can then revise your rating if needed.</p>
+
+    <label class="login-label">Your name or ID</label>
+    <input type="text" id="annotator-name" placeholder="e.g. asher" />
+
+    <label class="login-label">Annotation set (annotation_set.json) *</label>
+    <input type="file" id="json-file" accept=".json" />
+
+    <label class="login-label">Resume from checkpoint <span style="font-weight:400;color:#9ca3af;">(optional)</span></label>
+    <input type="file" id="checkpoint-file" accept=".json" />
+    <p class="file-note">Load a previously saved checkpoint to continue where you left off.</p>
+
+    <button class="begin-btn" onclick="startAnnotation()">Begin</button>
+    <p id="login-error"></p>
+  </div>
+</div>
+
+<!-- ══════════════════════════ MAIN ══════════════════════════ -->
+<div id="main-screen">
+  <header>
+    <span class="title">Rule Score Annotation</span>
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+      <div id="progress-bar-wrap"><div id="progress-bar"></div></div>
+      <span class="meta" id="header-counter"></span>
+      <span class="meta" id="header-annotator"></span>
+      <button class="btn btn-secondary" style="padding:6px 14px;font-size:12px;"
+              onclick="saveCheckpoint()">💾 Save checkpoint</button>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <div class="card" style="padding:14px 20px;">
+      <span class="badge badge-task"  id="badge-task"></span>
+      <span class="badge badge-model" id="badge-model"></span>
+      <span class="item-counter"      id="item-counter"></span>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Correct Rule (Ground Truth)</div>
+      <div class="rule-text" id="correct-rule"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Model Explanation</div>
+      <div class="explanation-text" id="model-explanation"></div>
+    </div>
+
+    <div class="card" id="rating-card">
+      <div class="card-label" id="rating-label">
+        Your Rating — How well does the explanation capture the rule?
+      </div>
+      <div class="rubric">
+        <label class="rubric-item" id="opt-0" onclick="selectScore(0)">
+          <input type="radio" name="score" value="0">
+          <span class="score-label">0</span>
+          <span class="score-desc">Wrong or missing. Rule is not captured or clearly incorrect.</span>
+        </label>
+        <label class="rubric-item" id="opt-1" onclick="selectScore(1)">
+          <input type="radio" name="score" value="1">
+          <span class="score-label">1</span>
+          <span class="score-desc">Partially correct. Right direction but missing key aspects or imprecise.</span>
+        </label>
+        <label class="rubric-item" id="opt-2" onclick="selectScore(2)">
+          <input type="radio" name="score" value="2">
+          <span class="score-label">2</span>
+          <span class="score-desc">Fully correct. Rule is accurately and clearly stated.</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Calibration reveal -->
+    <div id="calibration-panel">
+      <div class="cal-header">
+        LLM Judge Score: <span class="llm-score-badge" id="llm-score-display"></span>
+        <span class="revised-note" id="revised-note" style="display:none;">Score revised</span>
+      </div>
+      <div id="llm-reasoning-text"></div>
+    </div>
+
+    <div class="nav-row">
+      <button class="btn btn-secondary" onclick="goBack()">← Back</button>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button class="btn btn-primary" id="submit-btn" onclick="submitRating()" disabled>
+          Submit Rating
+        </button>
+        <button class="btn btn-warn" id="revise-btn" onclick="enableRevision()"
+                style="display:none;">Revise Score</button>
+        <button class="btn btn-primary" id="next-btn" onclick="goNext()"
+                style="display:none;">Next →</button>
+        <button class="btn btn-export" id="export-btn" onclick="exportResults()"
+                style="display:none;">Export Results</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════ COMPLETION ══════════════════════════ -->
+<div id="completion-screen">
+  <h2>Annotation Complete!</h2>
+  <p>You have rated all items.<br>Click below to download your annotations.</p>
+  <button class="btn btn-export" onclick="exportResults()"
+          style="font-size:16px;padding:14px 36px;">Download Annotations</button>
+</div>
+
+<script>
+// ── State ─────────────────────────────────────────────────────────────────
+let items         = [];
+let annotations   = {};  // item_id → {original_score, revised_score, timestamp}
+let currentIdx    = 0;
+let annotatorName = "";
+let selectedScore = null;
+let revealed      = false;
+let revising      = false;
+const STORAGE_KEY = "rule_annotation_v2";
+
+// ── Login ──────────────────────────────────────────────────────────────────
+function startAnnotation() {
+  const name     = document.getElementById("annotator-name").value.trim();
+  const setFile  = document.getElementById("json-file").files[0];
+  const ckptFile = document.getElementById("checkpoint-file").files[0];
+  const err      = document.getElementById("login-error");
+
+  if (!name)    { err.textContent = "Please enter your name."; return; }
+  if (!setFile) { err.textContent = "Please select annotation_set.json."; return; }
+  annotatorName = name;
+
+  // Load annotation set
+  readJSON(setFile, setData => {
+    items = setData;
+
+    if (ckptFile) {
+      // Resume from uploaded checkpoint
+      readJSON(ckptFile, ckpt => {
+        annotations = ckpt.annotations || {};
+        currentIdx  = ckpt.currentIdx  || 0;
+        launch();
+      });
+    } else {
+      // Try localStorage fallback
+      const saved = localStorage.getItem(STORAGE_KEY + "_" + name);
+      if (saved) {
+        const state = JSON.parse(saved);
+        if (confirm(`Resume from item ${state.currentIdx + 1}/${items.length}?`)) {
+          annotations = state.annotations;
+          currentIdx  = state.currentIdx;
+        }
+      }
+      launch();
+    }
+  });
+}
+
+function readJSON(file, cb) {
+  const r = new FileReader();
+  r.onload = e => {
+    try { cb(JSON.parse(e.target.result)); }
+    catch { document.getElementById("login-error").textContent = "Could not parse " + file.name; }
+  };
+  r.readAsText(file);
+}
+
+function launch() {
+  document.getElementById("login-screen").style.display = "none";
+  document.getElementById("main-screen").style.display  = "block";
+  document.getElementById("header-annotator").textContent = annotatorName;
+  renderItem();
+}
+
+// ── Persist ────────────────────────────────────────────────────────────────
+function persist() {
+  localStorage.setItem(
+    STORAGE_KEY + "_" + annotatorName,
+    JSON.stringify({ annotations, currentIdx })
+  );
+}
+
+function saveCheckpoint() {
+  const blob = new Blob(
+    [JSON.stringify({ annotator: annotatorName, currentIdx, annotations }, null, 2)],
+    { type: "application/json" }
+  );
+  const a    = document.createElement("a");
+  a.href     = URL.createObjectURL(blob);
+  a.download = `checkpoint_${annotatorName.replace(/\s+/g,"_")}.json`;
+  a.click();
+}
+
+// ── Render ─────────────────────────────────────────────────────────────────
+function renderItem() {
+  if (currentIdx >= items.length) {
+    document.getElementById("main-screen").style.display       = "none";
+    document.getElementById("completion-screen").style.display = "block";
+    return;
+  }
+
+  const item = items[currentIdx];
+  selectedScore = null;
+  revealed      = false;
+  revising      = false;
+
+  // Progress
+  document.getElementById("progress-bar").style.width =
+    (currentIdx / items.length * 100) + "%";
+  document.getElementById("header-counter").textContent =
+    `${currentIdx + 1} / ${items.length}`;
+  document.getElementById("item-counter").textContent =
+    `Item ${currentIdx + 1} of ${items.length}`;
+
+  // Content
+  document.getElementById("badge-task").textContent        = item.task;
+  document.getElementById("badge-model").textContent       = item.model;
+  document.getElementById("correct-rule").textContent      = item.correct_rule;
+  document.getElementById("model-explanation").textContent =
+    item.explanation || "(no explanation provided)";
+
+  // Reset rubric
+  setRubricEnabled(true);
+  [0,1,2].forEach(s => document.getElementById("opt-"+s).classList.remove("selected"));
+  document.getElementById("rating-label").textContent =
+    "Your Rating — How well does the explanation capture the rule?";
+  document.getElementById("revised-note").style.display = "none";
+
+  // Calibration
+  document.getElementById("calibration-panel").style.display = "none";
+
+  // Buttons
+  show("submit-btn"); disable("submit-btn");
+  hide("revise-btn"); hide("next-btn"); hide("export-btn");
+
+  // Restore if already annotated
+  const ann = annotations[item.item_id];
+  if (ann !== undefined) {
+    const displayScore = ann.revised_score ?? ann.original_score;
+    selectScore(displayScore);
+    setRubricEnabled(false);
+    revealCalibration(item, ann);
+  }
+}
+
+// ── Score selection ────────────────────────────────────────────────────────
+function selectScore(score) {
+  selectedScore = score;
+  [0,1,2].forEach(s => document.getElementById("opt-"+s).classList.remove("selected"));
+  document.getElementById("opt-"+score).classList.add("selected");
+  enable("submit-btn");
+}
+
+// ── Submit ─────────────────────────────────────────────────────────────────
+function submitRating() {
+  if (selectedScore === null) return;
+  const item = items[currentIdx];
+  const ann  = annotations[item.item_id];
+
+  if (!ann) {
+    // First submission
+    annotations[item.item_id] = {
+      original_score: selectedScore,
+      revised_score:  null,
+      timestamp:      new Date().toISOString(),
+    };
+  } else if (revising) {
+    // Revision
+    annotations[item.item_id].revised_score = selectedScore;
+    annotations[item.item_id].revised_at    = new Date().toISOString();
+  }
+
+  persist();
+  setRubricEnabled(false);
+  revealCalibration(item, annotations[item.item_id]);
+}
+
+// ── Calibration reveal ─────────────────────────────────────────────────────
+function revealCalibration(item, ann) {
+  revealed = true;
+  revising = false;
+  document.getElementById("llm-score-display").textContent  = item.llm_rule_score;
+  document.getElementById("llm-reasoning-text").textContent =
+    item.llm_reasoning || "(no reasoning provided)";
+  document.getElementById("calibration-panel").style.display = "block";
+
+  if (ann && ann.revised_score !== null) {
+    document.getElementById("revised-note").style.display = "inline";
+  }
+
+  hide("submit-btn");
+  show("revise-btn");
+  const isLast = currentIdx === items.length - 1;
+  isLast ? (hide("next-btn"), show("export-btn"))
+         : (show("next-btn"), hide("export-btn"));
+}
+
+// ── Revision ──────────────────────────────────────────────────────────────
+function enableRevision() {
+  revising = true;
+  setRubricEnabled(true);
+  document.getElementById("rating-label").textContent =
+    "Revise Your Rating (original kept separately for analysis)";
+  hide("revise-btn");
+  show("submit-btn"); enable("submit-btn");
+  hide("next-btn"); hide("export-btn");
+}
+
+// ── Navigation ─────────────────────────────────────────────────────────────
+function goNext() { currentIdx++; persist(); renderItem(); }
+function goBack() { if (currentIdx > 0) { currentIdx--; renderItem(); } }
+
+// ── Export ─────────────────────────────────────────────────────────────────
+function exportResults() {
+  const output = {
+    annotator:   annotatorName,
+    exported_at: new Date().toISOString(),
+    n_rated:     Object.keys(annotations).length,
+    annotations: items.map(item => {
+      const ann = annotations[item.item_id];
+      return {
+        item_id:        item.item_id,
+        model:          item.model,
+        task:           item.task,
+        variant_seed:   item.variant_seed,
+        original_score: ann?.original_score ?? null,
+        revised_score:  ann?.revised_score  ?? null,
+        // final score for κ computation: revised if provided, else original
+        final_score:    ann ? (ann.revised_score ?? ann.original_score) : null,
+        llm_rule_score: item.llm_rule_score,
+        timestamp:      ann?.timestamp ?? null,
+        revised_at:     ann?.revised_at ?? null,
+      };
+    }),
+  };
+
+  const blob = new Blob([JSON.stringify(output, null, 2)],
+                        { type:"application/json" });
+  const a    = document.createElement("a");
+  a.href     = URL.createObjectURL(blob);
+  a.download = `annotations_${annotatorName.replace(/\s+/g,"_")}.json`;
+  a.click();
+}
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+function show(id)    { document.getElementById(id).style.display = "inline-block"; }
+function hide(id)    { document.getElementById(id).style.display = "none"; }
+function enable(id)  { document.getElementById(id).disabled = false; }
+function disable(id) { document.getElementById(id).disabled = true; }
+
+function setRubricEnabled(enabled) {
+  [0,1,2].forEach(s => {
+    const el = document.getElementById("opt-"+s);
+    enabled ? el.classList.remove("disabled") : el.classList.add("disabled");
+  });
+}
+
+// ── Keyboard shortcuts ─────────────────────────────────────────────────────
+document.addEventListener("keydown", e => {
+  if (["0","1","2"].includes(e.key) && (!revealed || revising))
+    selectScore(parseInt(e.key));
+  if (e.key === "Enter") {
+    if ((!revealed || revising) && selectedScore !== null) submitRating();
+    else if (revealed && !revising && currentIdx < items.length - 1) goNext();
+  }
+  if (e.key === "r" && revealed && !revising) enableRevision();
+});
+</script>
+</body>
+</html>

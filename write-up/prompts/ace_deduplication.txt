@@ -1,0 +1,10 @@
+Below is a strategy playbook. Identify any bullets that are semantically redundant (same advice worded differently). For each redundant group, keep the most informative one and remove the rest.
+
+Playbook:
+---
+{playbook_text}
+---
+
+Output ONLY valid JSON:
+{{"remove_ids": ["b002", "b005"]}}
+If nothing is redundant, output: {{"remove_ids": []}}

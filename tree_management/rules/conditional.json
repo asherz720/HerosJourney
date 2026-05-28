@@ -1,0 +1,106 @@
+{
+  "input_category": "entity.npc",
+  "input_meta": {
+    "name": [
+      "name_pools.first",
+      "name_pools.last"
+    ],
+    "repeat_name": [
+      "name_pools.repeat_first",
+      "name_pools.repeat_last"
+    ],
+    "properties": {
+      "location": "locations"
+    }
+  },
+  "output_category": "object.weapon",
+  "output_meta": {
+    "name": [
+      "nouns"
+    ],
+    "properties": {
+      "location": "locations"
+    }
+  },
+  "inputs": [
+    {
+      "name": "class",
+      "n_values": 4,
+      "pool": "attributes.class",
+      "nonce_pool": "attribute_slots.0",
+      "nonce_label": "attribute_labels.0"
+    },
+    {
+      "name": "role",
+      "n_values": 3,
+      "pool": "attributes.role",
+      "nonce_pool": "attribute_slots.1",
+      "nonce_label": "attribute_labels.1"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "color",
+      "n_values": 3,
+      "pool": "color",
+      "nonce_pool": "color"
+    },
+    {
+      "name": "size",
+      "n_values": 4,
+      "pool": "size",
+      "nonce_pool": "size"
+    }
+  ],
+  "functions": [
+    {
+      "name": "f_size_r0",
+      "input": "role",
+      "output": "size",
+      "map": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "f_color_r1",
+      "input": "role",
+      "output": "color",
+      "map": [
+        2,
+        1,
+        0
+      ]
+    }
+  ],
+  "composition": {
+    "fn": "conditional",
+    "selector": {
+      "input": "class",
+      "map": [
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    "branches": [
+      {
+        "regime": 0,
+        "active_fn": "f_size_r0",
+        "fixed": {
+          "color": 2
+        }
+      },
+      {
+        "regime": 1,
+        "active_fn": "f_color_r1",
+        "fixed": {
+          "size": 3
+        }
+      }
+    ]
+  },
+  "items": "join"
+}

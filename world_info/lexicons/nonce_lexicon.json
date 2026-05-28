@@ -1,0 +1,74 @@
+{
+  "_note": "Nonce syllable pools. Mirrors semantic_lexicon.json structure. 'entity.npc.attribute_labels[i]' is the nonce display name for the attribute at position i. 'entity.npc.attribute_slots[i]' is the pre-constructed list of nonce values for that attribute position (10 values; supports up to 10 attributes). 'object.weapon.size/color' are the nonce dimension value pools for weapons.",
+
+  "entity": {
+    "npc": {
+      "attribute_labels": [
+        "vrel", "korv", "blarn", "sked", "torv",
+        "drev", "seln", "brex", "forn", "vlex"
+      ],
+      "attribute_slots": [
+        ["vrel_A", "vrel_B", "vrel_C", "vrel_D", "vrel_E", "vrel_F", "vrel_G", "vrel_H", "vrel_I", "vrel_J"],
+        ["korv_X", "korv_Y", "korv_Z", "korv_W", "korv_V", "korv_U", "korv_T", "korv_S", "korv_R", "korv_Q"],
+        ["blarn_a", "blarn_b", "blarn_c", "blarn_d", "blarn_e", "blarn_f", "blarn_g", "blarn_h", "blarn_i", "blarn_j"],
+        ["sked_x", "sked_y", "sked_z", "sked_w", "sked_v", "sked_u", "sked_t", "sked_s", "sked_r", "sked_q"],
+        ["torv_P", "torv_N", "torv_M", "torv_L", "torv_K", "torv_O", "torv_1", "torv_2", "torv_3", "torv_4"],
+        ["drev_p", "drev_n", "drev_m", "drev_l", "drev_k", "drev_o", "drev_5", "drev_6", "drev_7", "drev_8"],
+        ["seln_AA", "seln_BB", "seln_CC", "seln_DD", "seln_EE", "seln_FF", "seln_GG", "seln_HH", "seln_II", "seln_JJ"],
+        ["brex_XX", "brex_YY", "brex_ZZ", "brex_WW", "brex_VV", "brex_UU", "brex_TT", "brex_SS", "brex_RR", "brex_QQ"],
+        ["forn_ab", "forn_bc", "forn_cd", "forn_de", "forn_ef", "forn_fg", "forn_gh", "forn_hi", "forn_ij", "forn_jk"],
+        ["vlex_xw", "vlex_wy", "vlex_yz", "vlex_zv", "vlex_vu", "vlex_ut", "vlex_ts", "vlex_sr", "vlex_rq", "vlex_qp"]
+      ],
+      "name_pools": {
+        "first": [
+          "Drev", "Seln", "Tav", "Brev", "Korv",
+          "Vren", "Shen", "Tor", "Relv", "Blorn",
+          "Frev", "Skel", "Tork", "Vlex", "Drax",
+          "Gren", "Blek", "Snov", "Threx", "Klav"
+        ],
+        "last": [
+          "Kornak", "Varoth", "Greln", "Solnak", "Delnath",
+          "Blornath", "Korvnak", "Draxeln", "Sornath", "Tavrek",
+          "Blenth", "Grexorn", "Velthor", "Draxnak", "Skovreln",
+          "Thornev", "Brekorn", "Slevak", "Vornath", "Greldax"
+        ]
+      }
+    }
+  },
+
+  "object": {
+    "weapon": {
+      "_note": "Nonce syllables for weapon dimension values. Sampled at fill time. 'nouns' provides nonce item-type suffixes, parallel to semantic 'axe'/'sword'/etc.",
+      "nouns": [
+        "plex", "dorn", "skev", "vrax", "meln",
+        "torv", "brev", "skaln", "frix", "vornd"
+      ],
+      "size": [
+        "grel", "sorn", "vrek", "dorv", "blorn",
+        "trev", "skev", "drax", "feln", "vorx"
+      ],
+      "color": [
+        "rux", "vyx", "grex", "lorn", "blev",
+        "torv", "drev", "skel", "vrox", "florn"
+      ]
+    }
+  },
+
+  "activity": {
+    "_note": "Nonce syllable pools for activity arguments. Mirrors semantic_lexicon.json activity structure.",
+    "ritual": {
+      "rituals": [
+        "vrek_G", "sorn_H", "blorn_J", "torv_K",
+        "drev_L", "seln_M", "brex_N", "forn_O",
+        "vlex_P", "grel_Q", "dorv_R", "trev_S"
+      ]
+    },
+    "potion": {
+      "potions": [
+        "grel_A", "vlex_B", "sorn_C", "blorn_D",
+        "torv_E", "drev_F", "forn_G", "brex_H",
+        "seln_I", "vrek_J", "dorv_K", "trev_L"
+      ]
+    }
+  }
+}

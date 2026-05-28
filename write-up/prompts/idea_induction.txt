@@ -1,0 +1,12 @@
+Your attempt to defeat the entity failed, which means your action sequence was wrong.
+
+Your previous hypothesis: {hypothesis}
+Your previous plan: {plan}
+
+Recent observations:
+{observations}
+
+Revise your hypothesis using this new evidence, then update your plan.
+
+Hypothesis: [revised rule hypothesis]
+Plan: [updated action plan]

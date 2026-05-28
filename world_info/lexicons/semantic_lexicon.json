@@ -1,0 +1,88 @@
+{
+  "_note": "Structured vocabulary pools for the adventure-story benchmark. Top-level keys are semantic categories: 'entity' (things you fight/rescue), 'object' (things you acquire, keyed by category). Each object subcategory contains nouns, locations, and its dimension value pools.",
+
+  "entity": {
+    "npc": {
+      "_note": "NPC attributes, instance names, and locations. 'name_pools.repeat_*' are a disjoint Nordic/Germanic style pool used for entity-repeat variants.",
+      "attributes": {
+        "class": [
+          "noble", "merchant", "peasant", "cleric", "farmer",
+          "baron", "artisan", "serf", "captain", "envoy",
+          "elder", "pilgrim", "scribe", "ranger", "steward",
+          "warden", "minstrel", "herald", "alchemist", "sage"
+        ],
+        "role": [
+          "warrior", "scholar", "healer", "soldier", "medic",
+          "vanguard", "tactician", "archivist", "sentinel", "mender",
+          "guardian", "lorekeeper", "chirurgeon", "duelist", "shaman",
+          "berserker", "prophet", "herbalist", "champion", "diviner"
+        ]
+      },
+      "name_pools": {
+        "first": [
+          "Gareth", "Mira", "Theron", "Lyra", "Dorian", "Bran", "Edith", "Wren",
+          "Veric", "Finn", "Elara", "Oren", "Cael", "Sora", "Dax", "Nell",
+          "Ira", "Torin", "Sabel", "Fenn", "Aldric", "Petra", "Ruvan", "Cress",
+          "Hadwin", "Zara", "Corvin", "Elys", "Brynn", "Ren"
+        ],
+        "last": [
+          "Stonehall", "Duskwood", "Millward", "Coldwater", "Ashveil", "Thornfield",
+          "Greymantle", "Ashford", "Dawnmere", "Cloverhill", "Brightwater", "Blackvale",
+          "Ironbrook", "Ravenmoor", "Coppergate", "Silverbranch", "Dusthaven", "Greywing",
+          "Saltmere", "Hollowfen", "Pinehearth", "Marshwick", "Crestfall", "Embervane",
+          "Frostgate", "Thornwick", "Dunmere", "Ashholm", "Veilmoor", "Starwick"
+        ],
+        "repeat_first": [
+          "Bjorn", "Astrid", "Cassia", "Dario", "Freya", "Gunnar", "Ingrid", "Leif",
+          "Marco", "Nadia", "Olaf", "Rolf", "Sigrid", "Tomas", "Ursula", "Vera",
+          "Willem", "Yuri", "Helga", "Ivan", "Katja", "Lars", "Oskar", "Soren",
+          "Trude", "Viggo", "Willa", "Erika", "Hilde", "Klaus"
+        ],
+        "repeat_last": [
+          "Strand", "Moor", "Heath", "Ridge", "Vale", "Croft", "Dale", "Holm",
+          "Beck", "Fen", "Kerr", "Lund", "Berg", "Dahl", "Vik", "Aker",
+          "Bard", "Falk", "Gran", "Ness", "Ravn", "Skard", "Torp", "Uhl",
+          "Vang", "Wold", "Zell", "Eld", "Orm", "Brak"
+        ]
+      },
+      "locations": [
+        "citadel", "bazaar", "farmstead", "manor", "dockyard", "mill",
+        "chapel", "sanctuary", "warehouse", "plaza", "tower", "crossroads",
+        "market_square", "harbor", "inn", "keep", "quarry", "stable",
+        "library", "watchtower", "vineyard", "barracks", "observatory", "workshop",
+        "lighthouse", "archive", "amphitheater", "granary", "tannery", "glassworks"
+      ]
+    }
+  },
+
+  "object": {
+    "_note": "Acquirable object categories. Each category has 'nouns' (the item type word), 'locations' (where it can be bought/found), and dimension value pools (e.g. 'size', 'color') used to build item surface names. Add new categories here to support non-weapon rule tasks.",
+    "weapon": {
+      "nouns":     ["blade", "sword", "dagger", "spear", "lance", "axe", "mace"],
+      "locations": ["forge", "smithy", "workshop", "armory", "foundry", "market_stall", "emporium"],
+      "size":  ["tiny", "short", "standard", "long", "great", "colossal"],
+      "color": [
+        "red", "blue", "green", "grey", "gold", "silver",
+        "black", "white", "purple", "crimson", "amber", "teal"
+      ]
+    }
+  },
+
+  "activity": {
+    "_note": "Activity pools for procedural extra steps. Not acquirable objects — sampled once per variant and used as a fixed argument across all entities sharing the same action type.",
+    "ritual": {
+      "rituals": [
+        "moonlit_prayer", "iron_oath", "ember_rite", "silver_ward",
+        "dawn_chant", "stone_vigil", "tide_blessing", "ash_covenant",
+        "veil_seal", "thunder_pact", "frost_mark", "blood_rite"
+      ]
+    },
+    "potion": {
+      "potions": [
+        "strength_brew", "iron_draught", "swiftness_tonic", "shadow_elixir",
+        "crimson_vial", "ember_flask", "frost_draught", "thunder_essence",
+        "veil_potion", "stone_tonic", "dawn_brew", "blood_elixir"
+      ]
+    }
+  }
+}

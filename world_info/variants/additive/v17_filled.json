@@ -1,0 +1,749 @@
+{
+  "n_items": 5,
+  "attribute_labels": {
+    "class": {
+      "semantic_name": "class",
+      "nonce_name": "vrel"
+    },
+    "role": {
+      "semantic_name": "role",
+      "nonce_name": "korv"
+    }
+  },
+  "entities": {
+    "source": [
+      {
+        "instance": "Cress_Greywing",
+        "nonce_instance": "Drev_Kornak",
+        "location": "farmstead",
+        "attributes": {
+          "class": 1,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "pilgrim",
+          "role": "sentinel"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "pilgrim",
+          "sentinel"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "farmstead"
+        },
+        "item_id": 1
+      },
+      {
+        "instance": "Cael_Thornwick",
+        "nonce_instance": "Seln_Varoth",
+        "location": "plaza",
+        "attributes": {
+          "class": 2,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "sage",
+          "role": "herbalist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "sage",
+          "herbalist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "plaza"
+        },
+        "item_id": 1
+      },
+      {
+        "instance": "Dorian_Marshwick",
+        "nonce_instance": "Tav_Greln",
+        "location": "harbor",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "envoy",
+          "role": "vanguard"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "envoy",
+          "vanguard"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "harbor"
+        },
+        "item_id": 4
+      },
+      {
+        "instance": "Torin_Greymantle",
+        "nonce_instance": "Brev_Solnak",
+        "location": "glassworks",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "pilgrim",
+          "role": "herbalist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "pilgrim",
+          "herbalist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "glassworks"
+        },
+        "item_id": 2
+      },
+      {
+        "instance": "Mira_Brightwater",
+        "nonce_instance": "Korv_Delnath",
+        "location": "quarry",
+        "attributes": {
+          "class": 2,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "sage",
+          "role": "vanguard"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "sage",
+          "vanguard"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "quarry"
+        },
+        "item_id": 2
+      },
+      {
+        "instance": "Elys_Starwick",
+        "nonce_instance": "Vren_Blornath",
+        "location": "keep",
+        "attributes": {
+          "class": 0,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "envoy",
+          "role": "sentinel"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "envoy",
+          "sentinel"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "keep"
+        },
+        "item_id": 2
+      }
+    ],
+    "gen": [
+      {
+        "instance": "Edith_Coldwater",
+        "nonce_instance": "Shen_Korvnak",
+        "location": "vineyard",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "envoy",
+          "role": "herbalist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "envoy",
+          "herbalist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "vineyard"
+        },
+        "item_id": 3
+      },
+      {
+        "instance": "Hadwin_Crestfall",
+        "nonce_instance": "Tor_Draxeln",
+        "location": "watchtower",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "pilgrim",
+          "role": "vanguard"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "pilgrim",
+          "vanguard"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "watchtower"
+        },
+        "item_id": 3
+      },
+      {
+        "instance": "Corvin_Pinehearth",
+        "nonce_instance": "Relv_Sornath",
+        "location": "dockyard",
+        "attributes": {
+          "class": 2,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "sage",
+          "role": "sentinel"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "sage",
+          "sentinel"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "dockyard"
+        },
+        "item_id": 0
+      }
+    ],
+    "all": [
+      {
+        "instance": "Cress_Greywing",
+        "nonce_instance": "Drev_Kornak",
+        "location": "farmstead",
+        "attributes": {
+          "class": 1,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "pilgrim",
+          "role": "sentinel"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "pilgrim",
+          "sentinel"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "farmstead"
+        },
+        "item_id": 1
+      },
+      {
+        "instance": "Cael_Thornwick",
+        "nonce_instance": "Seln_Varoth",
+        "location": "plaza",
+        "attributes": {
+          "class": 2,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "sage",
+          "role": "herbalist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "sage",
+          "herbalist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "plaza"
+        },
+        "item_id": 1
+      },
+      {
+        "instance": "Dorian_Marshwick",
+        "nonce_instance": "Tav_Greln",
+        "location": "harbor",
+        "attributes": {
+          "class": 0,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "envoy",
+          "role": "vanguard"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "envoy",
+          "vanguard"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "harbor"
+        },
+        "item_id": 4
+      },
+      {
+        "instance": "Torin_Greymantle",
+        "nonce_instance": "Brev_Solnak",
+        "location": "glassworks",
+        "attributes": {
+          "class": 1,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "pilgrim",
+          "role": "herbalist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "pilgrim",
+          "herbalist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "glassworks"
+        },
+        "item_id": 2
+      },
+      {
+        "instance": "Mira_Brightwater",
+        "nonce_instance": "Korv_Delnath",
+        "location": "quarry",
+        "attributes": {
+          "class": 2,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "sage",
+          "role": "vanguard"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "sage",
+          "vanguard"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "quarry"
+        },
+        "item_id": 2
+      },
+      {
+        "instance": "Elys_Starwick",
+        "nonce_instance": "Vren_Blornath",
+        "location": "keep",
+        "attributes": {
+          "class": 0,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "envoy",
+          "role": "sentinel"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "envoy",
+          "sentinel"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "keep"
+        },
+        "item_id": 2
+      },
+      {
+        "instance": "Edith_Coldwater",
+        "nonce_instance": "Shen_Korvnak",
+        "location": "vineyard",
+        "attributes": {
+          "class": 0,
+          "role": 1
+        },
+        "attribute_values": {
+          "class": "envoy",
+          "role": "herbalist"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_A",
+          "role": "korv_Y"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "envoy",
+          "herbalist"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_A",
+          "korv_Y"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "vineyard"
+        },
+        "item_id": 3
+      },
+      {
+        "instance": "Hadwin_Crestfall",
+        "nonce_instance": "Tor_Draxeln",
+        "location": "watchtower",
+        "attributes": {
+          "class": 1,
+          "role": 0
+        },
+        "attribute_values": {
+          "class": "pilgrim",
+          "role": "vanguard"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_B",
+          "role": "korv_X"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "pilgrim",
+          "vanguard"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_B",
+          "korv_X"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "watchtower"
+        },
+        "item_id": 3
+      },
+      {
+        "instance": "Corvin_Pinehearth",
+        "nonce_instance": "Relv_Sornath",
+        "location": "dockyard",
+        "attributes": {
+          "class": 2,
+          "role": 2
+        },
+        "attribute_values": {
+          "class": "sage",
+          "role": "sentinel"
+        },
+        "nonce_attribute_values": {
+          "class": "vrel_C",
+          "role": "korv_Z"
+        },
+        "attribute_names": [
+          "class",
+          "role"
+        ],
+        "nonce_attribute_names": [
+          "vrel",
+          "korv"
+        ],
+        "attribute_values_list": [
+          "sage",
+          "sentinel"
+        ],
+        "nonce_attribute_values_list": [
+          "vrel_C",
+          "korv_Z"
+        ],
+        "_consumed_pool_values": {
+          "entity.npc.locations": "dockyard"
+        },
+        "item_id": 0
+      }
+    ]
+  },
+  "_output_category": "object.weapon",
+  "_dim_sem": {
+    "size": [
+      "tiny",
+      "colossal",
+      "short",
+      "long",
+      "standard"
+    ]
+  },
+  "_dim_nonce": {
+    "size": [
+      "blorn",
+      "feln",
+      "trev",
+      "drax",
+      "skev"
+    ]
+  },
+  "_dim_strides": {
+    "size": 1
+  },
+  "_dim_order": [
+    "size"
+  ],
+  "_items_fn": "numeric",
+  "_output_noun": "lance",
+  "_output_noun_nonce": "brev",
+  "_output_prop_samples": {
+    "object.weapon.locations": "market_stall"
+  },
+  "_output_item_props": {
+    "location": "market_stall"
+  },
+  "_reserved_variant_pools": {
+    "object.weapon.locations": [
+      "market_stall"
+    ]
+  },
+  "_n_items": 5,
+  "_pool_map": {
+    "entity.npc": "entities.all"
+  },
+  "_composition": "additive",
+  "_input_category": "entity.npc",
+  "_input_meta": {
+    "name": [
+      "name_pools.first",
+      "name_pools.last"
+    ],
+    "repeat_name": [
+      "name_pools.repeat_first",
+      "name_pools.repeat_last"
+    ],
+    "properties": {
+      "location": "locations"
+    }
+  },
+  "_variant_info": {
+    "seed": 17,
+    "variant_type": "filled"
+  }
+}

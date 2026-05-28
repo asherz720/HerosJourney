@@ -1,0 +1,32 @@
+{
+  "_note": "Built-in composition functions. Reference by name in rule files.",
+  "additive": {
+    "description": "All functions map to the same output. The item is indexed by the sum of their outputs. Requires that sum range = n_values of the output dimension.",
+    "params": {},
+    "example": "composition: \"additive\""
+  },
+  "independent": {
+    "description": "Each function maps to a separate output. Dimensions combine independently to identify the item.",
+    "params": {},
+    "example": "composition: \"independent\""
+  },
+  "conditional": {
+    "description": "A selector maps one attribute to a regime. The active regime determines which function controls which dimension; all other dimensions take fixed values.",
+    "params": {
+      "selector": "object with 'input' (attribute name) and 'map' (list of regime indices, one per attribute value)",
+      "branches": "list of {regime: int, active_fn: str, fixed: {dim_name: dim_idx}}"
+    },
+    "example": "composition: {\"fn\": \"conditional\", \"selector\": {\"input\": \"class\", \"map\": [0,0,1,1]}, \"branches\": [{\"regime\": 0, \"active_fn\": \"f_size\", \"fixed\": {\"color\": 2}}, {\"regime\": 1, \"active_fn\": \"f_color\", \"fixed\": {\"size\": 3}}]}"
+  },
+  "override": {
+    "description": "A base function determines the item by default. When one specific attribute value is present, the item is always a fixed dimension value regardless of the base.",
+    "params": {
+      "base_fn": "name of the default function",
+      "override_attr": "name of the attribute whose value may trigger override",
+      "override_value": "the attribute value index that triggers the override",
+      "override_dim": "which output dimension is affected",
+      "override_dim_value": "the fixed dimension value index when override fires"
+    },
+    "example": "composition: {\"fn\": \"override\", \"base_fn\": \"f_base\", \"override_attr\": \"role\", \"override_value\": 2, \"override_dim\": \"size\", \"override_dim_value\": 3}"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "_note": "Built-in split functions. Reference by name in rule files.",
+  "two_offset": {
+    "description": "For each attr1 value at index i, include (i, i%n_a2) and (i, (i+1)%n_a2) in source. Guarantees bipartite connectivity. Gen = all remaining pairs. A seed parameter controls the random permutation of attribute orderings before applying the formula.",
+    "params": {
+      "seed": "int (default 0) — controls permutation of attribute orderings"
+    },
+    "valid_for": ["additive", "independent"],
+    "example": "split: {\"fn\": \"two_offset\", \"seed\": 0}"
+  },
+  "conditional_two_offset": {
+    "description": "Regime-aware two-offset split for conditional tasks. Groups attr1 values by regime (from comp_dict[\"selector\"][\"map\"]) and applies a within-regime two-offset cover. Guarantees each attr1 value has ≥ 2 distinct attr2 partners (regime identification) and every attr2 value appears within each regime (within-regime mapping identification). Precondition: n_regime_classes >= n_a2 - 1 per regime.",
+    "params": {
+      "seed": "int (default 0) — controls permutation of role ordering"
+    },
+    "valid_for": ["conditional"],
+    "example": "split: {\"fn\": \"conditional_two_offset\", \"seed\": 0}"
+  },
+  "c4_override": {
+    "description": "Cover all (n_a1-1) classes fully in source; give the held-out class exactly one non-override demo. Gen contains the held-out class with the override value (tests override transfer) and the held-out class with remaining unseen non-override values (tests per-value specificity).",
+    "params": {
+      "seed": "int (optional) — shuffles class ordering to permute which class is held out"
+    },
+    "valid_for": ["override"],
+    "example": "split: {\"fn\": \"c4_override\"}"
+  },
+  "explicit": {
+    "description": "User-specified source and gen pairs as lists of [attr1_idx, attr2_idx] pairs.",
+    "params": {
+      "source": "list of [attr1_idx, attr2_idx]",
+      "gen":    "list of [attr1_idx, attr2_idx]"
+    },
+    "example": "split: {\"fn\": \"explicit\", \"source\": [[0,0],[1,1]], \"gen\": [[0,1],[1,0]]}"
+  }
+}

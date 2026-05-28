@@ -1,0 +1,52 @@
+{
+  "_note": "Nonce lexicon for distractor entities. Same structure as nonce_lexicon.json. 'entity.npc.attribute_labels' matches nonce_lexicon.json exactly — concept and distractor entities share the same nonce attribute display names (vrel, korv, …). 'entity.npc.attribute_slots' uses disjoint suffixes so distractor nonce values are recognizably out-of-vocabulary. Entity name syllables and object.weapon dimension pools are also disjoint from nonce_lexicon.json.",
+
+  "entity": {
+    "npc": {
+      "attribute_labels": [
+        "vrel", "korv", "blarn", "sked", "torv",
+        "drev", "seln", "brex", "forn", "vlex"
+      ],
+      "attribute_slots": [
+        ["vrel_P", "vrel_Q", "vrel_R", "vrel_S", "vrel_T", "vrel_N", "vrel_O", "vrel_M", "vrel_L", "vrel_K"],
+        ["korv_M", "korv_L", "korv_K", "korv_J", "korv_H", "korv_G", "korv_F", "korv_E", "korv_D", "korv_C"],
+        ["blarn_pa", "blarn_pb", "blarn_pc", "blarn_pd", "blarn_pe", "blarn_pf", "blarn_pg", "blarn_ph", "blarn_pi", "blarn_pj"],
+        ["sked_ma", "sked_mb", "sked_mc", "sked_md", "sked_me", "sked_mf", "sked_mg", "sked_mh", "sked_mi", "sked_mj"],
+        ["torv_1P", "torv_2Q", "torv_3R", "torv_4S", "torv_5T", "torv_6N", "torv_7O", "torv_8M", "torv_9L", "torv_0K"],
+        ["drev_1M", "drev_2L", "drev_3K", "drev_4J", "drev_5H", "drev_6G", "drev_7F", "drev_8E", "drev_9D", "drev_0C"],
+        ["seln_PP", "seln_QQ", "seln_RR", "seln_SS", "seln_TT", "seln_NN", "seln_OO", "seln_MM", "seln_LL", "seln_KK"],
+        ["brex_MM", "brex_LL", "brex_KK", "brex_JJ", "brex_HH", "brex_GG", "brex_FF", "brex_EE", "brex_DD", "brex_CC"],
+        ["forn_pq", "forn_qr", "forn_rs", "forn_st", "forn_tn", "forn_no", "forn_om", "forn_ml", "forn_lk", "forn_kj"],
+        ["vlex_mn", "vlex_nl", "vlex_lk", "vlex_kj", "vlex_jh", "vlex_hg", "vlex_gf", "vlex_fe", "vlex_ed", "vlex_dc"]
+      ],
+      "name_pools": {
+        "first": [
+          "Morg", "Zeth", "Plax", "Brond", "Skelt",
+          "Throx", "Clev", "Vreld", "Sneth", "Blax",
+          "Grond", "Treld", "Clorn", "Phrev", "Skrond",
+          "Vroth", "Bleth", "Sneld", "Threld", "Clax"
+        ],
+        "last": [
+          "Mornath", "Zepheld", "Plaxorn", "Brondax", "Skelrath",
+          "Throxeld", "Clevorn", "Vreldax", "Snethak", "Blaxorn",
+          "Grondath", "Treldax", "Clorneth", "Phrevak", "Skrondorn",
+          "Vrotheld", "Blethax", "Sneldorn", "Threldak", "Claxorn"
+        ]
+      }
+    }
+  },
+
+  "object": {
+    "weapon": {
+      "_note": "Disjoint from nonce_lexicon.json weapon dimension pools.",
+      "size": [
+        "zeph", "morn", "glix", "brath", "sneld",
+        "trove", "clax", "vrenth", "skonn", "bleth"
+      ],
+      "color": [
+        "plex", "morv", "snax", "breld", "throx",
+        "clorn", "vrath", "skerl", "pleth", "grond"
+      ]
+    }
+  }
+}

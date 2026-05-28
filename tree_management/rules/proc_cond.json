@@ -1,0 +1,35 @@
+{
+  "_note": "P-Conditional: class selects a regime; regime determines which dimension of the process role controls. Two regimes for 4 classes (2 per regime), 2 roles. No output_category or functions — process selection is driven by PROCESS_MAP in the task spec.",
+
+  "input_category": "entity.npc",
+  "input_meta": {
+    "name": [
+      "name_pools.first",
+      "name_pools.last"
+    ],
+    "repeat_name": [
+      "name_pools.repeat_first",
+      "name_pools.repeat_last"
+    ],
+    "properties": {
+      "location": "locations"
+    }
+  },
+
+  "inputs": [
+    {
+      "name": "class",
+      "n_values": 4,
+      "pool": "attributes.class",
+      "nonce_pool": "attribute_slots.0",
+      "nonce_label": "attribute_labels.0"
+    },
+    {
+      "name": "role",
+      "n_values": 2,
+      "pool": "attributes.role",
+      "nonce_pool": "attribute_slots.1",
+      "nonce_label": "attribute_labels.1"
+    }
+  ]
+}

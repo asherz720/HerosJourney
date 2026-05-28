@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rule Induction Experiment</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    font-size: 14px; background: #f5f5f5; color: #222; min-height: 100vh;
+  }
+
+  /* ── Login ── */
+  #login-screen { display:flex; align-items:center; justify-content:center; min-height:100vh; }
+  #login-box {
+    background:white; border-radius:10px; padding:40px 48px;
+    max-width:500px; width:100%; box-shadow:0 2px 12px rgba(0,0,0,.10); text-align:center;
+  }
+  #login-box h1 { font-size:20px; margin-bottom:8px; }
+  #login-box p  { color:#666; margin-bottom:20px; line-height:1.5; font-size:13px; }
+  .login-label { display:block; text-align:left; font-size:12px; font-weight:600;
+                 color:#6b7280; margin-bottom:4px; margin-top:14px; }
+  #login-box input[type=text] {
+    width:100%; padding:10px 14px; border:1px solid #ccc; border-radius:6px; font-size:14px;
+  }
+  .file-row { display:flex; align-items:center; gap:10px; }
+  .file-row input[type=file] { flex:1; font-size:12px; }
+  .file-note { font-size:11px; color:#9ca3af; text-align:left; margin-top:4px; }
+  #login-box button.begin-btn {
+    width:100%; padding:10px; margin-top:22px;
+    background:#2563eb; color:white; border:none; border-radius:6px;
+    font-size:15px; font-weight:600; cursor:pointer;
+  }
+  #login-box button.begin-btn:hover { background:#1d4ed8; }
+  #login-error { color:#dc2626; margin-top:10px; font-size:13px; }
+
+  /* ── Main layout ── */
+  #main-screen { display:none; max-width:900px; margin:0 auto; padding:24px 16px 60px; }
+
+  header {
+    background:white; border-bottom:1px solid #e5e5e5; padding:10px 20px;
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    position:sticky; top:0; z-index:10;
+  }
+  header .title { font-weight:700; font-size:15px; white-space:nowrap; }
+  header .meta  { color:#888; font-size:12px; white-space:nowrap; }
+  #progress-bar-wrap { background:#e5e7eb; border-radius:4px; height:6px; width:160px; overflow:hidden; }
+  #progress-bar { background:#2563eb; height:100%; transition:width .3s; }
+  .btn {
+    padding:7px 14px; border-radius:6px; border:none; cursor:pointer;
+    font-size:13px; font-weight:600;
+  }
+  .btn-primary { background:#2563eb; color:white; }
+  .btn-primary:hover { background:#1d4ed8; }
+  .btn-secondary { background:#f3f4f6; color:#374151; border:1px solid #d1d5db; }
+  .btn-secondary:hover { background:#e5e7eb; }
+
+  /* ── Card ── */
+  .card {
+    background:white; border:1px solid #e5e7eb; border-radius:8px;
+    padding:20px 24px; margin-bottom:16px;
+  }
+  .card h2 { font-size:14px; font-weight:700; margin-bottom:10px; color:#111; }
+  .task-badge {
+    display:inline-block; font-size:11px; font-weight:700; padding:2px 8px;
+    border-radius:12px; background:#dbeafe; color:#1d4ed8; margin-bottom:10px;
+  }
+
+  /* ── Demo context ── */
+  #demo-box {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size:12px; line-height:1.6; white-space:pre-wrap; word-break:break-word;
+    background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px;
+    padding:14px 16px; max-height:420px; overflow-y:auto;
+  }
+
+  /* ── Explanation ── */
+  #explanation-area {
+    width:100%; min-height:140px; padding:12px 14px;
+    border:1px solid #d1d5db; border-radius:6px; font-size:14px;
+    line-height:1.6; resize:vertical; font-family:inherit;
+  }
+  #explanation-area:focus { outline:none; border-color:#2563eb; box-shadow:0 0 0 2px #bfdbfe; }
+  .char-count { font-size:11px; color:#9ca3af; text-align:right; margin-top:4px; }
+
+  /* ── Calibration reveal ── */
+  #calibration-card { display:none; }
+  .ground-truth-box {
+    background:#f0fdf4; border:1px solid #86efac; border-radius:6px;
+    padding:12px 16px; font-size:13px; line-height:1.6; color:#14532d;
+    white-space:pre-wrap;
+  }
+  .calibration-label {
+    font-size:11px; font-weight:700; color:#166534; text-transform:uppercase;
+    letter-spacing:.05em; margin-bottom:6px;
+  }
+
+  /* ── Done screen ── */
+  #done-screen {
+    display:none; align-items:center; justify-content:center; min-height:100vh;
+  }
+  #done-box {
+    background:white; border-radius:10px; padding:40px 48px; max-width:480px;
+    width:100%; box-shadow:0 2px 12px rgba(0,0,0,.10); text-align:center;
+  }
+  #done-box h1 { font-size:22px; margin-bottom:10px; }
+  #done-box p  { color:#555; margin-bottom:16px; line-height:1.5; }
+  .export-btn { margin-top:8px; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════ Login -->
+<div id="login-screen">
+  <div id="login-box">
+    <h1>Rule Induction Experiment</h1>
+    <p>You will see demonstration episodes for 8 tasks. For each task, study the demos and write your best explanation of the hidden rule that determines the correct item to buy.</p>
+
+    <label class="login-label">Your name</label>
+    <input type="text" id="name-input" placeholder="e.g. alice" autocomplete="off">
+
+    <label class="login-label">Task set file (rule_induction_set.json)</label>
+    <div class="file-row">
+      <input type="file" id="task-file" accept=".json">
+    </div>
+    <div class="file-note">Generate with: python analysis/generate_rule_induction_set.py</div>
+
+    <label class="login-label" style="margin-top:18px;">Resume from checkpoint (optional)</label>
+    <div class="file-row">
+      <input type="file" id="checkpoint-file" accept=".json">
+    </div>
+    <div class="file-note">Load a previously saved checkpoint to continue where you left off.</div>
+
+    <button class="begin-btn" onclick="begin()">Begin</button>
+    <div id="login-error"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ Main -->
+<header id="main-header" style="display:none;">
+  <span class="title">Rule Induction</span>
+  <div id="progress-bar-wrap"><div id="progress-bar" style="width:0%"></div></div>
+  <span class="meta" id="progress-label">Task 0 / 0</span>
+  <button class="btn btn-secondary" onclick="saveCheckpoint()">💾 Save checkpoint</button>
+</header>
+
+<div id="main-screen">
+  <div class="card">
+    <span class="task-badge" id="task-badge">additive</span>
+    <h2>Study the demonstration episodes below</h2>
+    <div id="demo-box"></div>
+  </div>
+
+  <div class="card">
+    <h2>What is the hidden rule?</h2>
+    <p style="color:#555; font-size:13px; margin-bottom:10px; line-height:1.5;">
+      Describe the rule that determines <strong>which item to buy</strong> based on the entity's attributes.
+      Be as specific as possible — mention which attributes matter and how they map to items.
+    </p>
+    <textarea id="explanation-area" placeholder="e.g. The item size depends on both class and role: class determines a base size, and role adds an offset..."></textarea>
+    <div class="char-count"><span id="char-count">0</span> characters</div>
+    <div style="margin-top:12px; display:flex; gap:10px; justify-content:flex-end;">
+      <button class="btn btn-secondary" onclick="skipTask()">Skip (leave blank)</button>
+      <button class="btn btn-primary" id="submit-btn" onclick="submitExplanation()">Submit</button>
+    </div>
+  </div>
+
+  <div class="card" id="calibration-card">
+    <div class="calibration-label">Ground truth rule</div>
+    <div class="ground-truth-box" id="ground-truth-box"></div>
+    <div style="margin-top:14px; display:flex; gap:10px; justify-content:flex-end;">
+      <button class="btn btn-secondary" id="revise-btn" onclick="enableRevision()">Revise explanation</button>
+      <button class="btn btn-primary" id="next-btn" onclick="advanceTask()">Next task →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ Done -->
+<div id="done-screen">
+  <div id="done-box">
+    <h1>All done!</h1>
+    <p>You've completed all 8 tasks. Export your explanations below — send the JSON file to the experimenter.</p>
+    <button class="btn btn-primary export-btn" onclick="exportExplanations()">Export explanations JSON</button>
+  </div>
+</div>
+
+<script>
+// ── State ──
+let annotator   = "";
+let tasks       = [];   // [{task_type, seed, nonce, demo_context}, ...]
+let currentIdx  = 0;
+let explanations = {};  // task_type → {explanation, submitted_at}
+
+// ── Login ──
+function begin() {
+  const name = document.getElementById("name-input").value.trim();
+  if (!name) { showError("Please enter your name."); return; }
+
+  const taskFile = document.getElementById("task-file").files[0];
+  if (!taskFile) { showError("Please select the rule_induction_set.json file."); return; }
+
+  const cpFile = document.getElementById("checkpoint-file").files[0];
+
+  readJSON(taskFile, (taskData) => {
+    if (!Array.isArray(taskData) || taskData.length === 0) {
+      showError("Invalid task file — expected a JSON array."); return;
+    }
+    tasks     = taskData;
+    annotator = name;
+
+    if (cpFile) {
+      readJSON(cpFile, (cp) => {
+        if (cp.annotator === name) {
+          explanations = cp.explanations || {};
+          currentIdx   = cp.current_idx  || 0;
+        }
+        startMain();
+      });
+    } else {
+      // Restore from localStorage
+      const saved = localStorage.getItem(`rule_induction_${name}`);
+      if (saved) {
+        try {
+          const cp = JSON.parse(saved);
+          if (cp.annotator === name) {
+            explanations = cp.explanations || {};
+            currentIdx   = cp.current_idx  || 0;
+          }
+        } catch(e) {}
+      }
+      startMain();
+    }
+  });
+}
+
+function readJSON(file, cb) {
+  const reader = new FileReader();
+  reader.onload = e => { try { cb(JSON.parse(e.target.result)); } catch(err) { showError("Could not parse JSON file."); } };
+  reader.readAsText(file);
+}
+
+function showError(msg) { document.getElementById("login-error").textContent = msg; }
+
+// ── Main ──
+function startMain() {
+  document.getElementById("login-screen").style.display = "none";
+  document.getElementById("main-header").style.display  = "flex";
+  document.getElementById("main-screen").style.display  = "block";
+  renderTask();
+}
+
+function renderTask() {
+  if (currentIdx >= tasks.length) { showDone(); return; }
+  const task = tasks[currentIdx];
+
+  document.getElementById("task-badge").textContent = task.task_type;
+  document.getElementById("demo-box").textContent   = task.demo_context;
+
+  // Restore any prior explanation for this task
+  const prior = explanations[task.task_type];
+  const area  = document.getElementById("explanation-area");
+  area.value  = prior ? prior.explanation : "";
+  updateCharCount();
+
+  updateProgress();
+  area.focus();
+}
+
+function updateProgress() {
+  const pct = Math.round((currentIdx / tasks.length) * 100);
+  document.getElementById("progress-bar").style.width = pct + "%";
+  document.getElementById("progress-label").textContent =
+    `Task ${currentIdx + 1} / ${tasks.length}`;
+}
+
+function updateCharCount() {
+  const n = document.getElementById("explanation-area").value.length;
+  document.getElementById("char-count").textContent = n;
+}
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("explanation-area")
+    .addEventListener("input", updateCharCount);
+});
+
+function submitExplanation() {
+  const text = document.getElementById("explanation-area").value.trim();
+  if (!text) {
+    if (!confirm("Your explanation is empty. Are you sure you want to submit a blank response?")) return;
+  }
+  recordExplanation(text);
+  showCalibration();
+}
+
+function skipTask() {
+  recordExplanation("");
+  showCalibration();
+}
+
+function recordExplanation(text) {
+  const task = tasks[currentIdx];
+  const existing = explanations[task.task_type];
+  if (existing && existing.original_explanation !== undefined) {
+    // This is a revision
+    existing.revised_explanation = text;
+    existing.revised_at = new Date().toISOString();
+  } else {
+    explanations[task.task_type] = {
+      original_explanation: text,
+      revised_explanation:  null,
+      submitted_at:         new Date().toISOString(),
+      revised_at:           null,
+    };
+  }
+  autosave();
+}
+
+function showCalibration() {
+  const task = tasks[currentIdx];
+  document.getElementById("submit-btn").disabled = true;
+  document.getElementById("explanation-area").disabled = true;
+  document.getElementById("ground-truth-box").textContent = task.correct_rule || "(no ground truth available)";
+  document.getElementById("revise-btn").style.display = "inline-block";
+  document.getElementById("calibration-card").style.display = "block";
+  document.getElementById("calibration-card").scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+function enableRevision() {
+  const area = document.getElementById("explanation-area");
+  area.disabled = false;
+  area.focus();
+  // Swap submit button back, hide revise button
+  document.getElementById("submit-btn").disabled = false;
+  document.getElementById("submit-btn").textContent = "Submit revision";
+  document.getElementById("revise-btn").style.display = "none";
+  document.getElementById("calibration-card").style.display = "none";
+  area.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+function advanceTask() {
+  document.getElementById("calibration-card").style.display = "none";
+  document.getElementById("submit-btn").disabled = false;
+  document.getElementById("submit-btn").textContent = "Submit";
+  document.getElementById("explanation-area").disabled = false;
+  currentIdx++;
+  if (currentIdx >= tasks.length) { showDone(); } else { renderTask(); }
+}
+
+// ── Checkpoint ──
+function autosave() {
+  const cp = { annotator, current_idx: currentIdx, explanations };
+  try { localStorage.setItem(`rule_induction_${annotator}`, JSON.stringify(cp)); } catch(e) {}
+}
+
+function saveCheckpoint() {
+  const cp = {
+    annotator,
+    saved_at:    new Date().toISOString(),
+    current_idx: currentIdx,
+    explanations,
+  };
+  download(`checkpoint_${annotator}.json`, JSON.stringify(cp, null, 2));
+}
+
+// ── Done / Export ──
+function showDone() {
+  document.getElementById("main-header").style.display = "none";
+  document.getElementById("main-screen").style.display = "none";
+  document.getElementById("done-screen").style.display = "flex";
+}
+
+function exportExplanations() {
+  const out = {
+    annotator,
+    exported_at:  new Date().toISOString(),
+    n_tasks:      tasks.length,
+    explanations: tasks.map(t => {
+      const e = explanations[t.task_type] || {};
+      const final = e.revised_explanation !== null && e.revised_explanation !== undefined
+                    ? e.revised_explanation : (e.original_explanation || "");
+      return {
+        task_type:            t.task_type,
+        seed:                 t.seed,
+        nonce:                t.nonce,
+        original_explanation: e.original_explanation || "",
+        revised_explanation:  e.revised_explanation  || null,
+        explanation:          final,   // final = revised ?? original (used by scorer)
+        submitted_at:         e.submitted_at || null,
+        revised_at:           e.revised_at   || null,
+      };
+    }),
+  };
+  download(`explanations_${annotator}.json`, JSON.stringify(out, null, 2));
+}
+
+function download(filename, text) {
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([text], { type: "application/json" }));
+  a.download = filename;
+  a.click();
+}
+
+// ── Keyboard shortcuts ──
+document.addEventListener("keydown", e => {
+  if (document.getElementById("main-screen").style.display === "none") return;
+  // Ctrl/Cmd+Enter to submit
+  if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
+    e.preventDefault();
+    submitExplanation();
+  }
+});
+</script>
+</body>
+</html>
