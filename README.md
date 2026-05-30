@@ -129,7 +129,8 @@ spec = herosjourney.get_task("my_task")
 ```
 
 For custom validators or per-episode process variation, `register_task(...)`
-also accepts keyword arguments. See `CLAUDE.md` for the full architecture.
+also accepts keyword arguments. See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
+for the full architecture.
 
 ## Applying an induction method
 

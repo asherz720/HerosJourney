@@ -22,8 +22,10 @@ __pycache__/
 build/
 dist/
 
-# Local Claude Code / harness config — not part of the public package
+# Local Claude Code / harness config — not part of the public package.
+# The architecture doc lives publicly at docs/ARCHITECTURE.md instead.
 .claude/
+CLAUDE.md
 
 # Paper PDF artifact
 Hero_s_Journey_emnlp.pdf
