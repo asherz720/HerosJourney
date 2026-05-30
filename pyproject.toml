@@ -32,11 +32,10 @@ dependencies = [
     "pydantic>=2.0",
 ]
 
-# TODO(before publishing): add project URLs once a public repo exists, e.g.
-# [project.urls]
-# Homepage = "https://github.com/<user>/herosjourney"
-# Repository = "https://github.com/<user>/herosjourney"
-# Issues = "https://github.com/<user>/herosjourney/issues"
+[project.urls]
+Homepage = "https://github.com/asherz720/HerosJourney"
+Repository = "https://github.com/asherz720/HerosJourney"
+Issues = "https://github.com/asherz720/HerosJourney/issues"
 
 [project.optional-dependencies]
 # Needed to actually run episodes with hosted/local models (experiment infra).

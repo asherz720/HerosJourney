@@ -12,6 +12,8 @@ plan, not just state the answer.
 See the paper for the full design and experiments. This package is the reusable
 framework; our paper experiments live separately.
 
+Source: <https://github.com/asherz720/HerosJourney>
+
 ## Install
 
 ```bash
