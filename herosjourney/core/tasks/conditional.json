@@ -1,0 +1,12 @@
+{
+  "name": "conditional",
+  "rules": "../rules/conditional.json",
+  "process": "property_flat",
+  "split": {"fn": "conditional_two_offset", "seed": 0},
+  "max_tries": 12,
+  "validate_fn": "validate_conditional_split",
+  "eval": {
+    "correct_rule": "The entity's class determines which dimension of the item the role controls. For classes in one regime, the role determines the item's size while its color is fixed. For classes in the other regime, the role determines the item's color while its size is fixed. Neither attribute can be understood in isolation — knowing the class first is required to know what dimension the role governs.",
+    "description": "class selects regime; regime determines which dimension role controls"
+  }
+}

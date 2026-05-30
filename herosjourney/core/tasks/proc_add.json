@@ -1,0 +1,12 @@
+{
+  "name": "proc_add",
+  "rules": "../rules/proc_add.json",
+  "process": "property_flat",
+  "split": {"fn": "independent_leave_one_out", "seed": 0},
+  "max_tries": 3,
+  "validate_fn": "validate_independent_split",
+  "eval": {
+    "correct_rule": "Both the entity's class and role independently contribute a fixed number of ritual performances to a shared total count. The class determines the base number of performances, and the role adds a modifier. The total number of times the ritual must be performed before buying the weapon equals base(class) + modifier(role). Changing either attribute shifts the count by its independent contribution, regardless of the other attribute's value.",
+    "description": "n_extra_steps = base(class) + modifier(role); additive count on process"
+  }
+}

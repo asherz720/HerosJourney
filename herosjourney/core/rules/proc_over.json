@@ -1,0 +1,42 @@
+{
+  "_note": "P-Override: class determines default extra step; role=3 always overrides to perform_after. 3 classes, 4 roles.",
+  "input_category": "entity.npc",
+  "input_meta": {
+    "name": ["name_pools.first", "name_pools.last"],
+    "repeat_name": ["name_pools.repeat_first", "name_pools.repeat_last"],
+    "properties": {"location": "locations"}
+  },
+  "inputs": [
+    {"name": "class", "n_values": 3, "pool": "attributes.class", "nonce_pool": "attribute_slots.0", "nonce_label": "attribute_labels.0"},
+    {"name": "role",  "n_values": 4, "pool": "attributes.role",  "nonce_pool": "attribute_slots.1", "nonce_label": "attribute_labels.1"}
+  ],
+  "output": {
+    "type": "process",
+    "outputs": [
+      {"name": "action_type", "n_values": 2},
+      {"name": "ordering",    "n_values": 2}
+    ],
+    "functions": [
+      {"name": "f_class_action", "input": "class", "output": "action_type", "map": [0, 1, 1]},
+      {"name": "f_class_order",  "input": "class", "output": "ordering",    "map": [0, 0, 1]}
+    ],
+    "composition": {
+      "fn": "override",
+      "base_fns": ["f_class_action", "f_class_order"],
+      "override_attr": "role",
+      "override_value": 3,
+      "override_dims": {"action_type": 0, "ordering": 1}
+    },
+    "extra_pools": {
+      "activity.ritual": {"name_keys": ["rituals"]},
+      "activity.potion": {"name_keys": ["potions"]}
+    },
+    "extension": {
+      "count":    1,
+      "action":   {"from_dim": "action_type", "values": ["perform", "drink"]},
+      "pool":     {"by_action": {"perform": "activity.ritual", "drink": "activity.potion"}},
+      "position": {"from_dim": "ordering", "values": [{"before": "buy_0"}, {"after": "buy_0"}]},
+      "is_hidden": true
+    }
+  }
+}

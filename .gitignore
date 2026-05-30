@@ -18,6 +18,24 @@ __pycache__/
 *.pyc
 *.pyo
 .env
+*.egg-info/
+build/
+dist/
+
+# Paper PDF artifact
+Hero_s_Journey_emnlp.pdf
 
 # Results (large data files)
 results/
+
+# Original experiment directories — content has moved to experiments/
+# Gitignored so any generated outputs landing here are never committed.
+analysis/
+human_experiment/
+scripts/
+
+# Generated task variant cache (produced by adventure_pipeline, kept locally for repro)
+world_info/variants/
+
+# Paper write-up (LaTeX source, figures, slides — not part of the software package)
+write-up/

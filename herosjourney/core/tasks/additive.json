@@ -1,0 +1,12 @@
+{
+  "name": "additive",
+  "rules": "../rules/additive.json",
+  "process": "property_flat",
+  "split": {"fn": "two_offset", "seed": 0},
+  "max_tries": 5,
+  "validate_fn": "validate_additive_split",
+  "eval": {
+    "correct_rule": "Both attributes affect the item, and their effects are consistent and separable. Changing attribute-1 (class) while keeping attribute-2 (role) fixed always shifts the item by the same amount on an ordering of items, regardless of which role value is held fixed. Likewise, changing role while keeping class fixed always produces the same shift regardless of class. The item can be read off as: the item you would get for that class with a 'neutral' role, shifted up or down according to the role's consistent contribution. In short: both attributes contribute independently, and the contribution of each attribute value is the same no matter what the other attribute is.",
+    "description": "item_size = base(class) + modifier(role)"
+  }
+}

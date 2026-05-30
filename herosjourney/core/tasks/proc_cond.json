@@ -1,0 +1,12 @@
+{
+  "name": "proc_cond",
+  "rules": "../rules/proc_cond.json",
+  "process": "property_flat",
+  "split": {"fn": "independent_leave_one_out", "seed": 0},
+  "max_tries": 3,
+  "validate_fn": "validate_independent_split",
+  "eval": {
+    "correct_rule": "The entity's class determines which dimension of the required extra step the role controls. For classes in regime 0, role determines the action type (whether to perform a ritual or drink a potion) while the ordering relative to buying the weapon is fixed. For classes in regime 1, role determines the ordering (before or after buying the weapon) while the action type is fixed. Neither attribute can be understood in isolation — the class must first be identified as belonging to one of two regimes to know what role governs.",
+    "description": "class selects regime; regime determines which process dimension role controls"
+  }
+}

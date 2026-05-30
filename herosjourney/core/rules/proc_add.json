@@ -1,0 +1,32 @@
+{
+  "_note": "P-Additive: total extra steps = base(class) + modifier(role). Two classes (base 1,2), two roles (modifier 0,1).",
+  "input_category": "entity.npc",
+  "input_meta": {
+    "name": ["name_pools.first", "name_pools.last"],
+    "repeat_name": ["name_pools.repeat_first", "name_pools.repeat_last"],
+    "properties": {"location": "locations"}
+  },
+  "inputs": [
+    {"name": "class", "n_values": 2, "pool": "attributes.class", "nonce_pool": "attribute_slots.0", "nonce_label": "attribute_labels.0"},
+    {"name": "role",  "n_values": 2, "pool": "attributes.role",  "nonce_pool": "attribute_slots.1", "nonce_label": "attribute_labels.1"}
+  ],
+  "output": {
+    "type": "process",
+    "outputs": [{"name": "count"}],
+    "functions": [
+      {"name": "f_base", "input": "class", "output": "count", "map": [1, 2]},
+      {"name": "f_mod",  "input": "role",  "output": "count", "map": [0, 1]}
+    ],
+    "composition": "additive",
+    "extra_pools": {
+      "activity.ritual": {"name_keys": ["rituals"]}
+    },
+    "extension": {
+      "count":    {"from_dim": "count"},
+      "action":   "perform",
+      "pool":     "activity.ritual",
+      "position": {"before": "buy_0"},
+      "is_hidden": true
+    }
+  }
+}

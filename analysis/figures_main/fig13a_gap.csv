@@ -1,5 +1,0 @@
-model,family,n,mean,p_raw,p_adj,stars
-GPT,Attribute,5,0.0958,0.0028,0.0056,**
-GPT,Procedural,5,0.2675,0.0002,0.0004,***
-Qwen,Attribute,5,0.1957,0.0002,0.0004,***
-Qwen,Procedural,5,-0.1108,0.0098,0.0196,*

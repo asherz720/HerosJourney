@@ -1,0 +1,36 @@
+{
+  "_note": "P-Compositional: class determines action type (perform/drink), role determines ordering (before/after buy). Two independent dimensions.",
+  "input_category": "entity.npc",
+  "input_meta": {
+    "name": ["name_pools.first", "name_pools.last"],
+    "repeat_name": ["name_pools.repeat_first", "name_pools.repeat_last"],
+    "properties": {"location": "locations"}
+  },
+  "inputs": [
+    {"name": "class", "n_values": 2, "pool": "attributes.class", "nonce_pool": "attribute_slots.0", "nonce_label": "attribute_labels.0"},
+    {"name": "role",  "n_values": 2, "pool": "attributes.role",  "nonce_pool": "attribute_slots.1", "nonce_label": "attribute_labels.1"}
+  ],
+  "output": {
+    "type": "process",
+    "outputs": [
+      {"name": "action_type", "n_values": 2},
+      {"name": "ordering",    "n_values": 2}
+    ],
+    "functions": [
+      {"name": "f_type",  "input": "class", "output": "action_type", "map": [0, 1]},
+      {"name": "f_order", "input": "role",  "output": "ordering",    "map": [0, 1]}
+    ],
+    "composition": "independent",
+    "extra_pools": {
+      "activity.ritual": {"name_keys": ["rituals"]},
+      "activity.potion": {"name_keys": ["potions"]}
+    },
+    "extension": {
+      "count":    1,
+      "action":   {"from_dim": "action_type", "values": ["perform", "drink"]},
+      "pool":     {"by_action": {"perform": "activity.ritual", "drink": "activity.potion"}},
+      "position": {"from_dim": "ordering", "values": [{"before": "buy_0"}, {"after": "buy_0"}]},
+      "is_hidden": true
+    }
+  }
+}

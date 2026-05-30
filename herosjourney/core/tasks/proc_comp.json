@@ -1,0 +1,12 @@
+{
+  "name": "proc_comp",
+  "rules": "../rules/proc_comp.json",
+  "process": "property_flat",
+  "split": {"fn": "independent_leave_one_out", "seed": 0},
+  "max_tries": 4,
+  "validate_fn": "validate_independent_split",
+  "eval": {
+    "correct_rule": "Each attribute independently controls a separate dimension of the required process. The entity's class determines the action type of the extra step (perform a ritual or drink a potion). The entity's role determines when that step occurs relative to buying the weapon (before or after). Neither attribute influences the dimension controlled by the other.",
+    "description": "class → step_type (perform|drink), role → ordering (before|after buy)"
+  }
+}

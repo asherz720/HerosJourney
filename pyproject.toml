@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "herosjourney"
+version = "0.1.0"
+description = "Hero's Journey: A benchmark for rule induction in goal-directed episodic tasks"
+requires-python = ">=3.10"
+# Core: only what the framework itself needs (env + task generation + eval types).
+# Model-calling and analysis deps are optional extras below.
+dependencies = [
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+# Needed to actually run episodes with hosted/local models (experiment infra).
+runner = [
+    "openai>=1.0",
+    "google-genai",
+    "boto3",
+    "azure-identity",
+]
+# Needed for ECSR/RV analysis and figure generation.
+analysis = [
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "matplotlib>=3.7",
+    "scipy>=1.10",
+]
+all = [
+    "herosjourney[runner,analysis]",
+]
+# YAML task definition files (the .json form needs no extra deps).
+yaml = [
+    "pyyaml>=6.0",
+]
+
+[project.scripts]
+adventure-story = "herosjourney.runner.run_adventure_story:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["herosjourney*"]
+
+[tool.setuptools.package-data]
+# Ship the data files the package needs at runtime (rules, processes, lexicons, task specs).
+herosjourney = [
+    "core/rules/*.json",
+    "core/processes/*.json",
+    "core/distractors/*.json",
+    "core/function_specs/*.json",
+    "core/tasks/*.json",
+    "world_info/lexicons/*.json",
+]

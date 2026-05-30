@@ -1,5 +1,0 @@
-A hidden rule determines how to achieve different goals. Before acting, study the source demonstrations above and form an initial hypothesis. Note that not all goals show a uniform pattern so try to find out those that do show any patterns.
-
-Abduction — form a hypothesis:
-Hypothesis: [your best guess at the hidden rule]
-Plan: [your step-by-step action plan based on this hypothesis]

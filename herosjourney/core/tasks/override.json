@@ -1,0 +1,12 @@
+{
+  "name": "override",
+  "rules": "../rules/override.json",
+  "process": "property_flat",
+  "split": {"fn": "c4_override", "seed": 0},
+  "max_tries": 4,
+  "validate_fn": null,
+  "eval": {
+    "correct_rule": "Each entity's class determines the item by default. However, one specific role value always overrides this default: whenever that role appears, the item is always the same fixed item regardless of the entity's class. All other role values leave the class-determined item intact.",
+    "description": "class → item (base); one role value always overrides to fixed item"
+  }
+}

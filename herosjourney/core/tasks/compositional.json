@@ -1,0 +1,12 @@
+{
+  "name": "compositional",
+  "rules": "../rules/compositional.json",
+  "process": "property_flat",
+  "split": {"fn": "two_offset", "seed": 0},
+  "max_tries": 9,
+  "validate_fn": "validate_additive_split",
+  "eval": {
+    "correct_rule": "Each attribute independently controls a completely separate dimension of the item. One attribute determines one property of the item, and the other attribute determines another property. Knowing the value of one attribute tells you nothing about which value the other attribute contributes. Each attribute's effect is fully separable from the other.",
+    "description": "class → size, role → color (independent dimensions)"
+  }
+}

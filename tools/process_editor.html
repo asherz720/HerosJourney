@@ -32,6 +32,7 @@ html, body { height: 100%; font-family: 'Segoe UI', system-ui, sans-serif; font-
 .add-btn[data-action="get"]     { color: #38d9a9; }
 .add-btn[data-action="buy"]     { color: #69db7c; }
 .add-btn[data-action="perform"] { color: #da77f2; }
+.add-btn[data-action="drink"]   { color: #22b8cf; }
 .add-btn[data-action="defeat"]  { color: #ff6b6b; }
 .add-btn[data-action="rescue"]  { color: #ffa94d; }
 
@@ -102,7 +103,7 @@ html, body { height: 100%; font-family: 'Segoe UI', system-ui, sans-serif; font-
 .sec-title:first-child { margin-top: 0; }
 
 /* Property rows */
-.prop-row { display: grid; grid-template-columns: 1fr 1fr auto; gap: 4px; margin-bottom: 4px; align-items: center; }
+.prop-row { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 4px; margin-bottom: 4px; align-items: center; }
 .prop-row input {
   padding: 4px 7px; background: #0d1117; border: 1px solid #30363d;
   color: #e6edf3; border-radius: 5px; font-size: 11px; width: 100%;
@@ -225,6 +226,7 @@ html, body { height: 100%; font-family: 'Segoe UI', system-ui, sans-serif; font-
     <button class="add-btn" data-action="get">+ get</button>
     <button class="add-btn" data-action="buy">+ buy</button>
     <button class="add-btn" data-action="perform">+ perform</button>
+    <button class="add-btn" data-action="drink">+ drink</button>
     <button class="add-btn" data-action="defeat">+ defeat</button>
     <button class="add-btn" data-action="rescue">+ rescue</button>
     <div class="divider"></div>
@@ -313,22 +315,40 @@ html, body { height: 100%; font-family: 'Segoe UI', system-ui, sans-serif; font-
 'use strict';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
-const ACTIONS = ['go', 'get', 'buy', 'perform', 'defeat', 'rescue'];
+const ACTIONS = ['go', 'get', 'buy', 'perform', 'drink', 'defeat', 'rescue'];
 const ACTION_COLORS = {
   go: '#4dabf7', get: '#38d9a9', buy: '#69db7c',
-  perform: '#da77f2', defeat: '#ff6b6b', rescue: '#ffa94d',
+  perform: '#da77f2', drink: '#22b8cf', defeat: '#ff6b6b', rescue: '#ffa94d',
 };
-// Default arg type by action
+// Coerce a literal property value string to number / bool / string for JSON export.
+function coerceLiteral(v) {
+  if (typeof v !== 'string') return v;
+  const t = v.trim();
+  if (t === '') return '';
+  if (t === 'true')  return true;
+  if (t === 'false') return false;
+  if (/^-?\d+$/.test(t))            return parseInt(t, 10);
+  if (/^-?\d*\.\d+$/.test(t))       return parseFloat(t);
+  return v;
+}
+// Default arg mode by action: 'from' (reference) or 'pool' (lexicon path).
 const DEFAULT_ARG_TYPE = {
-  go: 'from', get: 'object', buy: 'object',
-  perform: 'object', defeat: 'entity', rescue: 'entity',
+  go: 'from', get: 'pool', buy: 'pool',
+  perform: 'pool', drink: 'pool', defeat: 'pool', rescue: 'pool',
 };
-// Properties typically exposed by each argument type
-const ARG_PROPS = {
-  entity: ['location', 'name', 'attribute_names', 'attribute_values'],
-  object: ['location', 'name', 'cost'],
-  from: ['location', 'name'],
+// Default lexicon pool path per action (editable in the UI).
+const DEFAULT_POOL = {
+  get: 'object', buy: 'object.weapon',
+  perform: 'object', drink: 'object',
+  defeat: 'entity.npc', rescue: 'entity',
 };
+// Properties typically exposed for "from" autocomplete, by pool path prefix.
+function argPropsForPool(pool) {
+  if ((pool || '').startsWith('entity')) {
+    return ['location', 'name', 'attribute_names', 'attribute_values'];
+  }
+  return ['location', 'name', 'cost'];
+}
 const NODE_W = 170;
 const NODE_H = 86; // approximate rendered height for arrow endpoints
 
@@ -365,8 +385,9 @@ function makeStep(action) {
     parent,
     is_hidden: false,
     argument: {
-      argType: DEFAULT_ARG_TYPE[action] || 'object',
+      argType: DEFAULT_ARG_TYPE[action] || 'pool',
       from: '',
+      pool: DEFAULT_POOL[action] || '',
     },
     properties: [],
     x: 200 + Math.random() * 300,
@@ -677,11 +698,11 @@ function renderSidebar() {
   const fromSuggestions = [];
   state.steps.forEach(s => {
     if (s.id === step.id) return;
-    const props = ARG_PROPS[s.argument.argType] || ['location', 'name'];
+    const props = argPropsForPool(s.argument.pool);
     props.forEach(p => fromSuggestions.push(`${s.id}.${p}`));
   });
   // Also allow argument.* for property "from" fields
-  const argProps = ARG_PROPS[step.argument.argType] || ['location', 'name'];
+  const argProps = argPropsForPool(step.argument.pool);
 
   const propFromSuggestions = [
     ...argProps.map(p => `argument.${p}`),
@@ -703,14 +724,24 @@ function renderSidebar() {
           ${fromSuggestions.map(s => `<option value="${s}">`).join('')}
         </datalist>
       </div>`;
+  } else {
+    argExtra = `
+      <div class="fg">
+        <label>Pool (lexicon path)</label>
+        <input type="text" id="arg-pool" value="${step.argument.pool || ''}"
+          placeholder="e.g. object.weapon or entity.npc" autocomplete="off">
+        <div class="hint">Lexicon path sampled by the generator. Which nodes are
+          rule-governed is set in the task spec's slot_bindings, not here.</div>
+      </div>`;
   }
 
   // Properties
   const dl2 = `dl-propfrom-${step.id}`;
   const propsHtml = step.properties.map((p, i) => `
     <div class="prop-row">
-      <input type="text" data-pi="${i}" data-field="key"  value="${p.key}"  placeholder="key">
-      <input type="text" data-pi="${i}" data-field="from" value="${p.from}" placeholder="from" list="${dl2}">
+      <input type="text" data-pi="${i}" data-field="key"   value="${p.key || ''}"   placeholder="key">
+      <input type="text" data-pi="${i}" data-field="from"  value="${p.from || ''}"  placeholder="from (ref)" list="${dl2}">
+      <input type="text" data-pi="${i}" data-field="value" value="${p.value ?? ''}" placeholder="value (literal)">
       <button class="icon-btn" data-rm-prop="${i}">×</button>
     </div>`).join('');
 
@@ -753,12 +784,10 @@ function renderSidebar() {
     <div class="fg">
       <label>Argument Type</label>
       <div class="radio-row">
-        <label><input type="radio" name="arg-type" value="from"   ${argType==='from'   ? 'checked':''}>
+        <label><input type="radio" name="arg-type" value="from" ${argType==='from' ? 'checked':''}>
           from (reference)</label>
-        <label><input type="radio" name="arg-type" value="entity" ${argType==='entity' ? 'checked':''}>
-          entity</label>
-        <label><input type="radio" name="arg-type" value="object" ${argType==='object' ? 'checked':''}>
-          object</label>
+        <label><input type="radio" name="arg-type" value="pool" ${argType==='pool' ? 'checked':''}>
+          pool (lexicon path)</label>
       </div>
     </div>
     ${argExtra}
@@ -797,8 +826,11 @@ function bindSidebarEvents(step) {
   // Action
   get('node-action').addEventListener('change', e => {
     step.action = e.target.value;
-    // Reset arg type to sensible default for this action
-    step.argument.argType = DEFAULT_ARG_TYPE[step.action] || 'object';
+    // Reset arg mode + default pool to sensible defaults for this action
+    step.argument.argType = DEFAULT_ARG_TYPE[step.action] || 'pool';
+    if (step.argument.argType === 'pool' && !step.argument.pool) {
+      step.argument.pool = DEFAULT_POOL[step.action] || '';
+    }
     render();
   });
 
@@ -826,7 +858,11 @@ function bindSidebarEvents(step) {
   document.querySelectorAll('input[name="arg-type"]').forEach(r => {
     r.addEventListener('change', e => {
       step.argument.argType = e.target.value;
-      step.argument.from = '';
+      if (e.target.value === 'from') {
+        step.argument.from = '';
+      } else if (!step.argument.pool) {
+        step.argument.pool = DEFAULT_POOL[step.action] || '';
+      }
       render();
     });
   });
@@ -836,6 +872,15 @@ function bindSidebarEvents(step) {
   if (argFrom) {
     argFrom.addEventListener('input', e => {
       step.argument.from = e.target.value;
+      renderJSON();
+    });
+  }
+
+  // Arg pool
+  const argPool = get('arg-pool');
+  if (argPool) {
+    argPool.addEventListener('input', e => {
+      step.argument.pool = e.target.value;
       renderJSON();
     });
   }
@@ -857,7 +902,7 @@ function bindSidebarEvents(step) {
     });
   });
   get('btn-add-prop')?.addEventListener('click', () => {
-    step.properties.push({ key: '', from: '' });
+    step.properties.push({ key: '', from: '', value: '' });
     renderSidebar();
   });
 
@@ -887,16 +932,24 @@ function toJSON() {
     if (step.id !== state.meta.root && step.parent) s.parent = step.parent;
     if (step.is_hidden) s.is_hidden = true;
 
-    // Argument
+    // Argument: from-reference or pool (lexicon path)
     if (step.argument.argType === 'from') {
       s.argument = { from: step.argument.from };
     } else {
-      s.argument = { type: step.argument.argType };
+      s.argument = { pool: step.argument.pool || '' };
     }
 
-    // Properties (non-empty only)
-    const props = step.properties.filter(p => p.key || p.from);
-    if (props.length) s.properties = props.map(p => ({ key: p.key, from: p.from }));
+    // Properties (non-empty only). A property is either a literal (value)
+    // or a reference (from); value takes precedence when both are filled.
+    const props = step.properties.filter(p => p.key && (p.from || p.value !== '' && p.value != null));
+    if (props.length) {
+      s.properties = props.map(p => {
+        if (p.value !== '' && p.value != null) {
+          return { key: p.key, value: coerceLiteral(p.value) };
+        }
+        return { key: p.key, from: p.from };
+      });
+    }
 
     return s;
   });
@@ -939,10 +992,16 @@ function loadFromJSON(json) {
       parent: s.parent || null,
       is_hidden: s.is_hidden || false,
       argument: {
-        argType: 'from' in arg ? 'from' : (arg.type || 'object'),
+        argType: 'from' in arg ? 'from' : 'pool',
         from: arg.from || '',
+        // Accept current "pool" schema; fall back to legacy {type: 'object'|'entity'}
+        pool: arg.pool || (arg.type ? (arg.type === 'entity' ? 'entity.npc' : 'object.weapon') : ''),
       },
-      properties: (s.properties || []).map(p => ({ key: p.key || '', from: p.from || '' })),
+      properties: (s.properties || []).map(p => ({
+        key: p.key || '',
+        from: p.from || '',
+        value: 'value' in p && p.value != null ? String(p.value) : '',
+      })),
       x: 0, y: 0,
     });
   });
@@ -1139,10 +1198,9 @@ document.getElementById('btn-example').addEventListener('click', () => {
       {
         id: 'buy_0', action: 'buy', execution_order: 1, parent: 'defeat_0',
         is_hidden: true,
-        argument: { type: 'object' },
+        argument: { pool: 'object.weapon' },
         properties: [
-          { key: 'location', from: 'argument.location' },
-          { key: 'cost',     from: 'argument.cost'     },
+          { key: 'cost', value: 30 },
         ],
       },
       {
@@ -1151,12 +1209,7 @@ document.getElementById('btn-example').addEventListener('click', () => {
       },
       {
         id: 'defeat_0', action: 'defeat',
-        argument: { type: 'entity' },
-        properties: [
-          { key: 'location',         from: 'argument.location'         },
-          { key: 'attribute_names',  from: 'argument.attribute_names'  },
-          { key: 'attribute_values', from: 'argument.attribute_values' },
-        ],
+        argument: { pool: 'entity.npc' },
       },
     ],
   }));
