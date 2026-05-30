@@ -30,14 +30,16 @@ class ModelError(RuntimeError):
 
 
 def _make_model_fn(model_path: str, max_api_errors: int = 2) -> Callable:
-    """Build a model_fn from a model_path string.
+    """Build a model_fn from a model_path string using the generic OpenAI-compatible
+    adapter in herosjourney.runner.models.
 
-    Wraps pipeline.models.agent_response with provider error handling so the
-    core episode loop has no dependency on openai or other provider SDKs.
-    Lazy-imports pipeline.models so the framework core stays provider-free.
+    Wraps agent_response with retry/error handling so the core episode loop has no
+    direct dependency on any provider SDK. Both the adapter and the `openai` package
+    are imported lazily, so the framework core works without `openai` installed
+    (as long as a custom model_fn is supplied instead of a model_path string).
     """
-    from herosjourney.runner.models import agent_response  # noqa — experiment infra
-    import openai as _openai                    # noqa — provider SDK
+    from herosjourney.runner.models import agent_response
+    import openai as _openai  # noqa — only needed for the string-path adapter
 
     error_count = [0]
 
@@ -556,8 +558,8 @@ def run_single_episode(
     max_runs: Optional[int],
     verbose: bool,
     truncate_window: Optional[int],
-    model_path: str,
-    initial_currency: int,
+    model_path: str = "",
+    initial_currency: int = 1000,
     converter_model: str = "small",
     teaching_message: str = "",
     num_tries: int = 2,
@@ -565,11 +567,19 @@ def run_single_episode(
     source_tasks: Optional[List] = None,
     episode_mode: str = "standard",
     no_reasoning: bool = False,
-) -> Dict:
-    """Set up env for one gen task, assemble prompt, run episode, return result dict.
+    model_fn: Optional[Callable] = None,
+    converter_fn: Optional[Callable] = None,
+) -> EpisodeResult:
+    """Set up env for one gen task, assemble prompt, run episode, return an EpisodeResult.
 
-    This is the experiment-facing entry point.  It builds a model_fn and converter_fn
-    from the string parameters and delegates to the model-agnostic core loops.
+    Supply either:
+      - model_fn: a callable (prompt, max_tokens=512) -> (response, thinking, token_counts),
+        e.g. wrapping your own LLM client (the "agent"); or
+      - model_path: a model name routed through the generic OpenAI-compatible adapter
+        (herosjourney.runner.models, configured via env vars).
+
+    converter_fn (optional) repairs malformed JSON actions; if omitted it is built
+    from converter_model when a model_path is used.
     """
     from herosjourney.runner.prompts import (
         GENERALIZATION_BASE_PROMPT,
@@ -577,8 +587,12 @@ def run_single_episode(
         REASONING_CONTEXT_PREAMBLE,
     )
 
-    model_fn     = _make_model_fn(model_path)
-    converter_fn = _make_converter_fn(converter_model)
+    if model_fn is None:
+        if not model_path:
+            raise ValueError("run_single_episode requires either model_fn or model_path.")
+        model_fn = _make_model_fn(model_path)
+    if converter_fn is None:
+        converter_fn = _make_converter_fn(converter_model)
 
     all_trees = [(task.tree, task.tree.root_id)]
     if source_tasks:

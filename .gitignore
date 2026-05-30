@@ -28,8 +28,11 @@ Hero_s_Journey_emnlp.pdf
 # Results (large data files)
 results/
 
-# Original experiment directories — content has moved to experiments/
-# Gitignored so any generated outputs landing here are never committed.
+# Paper-specific material — experiment infra, analysis, viz, human study.
+# Kept locally but never committed (the installable package does not depend on it).
+experiments/
+
+# Original (pre-restructure) experiment directories — content moved to experiments/
 analysis/
 human_experiment/
 scripts/
