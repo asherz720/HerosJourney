@@ -22,6 +22,9 @@ __pycache__/
 build/
 dist/
 
+# Local Claude Code / harness config — not part of the public package
+.claude/
+
 # Paper PDF artifact
 Hero_s_Journey_emnlp.pdf
 
