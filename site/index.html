@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hero's Journey</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg:#f1f5f9; --panel:#fff; --border:#e2e8f0; --accent:#c1121f;
+    --accent-soft:#fdeaea; --ok:#16a34a; --ok-soft:#dcfce7; --fail:#dc2626;
+    --fail-soft:#fee2e2; --warn:#d97706; --warn-soft:#fffbeb; --text:#0f172a;
+    --muted:#64748b; --mono:"SFMono-Regular",Consolas,"Courier New",monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    --radius:8px; --shadow:0 1px 3px rgba(0,0,0,.08);
+  }
+  html,body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.55;}
+  a{color:var(--accent);}
+  /* Topbar */
+  #topbar{background:var(--panel);border-bottom:1px solid var(--border);box-shadow:var(--shadow);
+    padding:12px 22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:30;}
+  #navIcon{width:30px;height:30px;object-fit:contain;flex:0 0 auto;}
+  #topbar h1{font-size:17px;font-weight:800;color:#c1121f;white-space:nowrap;}
+  #topbar h1 small{color:var(--muted);font-weight:500;font-size:12px;}
+  .view-tabs{display:flex;gap:4px;margin-left:8px;}
+  .view-tab{padding:7px 16px;border:1px solid var(--border);background:var(--bg);border-radius:999px;
+    cursor:pointer;font-size:13px;font-weight:600;color:var(--muted);}
+  .view-tab.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+  #topbar .spacer{margin-left:auto;}
+  .src-link{font-size:12px;color:var(--muted);text-decoration:none;}
+  .src-link:hover{color:var(--accent);}
+  /* Layout */
+  .wrap{max-width:1240px;margin:0 auto;padding:22px;}
+  .view{display:none;} .view.active{display:block;}
+  .intro{color:var(--muted);font-size:13px;margin-bottom:14px;max-width:820px;}
+  /* ===== Overview / landing (clean, paper-like) ===== */
+  :root{ --serif:Georgia,"Times New Roman",Cambria,serif; --indigo:#c1121f; /* hero red — links, metric tags, prose links */ }
+  #view-overview{background:#fff;}
+  .ov-inner{max-width:820px;margin:0 auto;padding:32px 22px 56px;}
+  .title-block{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;}
+  .title-icon{width:96px;height:96px;object-fit:contain;background:#fff;flex:0 0 auto;}
+  .big-title{font-family:var(--serif);font-size:52px;font-weight:700;letter-spacing:.01em;line-height:1;
+    color:#c1121f; /* fallback */
+    background:linear-gradient(95deg,#c1121f 0%,#e5383b 40%,#f59e0b 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .title-sub{text-align:center;font-family:var(--serif);font-size:19px;color:#475569;margin-top:10px;}
+  .link-row{display:flex;justify-content:center;gap:26px;margin:16px 0 4px;flex-wrap:wrap;}
+  .link-row a{display:inline-flex;align-items:center;gap:7px;font-size:15px;font-weight:600;color:var(--indigo);text-decoration:none;}
+  .link-row a:hover{text-decoration:underline;}
+  .link-row a svg{width:18px;height:18px;fill:currentColor;flex:0 0 auto;}
+  .fig1{margin:24px 0 8px;}
+  .fig1 img{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:var(--radius);}
+  .fig1 figcaption{font-size:13px;color:var(--muted);margin-top:9px;line-height:1.5;font-family:var(--serif);}
+  .prose{font-family:var(--serif);font-size:16px;line-height:1.5;color:#1f2937;margin-top:22px;}
+  .prose p{margin-bottom:9px;}
+  .prose ul{list-style:disc;margin:0 0 10px 24px;}
+  .prose li{margin-bottom:4px;}
+  .prose .hl{background:#fff4e0;border-radius:3px;padding:0 2px;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
+  .prose .tag{font-weight:700;color:var(--indigo);}
+  .prose i{color:#6b7280;}
+  .prose a{color:var(--indigo);}
+  .cite-h{font-family:var(--serif);font-size:30px;font-weight:700;margin:30px 0 8px;color:var(--text);}
+  .cite-lead{font-family:var(--serif);font-size:16px;color:#1f2937;margin-bottom:10px;}
+  .bibtex{background:#f8fafc;border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;
+    font-family:var(--mono);font-size:12.5px;color:#c1121f;white-space:pre;overflow-x:auto;line-height:1.6;}
+  /* Task picker */
+  #taskPicker{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:16px;}
+  .fam-group{display:flex;flex-direction:column;gap:6px;}
+  .fam-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);}
+  .fam-row{display:flex;gap:6px;flex-wrap:wrap;}
+  .task-btn{padding:8px 13px;border:1px solid var(--border);background:var(--panel);border-radius:var(--radius);
+    cursor:pointer;font-size:13px;font-weight:600;color:var(--text);display:flex;flex-direction:column;gap:1px;min-width:84px;}
+  .task-btn .tb-key{color:var(--accent);font-size:12px;}
+  .task-btn .tb-lbl{font-size:11px;color:var(--muted);font-weight:500;}
+  .task-btn.active{border-color:var(--accent);background:var(--accent-soft);box-shadow:0 0 0 1px var(--accent);}
+  .task-btn.proc.active{border-color:var(--warn);box-shadow:0 0 0 1px var(--warn);background:var(--warn-soft);}
+  .task-btn.proc .tb-key{color:var(--warn);}
+  /* Toggle (lexical / metric) */
+  .seg{display:inline-flex;border:1px solid var(--border);border-radius:999px;overflow:hidden;}
+  .seg button{padding:6px 14px;border:none;background:var(--panel);cursor:pointer;font-size:12px;font-weight:600;color:var(--muted);}
+  .seg button.active{background:var(--accent);color:#fff;}
+  .ctrl-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px;}
+  /* Task header */
+  #taskHead{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);
+    padding:16px 18px;margin-bottom:16px;box-shadow:var(--shadow);}
+  #taskHead .th-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  #taskHead h2{font-size:19px;}
+  .badge{font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em;}
+  .badge.attr{background:var(--accent-soft);color:var(--accent);}
+  .badge.proc{background:var(--warn-soft);color:var(--warn);}
+  .badge.distractor{background:#e8edf3;color:#475569;}
+  .mono-tag{font-family:var(--mono);background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-size:12px;}
+  #taskHead p.desc{color:var(--muted);margin-top:8px;}
+  .reveal-btn{margin-left:auto;padding:7px 15px;border:1px solid var(--accent);background:var(--accent);color:#fff;
+    border-radius:999px;cursor:pointer;font-size:12.5px;font-weight:700;white-space:nowrap;}
+  .reveal-btn.on{background:#fff;color:var(--accent);}
+  .rule-box{display:none;margin-top:12px;padding:12px 14px;background:var(--accent-soft);border:1px solid #f3c9c9;border-radius:var(--radius);}
+  .revealed .rule-box{display:block;}
+  .rule-box .rb-h{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-bottom:5px;}
+  .rule-box .rb-rule{font-family:var(--mono);font-size:13px;margin-bottom:6px;}
+  /* Distractor badge / row hidden until revealed */
+  .badge.distractor{display:none;}
+  .revealed .badge.distractor{display:inline-block;}
+  tr.distractor-row{opacity:.85;}
+  .revealed tr.distractor-row{background:#f4f6f9;}
+  .revealed tr.distractor-row td.ename::after{content:" · distractor";color:#475569;font-weight:600;font-size:11px;}
+  tr.gen-row td.ename::after{content:" · held-out";color:var(--warn);font-weight:600;font-size:11px;}
+  /* Grid */
+  .cols{display:grid;grid-template-columns:360px 1fr;gap:16px;align-items:start;}
+  @media(max-width:900px){.cols{grid-template-columns:1fr;}}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;}
+  .card>h3{font-size:13px;font-weight:700;padding:11px 15px;border-bottom:1px solid var(--border);
+    background:#f8fafc;display:flex;align-items:center;gap:8px;}
+  .card>h3 .hint{font-weight:500;color:var(--muted);font-size:11px;margin-left:auto;}
+  .card-body{padding:14px 15px;}
+  /* World tables (scroll-x) */
+  .table-scroll{overflow-x:auto;}
+  table.world{width:100%;border-collapse:collapse;font-size:12.5px;min-width:max-content;}
+  table.world th{text-align:left;color:var(--muted);font-weight:600;padding:4px 10px;border-bottom:1px solid var(--border);font-size:11px;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;}
+  table.world td{padding:5px 10px;border-bottom:1px solid #f1f5f9;white-space:nowrap;}
+  table.world tr:last-child td{border-bottom:none;}
+  .ename{font-weight:600;}
+  .loc{color:var(--muted);}
+  .attrval{font-family:var(--mono);font-size:12px;}
+  .sub{margin-top:14px;}
+  .sub-h{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:6px;}
+  /* Episodes */
+  .demo{border:1px solid var(--border);border-radius:var(--radius);margin-bottom:12px;overflow:hidden;}
+  .demo.gen{border-color:var(--warn);}
+  .demo-head{display:flex;align-items:center;gap:9px;padding:9px 13px;background:#f8fafc;border-bottom:1px solid var(--border);flex-wrap:wrap;}
+  .demo.gen .demo-head{background:var(--warn-soft);}
+  .demo-title{font-weight:700;font-size:13px;}
+  .demo-attrs{font-family:var(--mono);font-size:11.5px;color:var(--muted);}
+  .demo-ctrl{margin-left:auto;display:flex;gap:6px;align-items:center;}
+  .mini-btn{padding:3px 11px;border:1px solid var(--border);background:var(--panel);border-radius:6px;cursor:pointer;font-size:11px;font-weight:600;color:var(--accent);}
+  .mini-btn:disabled{opacity:.4;cursor:default;color:var(--muted);}
+  .progress{font-size:11px;color:var(--muted);font-family:var(--mono);}
+  .trace{font-family:var(--mono);font-size:12.5px;padding:10px 13px;line-height:1.7;}
+  .trace .ln{display:block;white-space:pre-wrap;}
+  .trace .cmd{color:var(--accent);font-weight:600;}
+  .trace .obs{color:#475569;}
+  .trace .ln.hiddenstep{display:none;}
+  .trace .ln.show{display:block;}
+  .demo.gen .trace .cmd{color:var(--warn);}
+  .goal-win{color:var(--ok);font-weight:700;}
+  .empty-hint{color:var(--muted);font-size:12px;font-style:italic;padding:4px 0;}
+  .doit{background:var(--warn-soft);border:1px dashed #fcd34d;border-radius:var(--radius);padding:10px 13px;margin-bottom:12px;font-size:13px;color:#92400e;}
+  .doit b{color:#78350f;}
+  .gen-nav{display:flex;gap:6px;align-items:center;margin-bottom:12px;}
+  .gen-nav select{padding:5px 9px;border:1px solid var(--border);border-radius:6px;font-size:13px;}
+  /* ===== Leaderboard ===== */
+  .lb-section{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;margin-bottom:18px;}
+  .lb-section h3{font-size:13px;font-weight:700;margin-bottom:12px;color:var(--text);}
+  .chip-row{display:flex;flex-wrap:wrap;gap:7px;align-items:center;}
+  .mchip{display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border:1px solid var(--border);border-radius:999px;
+    cursor:pointer;font-size:12.5px;font-weight:600;background:var(--panel);color:var(--muted);user-select:none;}
+  .mchip .dot{width:11px;height:11px;border-radius:50%;background:var(--border);}
+  .mchip.on{color:var(--text);border-color:#cbd5e1;}
+  .mchip .toggle-all{font-weight:700;}
+  .lb-note{color:var(--muted);font-size:12px;}
+  #lbChartWrap{width:100%;overflow-x:auto;}
+  svg.barchart{display:block;width:100%;height:auto;min-width:680px;font-family:var(--sans);}
+  svg.barchart text{fill:var(--muted);font-size:11px;}
+  svg.barchart .axis-label{fill:#334155;font-weight:600;}
+  svg.barchart .grid{stroke:#e2e8f0;stroke-width:1;}
+  svg.barchart .famsep{stroke:#cbd5e1;stroke-dasharray:4 3;}
+  svg.barchart .famhead{fill:#94a3b8;font-size:10.5px;font-weight:700;letter-spacing:.04em;}
+  svg.barchart rect.bar{fill-opacity:.6;transition:fill-opacity .1s;cursor:pointer;}
+  svg.barchart rect.bar:hover{fill-opacity:.9;}
+  /* Floating chart tooltip (AstroVisBench-style) */
+  #lbTooltip{position:fixed;z-index:50;pointer-events:none;display:none;
+    background:#1e293b;color:#f8fafc;border-radius:8px;padding:8px 11px;font-size:12.5px;
+    box-shadow:0 4px 14px rgba(0,0,0,.25);max-width:260px;}
+  #lbTooltip .tt-model{font-weight:700;margin-bottom:4px;}
+  #lbTooltip .tt-row{display:flex;align-items:center;gap:7px;}
+  #lbTooltip .tt-sw{width:11px;height:11px;border-radius:3px;flex:0 0 auto;}
+  #lbTooltip .tt-val{font-family:var(--mono);}
+  .scroll-x{overflow-x:auto;}
+  table.lb{width:100%;border-collapse:collapse;font-size:13px;}
+  table.lb th,table.lb td{padding:8px 10px;text-align:center;border-bottom:1px solid var(--border);white-space:nowrap;}
+  table.lb th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);cursor:pointer;user-select:none;}
+  table.lb th.group{cursor:default;}
+  table.lb th.attr-h{color:var(--accent);}
+  table.lb th.proc-h{color:var(--warn);}
+  table.lb td.model{text-align:left;font-weight:600;}
+  table.lb td.model .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px;vertical-align:middle;}
+  table.lb tr.human{background:#fefce8;}
+  table.lb tr.human td.model{color:var(--warn);}
+  table.lb td.num{font-family:var(--mono);}
+  table.lb th.sorted::after{content:" \25BC";font-size:9px;}
+  table.lb th.sorted.asc::after{content:" \25B2";}
+  .heat{display:inline-block;min-width:36px;padding:2px 5px;border-radius:4px;}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:12px;color:var(--muted);}
+  .swatch{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:middle;margin-right:4px;}
+</style>
+</head>
+<body>
+<div id="topbar">
+  <img id="navIcon" src="hj_icon.png" alt="" />
+  <h1>Hero's Journey <small>· rule-induction benchmark</small></h1>
+  <div class="view-tabs">
+    <button class="view-tab active" data-view="overview">Overview</button>
+    <button class="view-tab" data-view="explorer">Task Explorer</button>
+    <button class="view-tab" data-view="leaderboard">Leaderboard</button>
+  </div>
+  <span class="spacer"></span>
+  <a class="src-link" href="https://github.com/asherz720/HerosJourney" target="_blank" rel="noopener">GitHub repo ↗</a>
+</div>
+
+<!-- ============ OVERVIEW ============ -->
+<div class="view active" id="view-overview">
+ <div class="ov-inner">
+  <div class="title-block">
+    <img class="title-icon" src="hj_icon.png" alt="Hero's Journey mascot" />
+    <h1 class="big-title">Hero's Journey</h1>
+  </div>
+  <p class="title-sub">Testing Complex Rule Induction with Text Games</p>
+  <div class="link-row">
+    <a href="https://arxiv.org/abs/2606.02556" target="_blank" rel="noopener" aria-label="arXiv">
+      <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M3.8423 0a1.0037 1.0037 0 0 0-.922.6078c-.1536.3687-.0438.6275.2938 1.1113l6.9185 8.3597-1.0223 1.1058a1.0393 1.0393 0 0 0 .003 1.4229l1.2292 1.3135-5.4391 6.4444c-.2803.299-.4538.823-.2971 1.1986a1.0253 1.0253 0 0 0 .9585.635.9133.9133 0 0 0 .6891-.3405l5.783-6.126 7.4902 8.0051a.8527.8527 0 0 0 .6835.2597.9575.9575 0 0 0 .8777-.6138c.1577-.377-.017-.7502-.306-1.1407l-7.0518-8.3418 1.0632-1.13a.9626.9626 0 0 0 .0089-1.3165L4.6336.4639s-.3733-.4535-.768-.463zm0 .272h.0166c.2179.0052.4874.2715.5644.3639l.005.006.0052.0055 10.169 10.9905a.6915.6915 0 0 1-.0072.945l-1.0666 1.133-1.4982-1.7724-8.5994-10.39c-.3286-.472-.352-.6183-.2592-.841a.7307.7307 0 0 1 .6704-.4401Zm14.341 1.5701a.877.877 0 0 0-.6554.2418l-5.6962 6.1584 1.6944 1.8319 5.3089-6.5138c.3251-.4335.479-.6603.3247-1.0292a1.1205 1.1205 0 0 0-.9763-.689zm-7.6557 12.2823 1.3186 1.4135-5.7864 6.1295a.6494.6494 0 0 1-.4959.26.7516.7516 0 0 1-.706-.4669c-.1119-.2682.0359-.6864.2442-.9083l.0051-.0055.0047-.0055z"/></svg> arXiv</a>
+    <a href="https://pypi.org/project/herosjourney/" target="_blank" rel="noopener" aria-label="PyPI">
+      <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M23.922 13.58v3.912L20.55 18.72l-.078.055.052.037 3.45-1.256.026-.036v-3.997l-.053-.036-.025.092z M23.621 5.618l-3.04 1.107v3.912l3.339-1.215V5.509zM23.92 13.457V9.544l-3.336 1.215v3.913zM20.47 14.71V10.8L17.17 12v3.913zM17.034 19.996v-3.912l-3.313 1.206v3.912zM17.17 16.057v3.868l3.314-1.206V14.85l-3.314 1.206zm2.093 1.882c-.367.134-.663-.074-.663-.463s.296-.814.663-.947c.365-.133.662.075.662.464s-.297.814-.662.946z M13.225 9.315l.365-.132-3.285-1.197-3.323 1.21.102.037 3.184 1.16zM20.507 10.664V6.751L17.17 7.965v3.913zM17.058 11.918V8.005l-3.302 1.202v3.912zM13.643 9.246l-3.336 1.215v3.913l3.336-1.215zM6.907 13.165l3.322 1.209v-3.913L6.907 9.252z M10.34 7.873l3.281 1.193V5.198l-3.28-1.193zM20.507 2.715L17.19 3.922v3.913l3.317-1.207zM16.95 3.903L13.724 2.73l-3.269 1.19 3.225 1.174zM15.365 4.606l-1.624.592v3.868l3.317-1.207V3.991l-1.693.615zm-.391 2.778c-.367.134-.662-.074-.662-.464s.295-.813.662-.946c.366-.133.663.074.663.464s-.297.813-.663.946z M10.229 18.41v-3.914l-3.322-1.209V17.2zM13.678 17.182v-3.913l-3.371 1.227v3.913z M13.756 17.154l3.3-1.2V12.04l-3.3 1.2zM13.678 21.217l-3.371 1.227v-3.912h-.078v3.912l-3.322-1.209v-3.913l-.053-.058-.025-.06-3.336-1.21v-3.948l.034.013 3.287 1.196.015-.078-3.261-1.187 3.26-1.187v-.109L3.876 9.62l-.307-.112 3.26-1.188v.877l.079-.055V6.769l3.257 1.185.058-.061L7.084 6.75l-.102-.037 3.24-1.179v-.083L6.854 6.677v.018l-.025.018v1.523L3.44 9.47v.02l-.025.017v4.007l-3.39 1.233v.019L0 14.784v3.995l.025.037 3.4 1.237.008-.006.007.01 3.4 1.238.008-.006.006.01 3.4 1.237.014-.009.012.01 3.45-1.256.026-.037-.078-.027zM3.493 9.563l3.257 1.185-3.257 1.187V9.562zM3.4 19.96L.078 18.752v-3.913l2.361.86.96.349v3.913zm.015-3.99L.335 14.85l-.182-.066 3.262-1.187v2.374zm3.399 5.231l-3.321-1.209v-3.912l3.321 1.209v3.912zM23.791 5.434l-3.21-1.17v2.338zM20.387 2.643l-3.24-1.18-3.27 1.19 3.247 1.182z"/></svg> PyPI</a>
+    <a href="https://github.com/asherz720/HerosJourney" target="_blank" rel="noopener" aria-label="GitHub">
+      <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg> GitHub</a>
+  </div>
+
+  <figure class="fig1">
+    <img src="hj_fig.png" alt="Overview of the Hero's Journey benchmark: rule forms, task families, identifiability, evaluation, and results." /> 
+  </figure>
+
+  <div class="prose">
+    <p><span class="hl">We introduce <b>Hero's Journey</b>, a benchmark for rule induction in goal-directed episodic
+      tasks,</span> where an agent must infer hidden rules from demonstrations and act on them through multi-step
+      execution. Across eight tasks in two families, each with four structural rule forms, controllable lexical
+      grounding, and identifiability conditions, the agent must:</p>
+    <ul>
+      <li><b>Induce</b> the hidden rule connecting an entity's attributes to the requirement it imposes
+        (e.g., which item to buy, which action to take at what order).</li>
+      <li><b>Execute</b> the inferred rule as an ordered sequence of dependent actions.</li>
+    </ul>
+
+    <p>We evaluate models along two dimensions:</p>
+    <ul>
+      <li><span class="tag">ECSR</span> (efficiency-calibrated success rate): whether the model succeeds
+        <i>efficiently</i></li>
+      <li><span class="tag">RV</span> (rule verbalization): whether the model can <i>explicitly articulate</i> the
+        rule it acted on.</li>
+    </ul>
+
+
+    <p><span class="hl">We present our results in an interactive leaderboard.</span> Use the
+      <a href="#" data-goto="explorer">Task&nbsp;Explorer</a> to walk through real demonstration episodes and try a
+      held-out entity yourself, or the <a href="#" data-goto="leaderboard">Leaderboard</a> to compare models across
+      all eight tasks.</p>
+  </div>
+
+  <h2 class="cite-h">Citation</h2>
+  <p class="cite-lead">Please cite <a href="https://arxiv.org/abs/2606.02556" target="_blank" rel="noopener">our paper</a> if you found our work to be useful in your work:</p>
+  <pre class="bibtex">@misc{zheng2026herosjourneytestingcomplex,
+      title={HERO'S JOURNEY: Testing Complex Rule Induction with Text Games},
+      author={Anshun Asher Zheng and Kanishka Misra and David I. Beaver and Junyi Jessy Li},
+      year={2026},
+      eprint={2606.02556},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2606.02556},
+}</pre>
+ </div>
+</div>
+
+<!-- ============ EXPLORER ============ -->
+<div class="view wrap" id="view-explorer">
+  <p class="intro">The agent must <b>infer a hidden requirement</b> from demonstration episodes, then apply it to a
+  held-out entity. Pick a task, step through the demos, then try the held-out episode yourself before revealing the
+  answer. Some demos are <b>distractors</b> with no pattern: hit <b>Reveal&nbsp;pattern</b> to see which, and the rule.
+  Toggle <b>semantic&nbsp;⇄&nbsp;nonce</b> names to feel why world knowledge sometimes helps, and sometimes can't.</p>
+
+  <div id="taskPicker"></div>
+
+  <div class="ctrl-row">
+    <span class="fam-label" style="letter-spacing:.04em">Surface names:</span>
+    <div class="seg" id="lexToggle">
+      <button data-lex="semantic" class="active">Semantic</button>
+      <button data-lex="nonce">Nonce</button>
+    </div>
+  </div>
+
+  <div id="taskHead"></div>
+
+  <div class="cols">
+    <div id="worldCol"></div>
+    <div id="mainCol"></div>
+  </div>
+</div>
+
+<!-- ============ LEADERBOARD ============ -->
+<div class="view wrap" id="view-leaderboard">
+  <p class="intro">Efficiency-calibrated success rate (<b>ECSR</b>) and rule-verbalization score (<b>RV</b>, 0–1) per
+  model and task. Toggle models with the chips, switch the metric, and click a table header to sort.</p>
+
+  <div class="lb-section">
+    <div class="ctrl-row" style="margin-bottom:14px;">
+      <span class="fam-label" style="letter-spacing:.04em">Metric:</span>
+      <div class="seg" id="metricToggle">
+        <button data-metric="ecsr" class="active">ECSR</button>
+        <button data-metric="rv">RV</button>
+      </div>
+    </div>
+    <div class="chip-row" id="lbModelChips"></div>
+    <div id="lbChartWrap"><svg class="barchart" id="lbChart"></svg></div>
+    <div id="lbTooltip"></div>
+  </div>
+
+  <div class="lb-section">
+    <h3>Full results</h3>
+    <div class="scroll-x"><table class="lb" id="lbTable"></table></div>
+    <div class="legend">
+      <span><span class="swatch" style="background:#dcfce7"></span>higher</span>
+      <span><span class="swatch" style="background:#fee2e2"></span>lower</span>
+      <span><span class="swatch" style="background:#fefce8;border:1px solid #fde68a"></span>human baseline</span>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script>
+"use strict";
+const TASKS = window.HJ_TASKS, LB = window.HJ_LEADERBOARD;
+const $ = (s, r=document) => r.querySelector(s);
+const el = (tag, cls, txt) => { const e=document.createElement(tag); if(cls)e.className=cls; if(txt!=null)e.textContent=txt; return e; };
+const SVGNS = "http://www.w3.org/2000/svg";
+const svgEl = (tag, attrs={}, txt) => { const e=document.createElementNS(SVGNS,tag);
+  for(const k in attrs) e.setAttribute(k, attrs[k]); if(txt!=null) e.textContent=txt; return e; };
+const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+let state = { task: TASKS.order[0], lex: "semantic", genIdx: 0, revealed: false };
+
+/* ---------- View switching ---------- */
+function gotoView(name){
+  const tab = document.querySelector(`.view-tab[data-view="${name}"]`);
+  document.querySelectorAll(".view-tab").forEach(x => x.classList.toggle("active", x===tab));
+  document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+  $("#view-" + name).classList.add("active");
+  window.scrollTo(0, 0);
+}
+document.querySelectorAll(".view-tab").forEach(b => b.onclick = () => gotoView(b.dataset.view));
+document.querySelectorAll("[data-goto]").forEach(b => b.onclick = (e) => { e.preventDefault(); gotoView(b.dataset.goto); });
+
+/* ================= EXPLORER ================= */
+function buildPicker(){
+  const picker = $("#taskPicker");
+  [["Attribute induction","Attribute"],["Procedural induction","Procedural"]].forEach(([label, fam]) => {
+    const g = el("div","fam-group");
+    g.appendChild(el("div","fam-label",label));
+    const row = el("div","fam-row");
+    TASKS.order.filter(k => TASKS.tasks[k].family===fam).forEach(k => {
+      const t = TASKS.tasks[k];
+      const b = el("button","task-btn" + (fam==="Procedural"?" proc":""));
+      b.appendChild(el("span","tb-key",k));
+      b.appendChild(el("span","tb-lbl",t.label.replace(" (procedural)","")));
+      b.dataset.key = k;
+      b.onclick = () => { state.task=k; state.genIdx=0; state.revealed=false; renderExplorer(); };
+      row.appendChild(b);
+    });
+    g.appendChild(row); picker.appendChild(g);
+  });
+}
+$("#lexToggle").querySelectorAll("button").forEach(b => b.onclick = () => { state.lex=b.dataset.lex; renderExplorer(); });
+
+function renderExplorer(){
+  document.querySelectorAll(".task-btn").forEach(b => b.classList.toggle("active", b.dataset.key===state.task));
+  $("#lexToggle").querySelectorAll("button").forEach(b => b.classList.toggle("active", b.dataset.lex===state.lex));
+  const t = TASKS.tasks[state.task];
+  const v = t.variants[state.lex];
+  $("#view-explorer").classList.toggle("revealed", state.revealed);
+  renderHead(t);
+  renderWorld(v.world);
+  renderMain(t, v);
+}
+
+function renderHead(t){
+  const isProc = t.family==="Procedural";
+  const h = $("#taskHead"); h.innerHTML="";
+  const top = el("div","th-top");
+  top.appendChild(el("h2", null, t.label));
+  top.appendChild(el("span","badge "+(isProc?"proc":"attr"), t.key));
+  top.appendChild(Object.assign(el("span","mono-tag"),{textContent:t.description}));
+  const btn = el("button","reveal-btn"+(state.revealed?" on":""), state.revealed?"Hide pattern":"Reveal pattern");
+  btn.onclick = () => { state.revealed=!state.revealed; renderExplorer(); };
+  top.appendChild(btn);
+  h.appendChild(top);
+  const what = isProc
+    ? "Hidden: which ritual step(s) the entity requires (perform / drink), and how many — shown only by demonstration."
+    : "Hidden: which item to buy for the entity — shown only by demonstration.";
+  h.appendChild(el("p","desc", what));
+  // rule box (shown only when revealed)
+  const rb = el("div","rule-box");
+  rb.appendChild(el("div","rb-h","The hidden rule"));
+  rb.appendChild(Object.assign(el("div","rb-rule"),{textContent:t.description}));
+  rb.appendChild(Object.assign(el("div"),{textContent:t.correct_rule, style:"color:#334155;font-size:13px"}));
+  h.appendChild(rb);
+}
+
+function renderWorld(world){
+  const col = $("#worldCol"); col.innerHTML="";
+  const card = el("div","card");
+  card.appendChild(Object.assign(el("h3"),{innerHTML:'World <span class="hint">all entities &amp; items, up front</span>'}));
+  const body = el("div","card-body");
+  const distractorSet = new Set(world.distractor_names||[]);
+  const genSet = new Set(world.gen_names||[]);
+
+  body.appendChild(el("div","sub-h","Entities"));
+  const scroll1 = el("div","table-scroll");
+  const et = el("table","world");
+  const attrNames = world.entities[0] ? world.entities[0].attrs.map(a=>a.name) : [];
+  let head = "<tr><th>entity</th>" + attrNames.map(n=>`<th>${esc(n)}</th>`).join("") + "<th>location</th></tr>";
+  let rows = world.entities.map(e => {
+    const cls = distractorSet.has(e.name) ? "distractor-row" : (genSet.has(e.name) ? "gen-row" : "");
+    return `<tr class="${cls}"><td class="ename">${esc(e.name)}</td>` +
+      e.attrs.map(a=>`<td class="attrval">${esc(a.value)}</td>`).join("") +
+      `<td class="loc">@ ${esc(e.location||"?")}</td></tr>`;
+  }).join("");
+  et.innerHTML = head + rows;
+  scroll1.appendChild(et); body.appendChild(scroll1);
+
+  if(world.items && world.items.length){
+    const sub = el("div","sub"); sub.appendChild(el("div","sub-h","Items (buyable)"));
+    const scroll2 = el("div","table-scroll");
+    const it = el("table","world");
+    it.innerHTML = "<tr><th>item</th><th>location</th><th>cost</th></tr>" +
+      world.items.map(i=>`<tr><td class="attrval">${esc(i.name)}</td><td class="loc">@ ${esc(i.location||"?")}</td><td>${i.cost!=null?i.cost:""}</td></tr>`).join("");
+    scroll2.appendChild(it); sub.appendChild(scroll2); body.appendChild(sub);
+  }
+  card.appendChild(body); col.appendChild(card);
+}
+
+function renderMain(t, v){
+  const col = $("#mainCol"); col.innerHTML="";
+
+  /* Demonstrations */
+  const dcard = el("div","card");
+  dcard.appendChild(Object.assign(el("h3"),{innerHTML:'Demonstration episodes <span class="hint">step through each trace</span>'}));
+  const dbody = el("div","card-body");
+  const ctrl = el("div"); ctrl.style.marginBottom="10px";
+  const toggleAll = el("button","mini-btn","Reveal all steps");
+  ctrl.appendChild(toggleAll); dbody.appendChild(ctrl);
+
+  const demoEls = v.demos.map((d, di) => renderEpisode({
+    title: "Episode " + (di+1) + ": " + (d.goal||("defeat "+d.entity_name)),
+    rules_text: d.rules_text, steps: d.steps, is_distractor: d.is_distractor
+  }, dbody, false));
+  let allShown=false;
+  toggleAll.onclick = () => { allShown=!allShown;
+    demoEls.forEach(de => allShown?de.revealAll():de.hideAll());
+    toggleAll.textContent = allShown?"Hide all steps":"Reveal all steps"; };
+  dcard.appendChild(dbody); col.appendChild(dcard);
+
+  /* Held-out entity */
+  const gcard = el("div","card");
+  gcard.appendChild(Object.assign(el("h3"),{innerHTML:'Held-out entity <span class="hint">your turn — then reveal the answer</span>'}));
+  const gbody = el("div","card-body");
+
+  const gens = v.gen_entities;
+  if(state.genIdx >= gens.length) state.genIdx = 0;
+  if(gens.length > 1){
+    const nav = el("div","gen-nav");
+    nav.appendChild(el("span",null,"Held-out entity:"));
+    const sel = el("select");
+    gens.forEach((g,i)=>{ const o=el("option",null,g.name); o.value=i; sel.appendChild(o); });
+    sel.value = state.genIdx;
+    sel.onchange = () => { state.genIdx=+sel.value; renderExplorer(); };
+    nav.appendChild(sel); gbody.appendChild(nav);
+  }
+  const g = gens[state.genIdx];
+  const isProc = t.family==="Procedural";
+  gbody.appendChild(Object.assign(el("div","doit"),{innerHTML:
+    "<b>Do it yourself first.</b> Work out the full sequence for this entity from the demos above, "
+    + "then press <b>▶ Step</b> to reveal the answer one action at a time and compare."}));
+  renderEpisode({
+    title: "Solve: " + (g.solution && g.solution.length ? g.solution[g.solution.length-1] : ("defeat "+g.name)),
+    rules_text: g.visible_rules, steps: g.trace, is_distractor:false
+  }, gbody, true);
+  gcard.appendChild(gbody); col.appendChild(gcard);
+}
+
+/* Render one episode card with a step-through trace. Returns {step,revealAll,hideAll}. */
+function renderEpisode(ep, parent, isGen){
+  const wrap = el("div","demo"+(isGen?" gen":""));
+  const head = el("div","demo-head");
+  head.appendChild(el("span","demo-title", ep.title));
+  if(ep.is_distractor) head.appendChild(el("span","badge distractor","distractor"));
+  const attrLine = (ep.rules_text.split("\n").find(l=>l.trim().startsWith("[")) || "").trim();
+  if(attrLine) head.appendChild(el("span","demo-attrs", attrLine));
+  const ctrl = el("div","demo-ctrl");
+  const prog = el("span","progress");
+  const stepBtn = el("button","mini-btn","▶ Step");
+  ctrl.appendChild(prog); ctrl.appendChild(stepBtn);
+  head.appendChild(ctrl); wrap.appendChild(head);
+
+  const trace = el("div","trace");
+  if(!ep.steps || !ep.steps.length){ trace.appendChild(el("div","empty-hint","(no steps)")); }
+  ep.steps.forEach(s => {
+    const ln = el("span","ln hiddenstep");
+    const isWin = /MAIN GOAL ACHIEVED|🎉/.test(s.result);
+    ln.innerHTML = `<span class="cmd">&gt; ${esc(s.cmd)}</span>\n<span class="obs ${isWin?'goal-win':''}">  ${esc(s.result)}</span>`;
+    trace.appendChild(ln);
+  });
+  wrap.appendChild(trace); parent.appendChild(wrap);
+
+  let shown = 0;
+  const lines = trace.querySelectorAll(".ln");
+  const upd = () => { prog.textContent = shown + "/" + lines.length; stepBtn.disabled = shown>=lines.length; };
+  const step = () => { if(shown<lines.length){ lines[shown].classList.add("show"); shown++; upd(); } };
+  const revealAll = () => { lines.forEach(l=>l.classList.add("show")); shown=lines.length; upd(); };
+  const hideAll = () => { lines.forEach(l=>l.classList.remove("show")); shown=0; upd(); };
+  stepBtn.onclick = step; upd();
+  return { step, revealAll, hideAll };
+}
+
+/* ================= LEADERBOARD ================= */
+// Nature (NPG / ggsci) palette — soft, publication-grade hues.
+const PALETTE = ["#E64B35","#4DBBD5","#00A087","#3C5488","#F39B7F","#8491B4","#91D1C2","#DC0000","#7E6148"];
+const HUMAN_COLOR = "#B09C85"; // muted taupe — reads as a neutral baseline
+const MODEL_COLOR = {};
+(() => { let i=0; LB.rows.forEach(r => { MODEL_COLOR[r.model] = r.is_human ? HUMAN_COLOR : PALETTE[i++ % PALETTE.length]; }); })();
+
+let lbState = { metric:"ecsr", sortKey:"avg_ecsr", asc:false, selected:new Set(LB.rows.map(r=>r.model)) };
+
+$("#metricToggle").querySelectorAll("button").forEach(b => b.onclick = () => {
+  lbState.metric = b.dataset.metric;
+  lbState.sortKey = "avg_"+lbState.metric;
+  $("#metricToggle").querySelectorAll("button").forEach(x=>x.classList.toggle("active",x===b));
+  renderLB();
+});
+
+function buildChips(){
+  const row = $("#lbModelChips"); row.innerHTML="";
+  const allChip = el("div","mchip on");
+  allChip.appendChild(Object.assign(el("span","toggle-all"),{textContent:"All / none"}));
+  allChip.onclick = () => {
+    const allOn = lbState.selected.size === LB.rows.length;
+    lbState.selected = allOn ? new Set() : new Set(LB.rows.map(r=>r.model));
+    renderLB();
+  };
+  row.appendChild(allChip);
+  LB.rows.forEach(r => {
+    const chip = el("div","mchip");
+    chip.appendChild(Object.assign(el("span","dot"),{style:`background:${MODEL_COLOR[r.model]}`}));
+    chip.appendChild(el("span",null,r.model));
+    chip.dataset.model = r.model;
+    chip.onclick = () => {
+      if(lbState.selected.has(r.model)) lbState.selected.delete(r.model);
+      else lbState.selected.add(r.model);
+      renderLB();
+    };
+    row.appendChild(chip);
+  });
+}
+function syncChips(){
+  $("#lbModelChips").querySelectorAll(".mchip[data-model]").forEach(c =>
+    c.classList.toggle("on", lbState.selected.has(c.dataset.model)));
+}
+
+function selectedRows(){ return LB.rows.filter(r => lbState.selected.has(r.model)); }
+
+const TIP = () => $("#lbTooltip");
+function showTip(ev, model, taskKey, val){
+  const tip = TIP();
+  const label = TASKS.tasks[taskKey] ? TASKS.tasks[taskKey].label : taskKey;
+  tip.innerHTML = `<div class="tt-model">${esc(model)}</div>`
+    + `<div class="tt-row"><span class="tt-sw" style="background:${MODEL_COLOR[model]}"></span>`
+    + `${esc(taskKey)} · ${lbState.metric.toUpperCase()} = <span class="tt-val">${val.toFixed(2)}</span></div>`;
+  tip.style.display = "block";
+  // place near cursor, flip left if near the right edge
+  const pad = 14, w = tip.offsetWidth, h = tip.offsetHeight;
+  let x = ev.clientX + pad, y = ev.clientY - h - 8;
+  if(x + w > window.innerWidth - 8) x = ev.clientX - w - pad;
+  if(y < 8) y = ev.clientY + pad;
+  tip.style.left = x + "px"; tip.style.top = y + "px";
+}
+function hideTip(){ TIP().style.display = "none"; }
+
+function renderChart(){
+  const svg = $("#lbChart"); while(svg.firstChild) svg.removeChild(svg.firstChild);
+  hideTip();
+  const keys = LB.task_keys, models = selectedRows();
+  const W=860, H=360, mL=42, mR=12, mT=26, mB=46;
+  const plotW=W-mL-mR, plotH=H-mT-mB;
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  const groupW = plotW/keys.length;
+  const nb = Math.max(models.length,1);
+  const barW = (groupW*0.78)/nb;
+
+  // y grid + labels
+  [0,0.25,0.5,0.75,1].forEach(t => {
+    const y = mT + plotH - t*plotH;
+    svg.appendChild(svgEl("line",{class:"grid",x1:mL,y1:y,x2:mL+plotW,y2:y}));
+    svg.appendChild(svgEl("text",{x:mL-6,y:y+3,"text-anchor":"end"}, t.toFixed(2)));
+  });
+  // family separator + headings
+  const sepX = mL + 4*groupW;
+  svg.appendChild(svgEl("line",{class:"famsep",x1:sepX,y1:mT,x2:sepX,y2:mT+plotH}));
+  svg.appendChild(svgEl("text",{class:"famhead",x:mL+2*groupW,y:mT-10,"text-anchor":"middle"},"ATTRIBUTE"));
+  svg.appendChild(svgEl("text",{class:"famhead",x:mL+6*groupW,y:mT-10,"text-anchor":"middle"},"PROCEDURAL"));
+  // bars
+  keys.forEach((k,i) => {
+    const gx = mL + i*groupW + groupW*0.11;
+    models.forEach((r,j) => {
+      const val = r.scores[k][lbState.metric];
+      const bh = val*plotH;
+      const x = gx + j*barW, y = mT + plotH - bh;
+      const rect = svgEl("rect",{class:"bar",x:x,y:y,width:Math.max(barW-1,1),height:bh,
+        fill:MODEL_COLOR[r.model],rx:2});
+      const show = ev => showTip(ev, r.model, k, val);
+      rect.addEventListener("mouseenter", show);
+      rect.addEventListener("mousemove", show);
+      rect.addEventListener("mouseleave", hideTip);
+      svg.appendChild(rect);
+    });
+    svg.appendChild(svgEl("text",{x:mL+i*groupW+groupW/2,y:mT+plotH+15,"text-anchor":"middle",
+      class:(k[0]==="A"?"":"")},k));
+  });
+  // axis label
+  svg.appendChild(svgEl("text",{class:"axis-label",x:14,y:mT+plotH/2,"text-anchor":"middle",
+    transform:`rotate(-90 14 ${mT+plotH/2})`}, lbState.metric.toUpperCase()));
+  if(!models.length)
+    svg.appendChild(svgEl("text",{x:mL+plotW/2,y:mT+plotH/2,"text-anchor":"middle"},"Select at least one model"));
+}
+
+function heatColor(v){ // fee2e2 (low) -> dcfce7 (high)
+  const r=Math.round(254+(220-254)*v), g=Math.round(226+(252-226)*v), b=Math.round(226+(231-226)*v);
+  return `rgb(${r},${g},${b})`;
+}
+function renderTable(){
+  const m=lbState.metric, keys=LB.task_keys, tbl=$("#lbTable"); tbl.innerHTML="";
+  const nAttr=keys.filter(k=>k[0]==="A").length, nProc=keys.length-nAttr;
+  const thead=el("thead");
+  const gr=el("tr");
+  gr.appendChild(el("th","group",""));
+  const ah=el("th","group attr-h","Attribute"); ah.colSpan=nAttr; gr.appendChild(ah);
+  const ph=el("th","group proc-h","Procedural"); ph.colSpan=nProc; gr.appendChild(ph);
+  gr.appendChild(el("th","group","Avg"));
+  thead.appendChild(gr);
+  const hr=el("tr");
+  const mkTh=(key,label,cls)=>{ const th=el("th",cls,label); th.dataset.key=key;
+    if(lbState.sortKey===key){ th.classList.add("sorted"); if(lbState.asc)th.classList.add("asc"); }
+    th.onclick=()=>{ if(lbState.sortKey===key)lbState.asc=!lbState.asc; else {lbState.sortKey=key;lbState.asc=false;} renderLB(); };
+    return th; };
+  hr.appendChild(mkTh("model","Model","model"));
+  keys.forEach(k => hr.appendChild(mkTh(k,k,k[0]==="A"?"attr-h":"proc-h")));
+  hr.appendChild(mkTh("avg_"+m,"avg",""));
+  thead.appendChild(hr); tbl.appendChild(thead);
+
+  const rows = selectedRows().slice().sort((a,b)=>{
+    const sk=lbState.sortKey;
+    const va = sk==="model"?a.model : (sk.startsWith("avg")?a["avg_"+m]:a.scores[sk][m]);
+    const vb = sk==="model"?b.model : (sk.startsWith("avg")?b["avg_"+m]:b.scores[sk][m]);
+    if(typeof va==="string") return lbState.asc?va.localeCompare(vb):vb.localeCompare(va);
+    return lbState.asc?va-vb:vb-va;
+  });
+  const tbody=el("tbody");
+  rows.forEach(r => {
+    const tr=el("tr", r.is_human?"human":"");
+    const mc=el("td","model");
+    mc.appendChild(Object.assign(el("span","dot"),{style:`background:${MODEL_COLOR[r.model]}`}));
+    mc.appendChild(document.createTextNode(r.model));
+    tr.appendChild(mc);
+    keys.forEach(k => tr.appendChild(numCell(r.scores[k][m])));
+    const at=numCell(m==="rv"?r.avg_rv:r.avg_ecsr); at.firstChild.style.fontWeight="700"; tr.appendChild(at);
+    tbody.appendChild(tr);
+  });
+  tbl.appendChild(tbody);
+}
+function numCell(v){ const td=el("td","num"); const s=el("span","heat",v.toFixed(2));
+  s.style.background=heatColor(v); td.appendChild(s); return td; }
+
+function renderLB(){ syncChips(); renderChart(); renderTable(); }
+
+/* ---------- init ---------- */
+buildPicker();
+renderExplorer();
+buildChips();
+renderLB();
+</script>
+</body>
+</html>
