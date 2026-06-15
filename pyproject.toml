@@ -11,7 +11,7 @@ requires-python = ">=3.10"
 license = "MIT"
 license-files = ["LICENSE"]
 authors = [
-    { name = "Asher Zheng", email = "asher.zheng@utexas.edu" },
+    { name = "Anshun Asher Zheng", email = "asher.zheng@utexas.edu" },
 ]
 keywords = [
     "benchmark", "rule-induction", "inductive-reasoning", "llm",
@@ -35,6 +35,8 @@ dependencies = [
 [project.urls]
 Homepage = "https://github.com/asherz720/HerosJourney"
 Repository = "https://github.com/asherz720/HerosJourney"
+Documentation = "https://github.com/asherz720/HerosJourney/blob/main/docs/ARCHITECTURE.md"
+Paper = "https://arxiv.org/abs/2606.02556"
 Issues = "https://github.com/asherz720/HerosJourney/issues"
 
 [project.optional-dependencies]

@@ -1,7 +1,20 @@
 # Hero's Journey
 
-A benchmark for testing whether language models can **induce hidden rules from
-demonstrations** and act on them in a goal-directed, text-based adventure game.
+> A benchmark for testing whether language models can **induce hidden rules from
+> demonstrations** and act on them in a goal-directed, text-based adventure game.
+
+[![Code License](https://img.shields.io/badge/Code%20License-MIT-green.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
+[![PyPI](https://img.shields.io/pypi/v/herosjourney.svg)](https://pypi.org/project/herosjourney/)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/herosjourney.svg)](https://pypi.org/project/herosjourney/)
+[![arXiv](https://img.shields.io/badge/arXiv-2606.02556-b31b1b.svg)](https://arxiv.org/abs/2606.02556)
+
+🔗 [**Code**](https://github.com/asherz720/HerosJourney) &nbsp;|&nbsp;
+📄 [**Paper**](https://arxiv.org/abs/2606.02556) &nbsp;|&nbsp;
+📦 [**PyPI**](https://pypi.org/project/herosjourney/) &nbsp;|&nbsp;
+📐 [**Architecture**](https://github.com/asherz720/HerosJourney/blob/main/docs/ARCHITECTURE.md)
+
+## 🔔 Overview
 
 An agent plays an RPG-style game. It sees a set of rules for the current task,
 but some rules are deliberately **hidden**. It must infer the missing
@@ -12,9 +25,7 @@ plan, not just state the answer.
 See the paper for the full design and experiments. This package is the reusable
 framework; our paper experiments live separately.
 
-Source: <https://github.com/asherz720/HerosJourney>
-
-## Install
+## 🛠️ Install
 
 ```bash
 pip install herosjourney                 # core: task generation + env + eval
@@ -25,7 +36,7 @@ pip install "herosjourney[analysis]"     # + pandas/numpy/matplotlib for metrics
 
 Python 3.10+.
 
-## The four concepts
+## 🧩 The four concepts
 
 | Concept   | What it is                                            | Where it lives |
 |-----------|-------------------------------------------------------|----------------|
@@ -34,7 +45,7 @@ Python 3.10+.
 | **Agent** | Your model, wrapped as a `model_fn(prompt) -> text`   | any callable you pass to `run_single_episode` |
 | **Method**| An induction strategy layered on the agent (ReAct/HR/IDEA/ACE) | `episode_mode=` + `herosjourney/runner/strategies.py` |
 
-## Quick start
+## 🚀 Quick start
 
 ```python
 import json
@@ -105,7 +116,7 @@ adventure-story --task_type additive \
     --model my-model-name --num_tries 2 --num_workers 4
 ```
 
-## Adding your own task (no Python required)
+## ➕ Adding your own task (no Python required)
 
 Write a **rule file** (`my_rule.json`, see
 `herosjourney/core/rules/RULE_FORMAT.md`) and a **task spec**:
@@ -132,7 +143,7 @@ For custom validators or per-episode process variation, `register_task(...)`
 also accepts keyword arguments. See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 for the full architecture.
 
-## Applying an induction method
+## 🧠 Applying an induction method
 
 ```python
 # episode_mode selects a steering strategy applied on top of your agent
@@ -140,7 +151,7 @@ result = run_single_episode(..., model_fn=my_model_fn, episode_mode="idea")
 # "standard" (default), "react", "hr", "idea"
 ```
 
-## Evaluation
+## 📊 Evaluation
 
 - **ECSR** (efficiency-calibrated success rate) — `herosjourney.compute_ecsr`:
   `success_rate × normalized_efficiency`, where efficiency = `reference_length / num_runs`
@@ -148,6 +159,22 @@ result = run_single_episode(..., model_fn=my_model_fn, episode_mode="idea")
 - **RV** (rule verbalization) — an LLM judge scores a model's free-text rule
   description; prompts are in `herosjourney.eval.judge`.
 
-## License
+## 📖 Citation
 
-MIT — see [LICENSE](LICENSE).
+If you use Hero's Journey in your research, please cite:
+
+```bibtex
+@misc{zheng2026herosjourneytestingcomplex,
+      title={HERO'S JOURNEY: Testing Complex Rule Induction with Text Games},
+      author={Anshun Asher Zheng and Kanishka Misra and David I. Beaver and Junyi Jessy Li},
+      year={2026},
+      eprint={2606.02556},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2606.02556},
+}
+```
+
+## 📄 License
+
+This project is released under the [MIT License](https://github.com/asherz720/HerosJourney/blob/main/LICENSE).
